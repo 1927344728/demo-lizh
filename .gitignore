@@ -1,0 +1,16 @@
+# general
+*~
+*.log
+tmp
+dump
+**/.DS_Store
+.svn/
+.idea/
+.vscode/
+.metadata/
+.project
+Thumbs.db
+*.iml
+
+#node
+**/node_modules/

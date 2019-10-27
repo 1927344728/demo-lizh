@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>缩小窗口</title>
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/pop-miniable.css" />
+	</head>
+
+	<body>
+		<div class="" id="debug-info">
+
+		</div>
+		<div class="">
+			<a href="javascript:;" class="pop-miniable-btn ok fl" onclick="shareTest()">分享测试</a>
+		</div>
+		<script type="text/javascript">
+			window.goTozengxianData = {
+				picsrc: "img/1.png?这里是上部大图资源地址",
+				linkhref: "//www.baidu.com?这里是上部大图跳转地址",
+				title: "微易保险师（标题）",
+				desc: "（内容）微易保险师 微易保险师是一款涵盖展业、增员、客户新增等功能的保险行业应用,致力于为全国300余万保险人提供全方位的贴心服务微易保险师 微易保险师"
+			};
+		</script>
+		<script type="text/javascript">
+			shareTest = function() {
+				var shareInfo = {
+					title: "鑫福年年—国寿开门红旗舰产品",
+					desc: "国寿杨海涛为您设计的专属保险计划书，请查阅！保险——让生活更美好！",
+					link: "http://app.winbaoxian.com/planBook/planBookResult?id=aef0861810634eeea8618634f90abbe2022&nw=1",
+					imgUrl: "http://media.winbaoxian.com/static/images/planBook/companylogo/xinfuniannian.jpg"
+				};
+
+				function getShareInfo() {
+					return $.extend({}, shareInfo);
+				}
+				appBridge.notifyShareInfo({
+					async: true,
+					infoFn: getShareInfo
+				});
+			};
+		</script>
+		<script src="js-common-lib/jquery2.1.1-rc2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://app.winbaoxian.com/static/js/common/app-bridge-addon.js?v=2016012114301119" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/pop-miniable.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/zengxian-fixed.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/zengxian-fixed.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				shareTest();
+			});
+		</script>
+	</body>
+
+</html>

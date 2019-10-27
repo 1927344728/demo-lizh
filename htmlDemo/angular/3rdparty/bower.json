@@ -1,0 +1,82 @@
+{
+  "name": "3rdparty",
+  "version": "0.0.0",
+  "authors": [
+    "hytor <cheers_yang@163.com>"
+  ],
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^1.11",
+    "mobilebone": "~2.6.0",
+    "handlebars": "~3.0.3",
+    "fastclick": "~1.0.6",
+    "js-cookie": "~2.0.3",
+    "swiper": "~3.1.0",
+    "animate.css": "~3.3.0",
+    "zepto": "~1.1.6",
+    "cropper": "=0.10.0",
+    "canvasResize": "git@github.com:gokercebeci/canvasResize.git#~1.2.0",
+    "mobiscroll": "~2.16.1"
+  },
+  "overrides": {
+    "normalizeMulti": [
+      {
+        "dependencies": [
+          "jquery"
+        ],
+        "normalize": {
+          "js": [
+            "*.js",
+            "*.map"
+          ]
+        }
+      }
+    ],
+    "animate.css": {
+      "main": "*.css"
+    },
+    "handlebars": {
+      "main": "*.js"
+    },
+    "jquery": {
+      "main": "dist/*"
+    },
+    "mobilebone": {
+      "main": "src/*"
+    },
+    "swiper": {
+      "main": "dist/**/*",
+      "normalize": {
+        "js": [
+          "*.js"
+        ],
+        "js/maps": [
+          "*.map"
+        ]
+      }
+    },
+    "zepto": {
+      "main": "*.js"
+    },
+    "cropper": {
+      "main": "dist/*"
+    },
+    "canvasResize": {
+      "main": [
+        "jquery.canvasResize.js",
+        "jquery.exif.js"
+      ]
+    }
+  }
+}

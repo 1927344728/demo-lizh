@@ -1,0 +1,31 @@
+<h5>分享参数：</h5>
+<form action="">
+  <div class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-text-size"></span></span>
+    <input type="text" name="title" class="form-control" data-validate="required" placeholder="请输入标题">
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-list-alt"></span></span>
+    <input type="text" name="content" class="form-control" data-validate="required" placeholder="请输入描述">
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
+    <input type="text" name="imgUrl" class="form-control" data-validate="link" placeholder="请输入图标地址">
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-link"></span></span>
+    <input type="text" name="shareUrl" class="form-control" data-validate="link" placeholder="请输入分享链接">
+  </div>
+  <div class="btn-group share-channel-picker">
+    <button type="button" class="btn btn-default btn-group-addon" disabled="true"><span class="glyphicon glyphicon-new-window"></span></button>
+    <button type="button" class="btn btn-default btn-success" data-channel="qq_friends">QQ</button>
+    <button type="button" class="btn btn-default btn-success" data-channel="wechat_timeline">朋友圈</button>
+    <button type="button" class="btn btn-default btn-success" data-channel="wechat_friends">微信</button>
+  </div>
+</form>
+<button class="btn btn-primary auto-fill">为我填充</button>
+<h5>分享输入的信息：</h5>
+<button class="btn btn-primary h5-share">点击分享</button>
+<button class="btn btn-primary insta-share">右上角分享</button>
+<h5>分享动态信息：</h5>
+<button class="btn btn-primary async-share">右上角分享</button>

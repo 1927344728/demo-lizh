@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type">
+	<meta content="text/html; charset=utf-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.5, user-scalable=no">
+	<meta http-equiv="Page-Enter" content="revealTrans(duration=10, transition=9)">
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<!--<script type="text/javascript" src="js/zepto.min.js"></script>-->
+	<title>Class类</title>
+
+</head>
+<body>
+    <!-- 代码演示 class类简介 -->
+    <img src="./images/5a9dbee8f5181d4067f175077faeb2e8ccc0272c51cb8-k34V42_fw658.jpg">
+    <script>
+        window.addEventListener('load', () => {
+            if (!('serviceWorker' in navigator)) {
+                // Service Worker isn't supported on this browser, disable or hide UI.
+                return;
+            }
+
+            if (!('PushManager' in window)) {
+                // Push isn't supported on this browser, disable or hide UI.
+                return;
+            }
+
+            let promiseChain = new Promise((resolve, reject) => {
+                const permissionPromise = Notification.requestPermission(result => {
+                    resolve(result);
+                });
+
+                if (permissionPromise) {
+                    permissionPromise.then(resolve);
+                }
+            })
+            .then(result => {
+                if (result === 'granted') {
+                    execute();
+                }
+                else {
+                    console.log('no permission');
+                }
+            });
+        });
+
+        function registerServiceWorker() {
+            return navigator.serviceWorker.register('service-worker.js')
+            .then(registration => {
+                console.log('Service worker successfully registered.');
+                return registration;
+            })
+            .catch(err => {
+                console.error('Unable to register service worker.', err);
+            });
+        }
+
+        function execute() {
+            registerServiceWorker().then(registration => {
+                registration.showNotification('hello, lizh.', {
+                    body: 'whatever happens tomorrow, we have today!',
+                    icon: 'http://d.lanrentuku.com/down/png/1807/10yuanshuiguo-png/if_grapes_2003194.png',
+                    badge: '//image.flaticon.com/icons/svg/167/167756.svg',
+                    image: 'images/5a9dbee8f5181d4067f175077faeb2e8ccc0272c51cb8-k34V42_fw658.jpg',
+                    vibrate: [500, 110, 500, 110, 450, 110, 200, 110, 170, 40, 450, 110, 200, 110, 170, 40, 500]
+                });
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        class Foo {
+          coustructor () {
+            this.x = 100
+          }
+          static staticFn1() {
+            
+            console.log('x:
+                ', this.x)
+          }
+          static fn2 () {
+            return 'hello';
+          }
+          fn2 () {
+            return 'world';
+          }
+        }
+        Foo.staticFn1()
+    </script>
+</body>
+</html>

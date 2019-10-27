@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<link rel="stylesheet" href="css/angular.css">
+	<link rel="stylesheet" href="3rdparty/dist/mobilebone/css/mobilebone.css">
+	<link rel="stylesheet" href="css/common-tuan-input.css">
+	<link rel="stylesheet" type="text/css" href="common/pop.layer/css/pop.layer.css" />
+	<link rel="stylesheet" type="text/css" href="css/ideas.css" />
+	<script src="js/angular.js"></script>
+
+	<title>都邦团体意外险</title>
+</head>
+<body>
+	<section class="mainSection page in">
+		<div class="commonDiv" ng-app="tuanInputHead" ng-controller="tuanInputHeadCtrl" >
+		    <a href="{{headInfo.alinkUrl}}"><img src="images/019a9f8c21753962443f896b71f92ed01e1d299b6bde4-UHTdUn_fw658.jpg" alt=""></a>
+		    <ul class="normalWidth headInfoUl">
+		        <li class="bottomBor">
+			        <span class="headInfoSpan">都邦浙江团体意外保险费率<br>1-6类工伤 10级DIY款</span>
+			        <span class="headInfoSpan color_999">承保年龄：{{headInfo.ageArr[0]}}-{{headInfo.ageArr[1]}}周岁</span>
+			        <img class="headInfoLogo" src="images/dubang-logo.png" alt="">
+			    </li>
+		        <li>
+		        	<label>职业类别</label>
+		        	<select id="zhiye" class="rightSel" ng-model="headInfo.zhiye">
+						<!-- <option ng-repeat="opt in headInfo.zhiyeArr track by opt[0]" ng-value="{{opt[0]}}" ng-selected="{{headInfo.zhiye == opt[0]}}">{{opt[1]}}</option> -->
+						<option ng-repeat="opt in headInfo.zhiyeArr track by $index" ng-value="{{$index}}" ng-selected="{{headInfo.zhiye == $index}}">{{opt}}</option>
+
+
+						<!-- <option ng-value="{{headInfo.zhiyeArr[0][0]}}" ng-selected="{{headInfo.zhiye == headInfo.zhiyeArr[0][0]}}">{{headInfo.zhiyeArr[0][1]}}</option>
+						<option ng-value="{{headInfo.zhiyeArr[1][0]}}" ng-selected="{{headInfo.zhiye == headInfo.zhiyeArr[1][0]}}">{{headInfo.zhiyeArr[1][1]}}</option>
+						<option ng-value="{{headInfo.zhiyeArr[2][0]}}" ng-selected="{{headInfo.zhiye == headInfo.zhiyeArr[2][0]}}">{{headInfo.zhiyeArr[2][1]}}</option> -->
+		        	</select>
+		        </li>
+		        <li>
+		        	<label>保障期限</label>
+		        	<select id="year" class="rightSel" ng-model="headInfo.year" ng-options="opt[0] as opt[1] for opt in headInfo.yearArr"></select>
+		        </li>
+
+			    <li>
+			    	<label>投保人数</label>
+			    	<input id="personNum" class="rightInput" ng-model="headInfo.personNum" type="tel" placeholder="请输入人数" maxlength="5">
+			    </li>
+			    <li>
+			    	年限：{{headInfo.year}}<br>
+			    	职业：{{headInfo.zhiye}}
+			    </li>
+		    </ul>
+		</div>
+
+
+<!-- 		<div class="commonDiv">
+		    <header class="listHead">
+		    	<span class="listHeadSpan"><b>保障方案</b></span>
+		    	<div class="listHeadImg">
+		    		<img src="images/0ca3d0fa9551f514abb5b42b7258ca3951bbfa0c2f754-Z2RYgc_fw658.jpg" alt="">
+		    	</div>
+		    	<span class="addPopBtn baozhang-btn"><em class="addBtn-icon"></em><em class="addBtn-tx">添加保障</em></span>
+		    </header>
+		</div> -->
+
+
+<!-- 		<div class="commonDiv">
+		    <header class="commonTitle">收件人信息</header>
+		    <ul class="commonListUl">
+		        <li>
+		            <label class="commonLabel">姓名</label>
+		            <input name="cname" placeholder="输入姓名可生成封面" type="text" autocomplete="off" data-fmt="free" autocomplete="off">
+		        </li>
+		        <li>
+		            <label class="commonLabel">性别</label>
+		            <input type="radio" name="csex" value="1" checked />
+		            <label>男</label>
+		            <input class="mrgLeft_10" type="radio" name="csex" value="2" />
+		            <label>女</label>
+		        </li>
+		    </ul>
+		    <input name="cid" type="hidden">
+		</div>
+		<footer class="footerBtn">
+			<span><b>保费总额：</b><em class="colorBlue">11923.23元</em></span>
+			<a class="turnViewBtn" href="dubang-exhibition.html" data-ajax="true" data-reload="true">查看保单计划</a>
+		</footer>-->
+	</section>
+
+
+
+
+	<script src="3rdparty/dist/jquery/js/jquery.min.js"></script>
+	<script src="common/pop.layer/js/pop.layer.js"></script>
+	<script>
+		var tuanOrigData  = {
+			headInfo: {
+				alinkUrl: "###",
+				imgUrl: "images/019a9f8c21753962443f896b71f92ed01e1d299b6bde4-UHTdUn_fw658.jpg",
+				ageArr: [16,65],
+				yearArr: [
+					[1,"1月"],
+					[3,"3月"],
+					[6,"6月"],
+					[12,"12月"]
+				],
+				// zhiyeArr: [
+				// 	[1, "1-2类职业"],
+				// 	[2, "3-4类职业"],
+				// 	[3, "5-6类职业"]
+				// ]
+				zhiyeArr: [ "1-2类职业", "3-4类职业", "5-6类职业" ]
+
+				//下为head部分默认值设定
+				,
+				year: 6,  //不起做用，js中设置为yearArr的最后一个值
+				zhiye: 1,
+				personNum: 10
+			},
+			schemeInfo:{
+				planArr: [
+					[1, "标准版(￥305/人)"],
+					[2, "至尊版(￥511/人)"],
+					[3, "豪华版(￥921/人)"]
+				],
+				tShanghaiArr: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+				tYiliaoArr:   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+				tZhuyuanArr:  [50, 100, 150, 200],
+				airplaneArr:  [0, 10, 20, 30, 40, 50],
+				trainArr: 	  [0, 10, 20, 30, 40, 50],
+				carArr: 	  [0, 10],
+				steamshipArr: [0, 10, 20, 30, 40, 50]
+			},
+			scheme_0:{
+				plan: 1,
+				baoeShanghai: 30,
+				baoeYiliao: 2,
+				baoeZhuyuan: 100,
+				baoePlane: 50,
+				baoeTrain: 50,
+				baoeCar: 10,
+				baoeShip: 50
+			},
+			CNEEInfo: {
+				csex: 1
+			},
+			schemeNum: 3, //第一个元为方案充许的个数，后面参数为顺号
+			ratioArr: [0.2, 0.4, 0.7, 1], //系数，生活经
+			rateArr: [
+				[48, 30, 20, 3, 4, 6, 4],
+				[78, 50, 40, 3, 4, 6, 4],
+				[208, 60, 90, 3, 4, 6, 4]
+			], //费率，每个子元素数组，
+			lotArr: [10, 1, 50, 10, 10, 10, 10],
+			defScheme: [
+				[30, 2, 100, 50, 50, 10, 50],
+				[50, 5, 150, 50, 50, 10, 50],
+				[100, 10, 200, 50, 50, 10, 50]
+			]
+		};
+
+		var tuanInputHead = angular.module("tuanInputHead", []);
+		tuanInputHead.controller("tuanInputHeadCtrl", function($scope) {
+		    // setTimeout(function(){
+		    	$scope.headInfo = tuanOrigData.headInfo;
+		    // },1100);
+		});
+
+
+		/***************************单页跳转*************************/
+		// var Mobilebone = window.Mobilebone;
+		// Mobilebone.captureLink = false;
+		// Mobilebone.captureForm = false;
+		// Mobilebone.evalScript = true;
+
+
+	</script>
+</body>
+</html>

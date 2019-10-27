@@ -1,0 +1,74 @@
+<div class="popup-layer">
+    <form class="popup-form-layer handler-host" data-hdl="dubangTuanxianSchemePopup">
+        <header class="popup-layer-title">保障方案</header>
+        <ul class="popup-layer-ul">
+            <li>
+                <label>选择方案</label>
+                <select id="plan" class="rightSel" name="plan">
+                    {{#each planArr}}
+                        <option value="{{this.[0]}}" {{#equals this.[0] ../plan}}selected{{/equals}}>{{this.[1]}}</option>
+                    {{/each}}
+                </select>
+            </li>
+            <li>
+                <label>团体意外伤害（0701）</label>
+                <select id="baoeShanghai" class="rightSel" name="baoeShanghai">
+                    {{#each tShanghaiArr}}
+                        <option value="{{this}}" {{#equals this ../baoeShanghai}}selected{{/equals}}>{{this}}万</option>
+                    {{/each}}
+                </select>
+            </li>
+            <li>
+                <label>团体意外伤害医疗（0601）</label>
+                <select id="baoeYiliao" class="rightSel" name="baoeYiliao">
+                    {{#each tYiliaoArr}}
+                        <option value="{{this}}" {{#equals this ../baoeYiliao}}selected{{/equals}}>{{this}}万</option>
+                    {{/each}}
+                </select>
+            </li>
+            <li>
+                <label>意外住院津贴</label>
+                <select id="baoeZhuyuan" class="rightSel" name="baoeZhuyuan">
+                    {{#each tZhuyuanArr}}
+                        <option value="{{this}}" {{#equals this ../baoeZhuyuan}}selected{{/equals}}>{{this}}万</option>
+                    {{/each}}
+                </select>
+            </li>
+            <li>
+                <label>飞机</label>
+                <select id="baoePlane" class="rightSel" name="baoePlane">
+                    {{#each airplaneArr}}
+                        <option value="{{this}}" {{#equals this ../baoePlane}}selected{{/equals}}>{{this}}万</option>
+                    {{/each}}
+                </select>
+            </li>
+            <li>
+                <label>火车</label>
+                <select id="baoeTrain" class="rightSel" name="baoeTrain">
+                    {{#each trainArr}}
+                        <option value="{{this}}" {{#equals this ../baoeTrain}}selected{{/equals}}>{{this}}万</option>
+                    {{/each}}
+                </select>
+            </li>
+            <li>
+                <label>汽车</label>
+                <select id="baoeCar" class="rightSel" name="baoeCar">
+                    {{#each carArr}}
+                        <option value="{{this}}" {{#equals this ../baoeCar}}selected{{/equals}}>{{this}}万</option>
+                    {{/each}}
+                </select>
+            </li>
+            <li>
+                <label>轮船</label>
+                <select id="baoeShip" class="rightSel" name="baoeShip">
+                    {{#each steamshipArr}}
+                        <option value="{{this}}" {{#equals this ../baoeShip}}selected{{/equals}}>{{this}}万</option>
+                    {{/each}}
+                </select>
+            </li>
+        </ul>
+        <footer class="popup-layer-btn">
+            <span class="popup-layer-cancel-btn">取消</span><span class="popup-layer-ok-btn">确定</span>
+        </footer>
+    </form>
+</div>

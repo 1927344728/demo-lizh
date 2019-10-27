@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type">
+	<meta content="text/html; charset=utf-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.5, user-scalable=no">
+	<link rel="stylesheet" href="css/themes/pace-theme-barber-shop.css">
+	<!--<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>-->
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript" src="js/pace.js"></script>
+	<title>input的使用</title>
+<style>
+	label { margin-right: 10px; }
+	input[type='checkbox'] {
+		display: inline-block;
+		position: relative;
+		top: 5px;
+		margin-right: 8px;
+		width: 15px; height:15px;
+		-webkit-appearance:none;
+		border: 1px solid #f00;
+		background: #fff;
+	}
+	input[type='checkbox']:checked {
+		border: 1px solid #0f0;
+		background: #0f0;
+	}
+	input::-webkit-input-placeholder {
+		color: #fa0;
+	}
+	button {
+		-webkit-appearance:none;
+		border: 1px solid #f00;
+		background: #fff;
+	}
+	select {
+		-webkit-appearance: none;
+		border: none;
+	}
+
+
+</style>
+</head>
+
+<!-- <iframe id="frame1" src="layer.html" allowtransparency="true" style="position: absolute; top: 300px; left: 100px; width: 500px; height: 500px; z-index: 100;"></iframe>  -->
+<!-- <frameset cols="20%,*,25%" frameborder="0" border="40px"   framespacing="40" >
+	<frame name="A" marginwidth="0" src="layer.html"  marginheight="0" >
+	<frame src="clip.html">
+	<frame src="clip.html">
+	<noframes> -->
+		<body>
+		<form action="">
+			<p><label for="1">输入1</label><input class="input-click" name="1" type="tel" placeholder="请输入文字"></p>
+
+			<p>
+				<input class=""  id="checkbox-1" name="2" type="checkbox" value="50"><label for="checkbox-1">输入1</label>
+				<input class=""  id="checkbox-2" name="2" type="checkbox" value="60"><label for="checkbox-2">输入2</label>
+				<input class=""  id="checkbox-3" name="2" type="checkbox" checked value="80"><label for="checkbox-3">输入3</label>
+				<input class=""  id="checkbox-5" name="radio" type="radio" value="80"><label for="checkbox-5">输入3</label>
+				<input class=""  id="checkbox-4" name="radio" type="radio" checked value="80"><label for="checkbox-4">输入4</label>
+			</p>
+
+			<p><label for="3">输入3</label><input class="place" name="3" type="text" placeholder="文字颜色改变"></p>
+			<p><label for="3">输入4</label><input name="4" type="text"></p>
+			<p><label for="5">输入5</label><input name="5" type="text"></p>
+
+			<button class="button">按钮</button>
+			<select class="" autofocus>
+				<option value="-1" selected>选择框</option>
+				<option value=1>11111</option>
+				<option value=2>22222</option>
+				<option value=3>33333</option>
+				<option value=4>44444</option>
+				<option value=5>55555</option>
+				<option value=6>66666</option>
+			</select>
+			<a href="http://192.168.4.247:8090/gulp/handlebars.html">跳转</a>
+		</form>
+		<script>
+
+			// $("select").focus();
+
+
+
+			//部分手机浏览器不支持
+			$(".input-click").on("keydown", {"name":"lizh", "num": "03"}, function(d){
+				if ((d.keyCode<48 || d.keyCode>57)) d.returnValue=false
+
+			});
+
+			console.log(document);
+
+			function setSB(v, el) {
+				var ie5 = (document.all && document.getElementsByTagName);
+				if (ie5 || document.readyState == "complete") {
+					filterEl = el.children[0];
+					valueEl = el.children[1];
+					filterEl.style.width = v + "%";
+					valueEl.innerText = v + "%";
+				}
+			}
+			function fakeProgress(v, el) {
+				if (v > 100)
+				  location.href = "http://free.alixixi.com";
+				else     {
+				  setSB(v, el);
+				  window.setTimeout("fakeProgress(" + (++v) + ", document.all['" + el.id + "'])", 20);
+				}
+			}
+
+			// try {
+			//   adlert("正常运行");
+			// }catch(err){
+			// 	console.log(err.name);
+			// 	txt="此页面存在一个错误。\n\n"
+			// 	txt+="错误描述: " + err.message + "\n\n"
+			// 	txt+="点击OK继续。\n\n"
+			// 	alert(txt)
+			// } finally {
+			// 	console.log("finally");
+			// }
+			//
+		</script>
+
+		</body>
+	<!-- </noframes> -->
+</frameset>
+
+</html>
+

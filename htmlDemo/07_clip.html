@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type">
+	<meta content="text/html; charset=utf-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.5, user-scalable=no">
+	<meta http-equiv="Page-Enter" content="revealTrans(duration=10, transition=9)">
+	<link rel="stylesheet" href="css/myless.css">
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<!--<script type="text/javascript" src="js/zepto.min.js"></script>-->
+	<title>clip的使用</title>
+
+</head>
+<body>
+
+<div class="photowrap">
+	<div class="photoarea">
+		<input type="file" name="myphoto">
+		<img class="myphoto" src="">
+	</div>
+</div>
+
+
+<div class="choose">
+	<div class="choosewrap"><img id="chooseimg" class="chooseimg" src="images/54da504b512637ccf78983933594774d50d5c53e25963-QnIf8r_fw658.jpg" ></div>
+	<span class="choosearea"></span>
+</div>
+
+
+<script>
+	// $("body").scrollTop(200);
+	
+	var chooseDiv   = $("div.choose");     //裁切图片的div
+	var chooseImg   = $(".chooseimg");     //要裁切图片
+	var chooseArea  = $(".choosearea");    //裁切图片的框
+	var startX, startY, moveX, moveY;
+	var areaW  = chooseArea.width() + 2;
+	var areaH  = chooseArea.height() + 2;
+	var areaLeft   = ( $(this).width() - areaW )/2;
+	var areaTop    = ( $(this).height() - areaH )/2;
+	var areaRight  = areaLeft + areaW;
+	var areaBottom = areaTop + areaH;
+	var flag = 1;
+
+	$("input[name='myphoto']").on("change", addPic);
+
+	function addPic(e){
+		var file=this.files[0];
+		$(".choose").show();
+		$(".photowrap").hide();
+		chooseImg.attr("src", "images/" + file.name).css({
+			"width" : "100%",
+		   "height" : "auto",
+			"left"  : "0",
+			"right" : "0",
+			"top"   : "0",
+		   "bottom" : "0"
+		});
+		if(chooseImg.height() < areaH) { chooseImg.css({
+			"width"  : "auto",
+			"height" : areaH + "px"
+		}); }
+	}
+	
+	chooseImg.on({
+		touchstart: imgStart,
+		     click: imgStart_pc,
+		 touchmove: function(e){
+		 	moveX  =  e.originalEvent.targetTouches[0].clientX;
+		 	moveY  =  e.originalEvent.targetTouches[0].clientY;
+		 	imgMove($(this));
+		 	e.preventDefault();
+
+		 },
+		  dblclick: imgDblclick,
+		mousewheel: imgSizeChange
+	})
+	document.getElementById("chooseimg").addEventListener('DOMMouseScroll', imgSizeChange , false);
+	function imgStart(e){
+		startX= e.originalEvent.targetTouches[0].clientX*1;
+		startY= e.originalEvent.targetTouches[0].clientY*1;
+	}
+
+	function imgStart_pc(e){
+		startX= e.pageX*1;
+		startY= e.pageY*1;
+		if(flag%2){
+			chooseImg.on("mousemove", function(e){
+				moveX  =  e.pageX;
+				moveY  =  e.pageY;
+				imgMove($(this));
+				e.preventDefault();
+			});
+		}else{
+			chooseImg.off("mousemove");
+		}
+		flag++;
+
+	}
+
+	function imgMove(obj){
+		var disX      = moveX-startX;
+		var disY      = moveY-startY;
+		var imgLeft   = obj.position().left + disX;
+		var imgTop    = obj.position().top + disY;
+		if(obj.css("right")=="0px"){
+			imgLeft   = ( $(window).width()-obj.width() )/2 + disX;
+		}
+		if(obj.css("bottom")=="0px"){
+			imgTop   = ( $(window).height()-obj.height() )/2 + disY;
+		}
+		if( imgLeft <= areaLeft && imgLeft >= ( $(window).width() + areaW - 2*obj.width())/2 ){
+			obj.css({
+				"left"  : imgLeft + "px",
+				"right" : "auto"
+			});
+		}
+		if( imgTop  <= areaTop  && imgTop >=  ( $(window).height() + areaH - 2*obj.height())/2 ){
+			obj.css({
+				"top"    : imgTop + "px",
+				"bottom" : "auto"
+			});
+		}
+		// var x  =  e.targetTouches[0].clientX;
+		// var x = e.originalEvent.targetTouches[0].clientX;
+		
+		startX = moveX;
+		startY = moveY;
+	}
+
+
+
+	function imgSizeChange(e){
+		e= e || window.event;
+		if(e.detail){
+			var wheel = e.detail*-1/3/10;
+		}else if(event.wheelDelta){
+			var wheel = event.wheelDelta/120/10;
+		};
+
+		var imgRightEdge   = $(this).width()*(1+wheel) + $(this).position().left; 
+		var imgBottomEdge = $(this).height()*(1+wheel) + $(this).position().top; 
+		if($(this).css("right")=="0px"){
+			imgRightEdge   = $(this).width()*(1+wheel) + ( $(window).width()-$(this).width() )/2;
+		}
+
+		if($(this).css("right")=="0px"){
+			imgBottomEdge   = $(this).height()*(1+wheel) + ( $(window).height()-$(this).height() )/2;
+		}
+
+
+		if( $(this).position().left <= areaLeft && imgRightEdge >= areaRight && $(this).position().top <= areaTop && imgBottomEdge >= areaBottom ){
+			if(this.width*(1 + wheel) > areaW && this.height*(1 + wheel) > areaH){
+				this.style.width  = this.width*(1 + wheel) + "px";
+				this.style.height = "auto";
+			}else if(this.width*(1 + wheel) < areaW){
+				this.style.width  = areaW + "px";
+				this.style.height ="auto";
+			}else if(this.height*(1 + wheel) < areaH){
+				this.style.height = areaH + "px";
+				this.style.width  = "auto";
+			}			
+		}
+		e.preventDefault();
+	}
+
+	function imgDblclick(){
+		$(".myphoto").attr("src", $(".chooseimg").attr("src")).css("width", $(".chooseimg").width() + "px");
+		var moveImgX   = $(this).position().left - areaLeft ;  //图片相对于切裁框的left值
+		var moveImgY   = $(this).position().top - areaTop ;    //图片相对于切裁框的top值
+		$(".myphoto").css({
+				left: moveImgX + "px",
+				top : moveImgY + "px"
+		});
+		$(".photowrap").show();
+		chooseDiv.hide();
+	};
+</script>
+</body>
+</html>
+

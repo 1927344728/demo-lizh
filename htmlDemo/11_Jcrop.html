@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type">
+    <meta content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1.5, user-scalable=no">
+    <link id="link-css" rel="stylesheet" href="css/jquery.Jcrop.css">
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.Jcrop.js"></script>
+    <title>截图插件Jcrop</title>
+</head>
+
+<body>
+    <img id="imgJcrop" src="images/019a9f8c21753962443f896b71f92ed01e1d299b6bde4-UHTdUn_fw658.jpg" alt="">
+
+  <script>
+    $(function(){
+      var jcropDom = $.Jcrop('#imgJcrop', {
+        allowSelect: false,
+        allowResize: false,
+        addClass: "imgJcropLayer",
+        trackDocument: true,
+        aspectRatio: 1,
+        drawBorders: false,
+        setSelect: [0,0,200,200]
+      });
+      $(".imgJcropLayer").click(function(){
+        var newImg = jcropDom.setImage("images/aaa.jpg");
+      });
+    });
+
+  </script>
+</body>
+
+</html>

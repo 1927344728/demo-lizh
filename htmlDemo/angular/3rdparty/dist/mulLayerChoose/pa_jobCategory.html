@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta http-equiv="Content-Type">
+    <meta content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="stylesheet" type="text/css" href="css/mulLayerChoose.css" />
+    <title>平安-职业分类列表</title>
+</head>
+
+<body>
+
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="js/mulLayerChoose.js"></script>
+    <script type="text/javascript">
+        var initPopupLayer = window.initPopupLayer;
+        var mulChooseObj = {
+            "backBtn": true,
+            "initDataURL": "json/pa_jobCategory.json",
+            "choseArr": [0,0]
+            // "delJoblArr": [1,2,4]  //去除数组中的等级
+        };
+        initPopupLayer(mulChooseObj, function(){});
+    </script>
+</body>
+
+</html>

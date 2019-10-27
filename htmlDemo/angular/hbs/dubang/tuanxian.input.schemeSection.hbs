@@ -1,0 +1,93 @@
+<div class="commonDiv">
+	{{#if schemeInit}}
+	    <header class="listHead">
+	    	<span class="listHeadSpan"><b>保障方案</b></span>
+	    	<div class="listHeadImg">
+	    		<img src="images/0ca3d0fa9551f514abb5b42b7258ca3951bbfa0c2f754-Z2RYgc_fw658.jpg" alt="">
+	    	</div>
+	    	<span class="addPopBtn baozhang-btn"><em class="addBtn-icon"></em><em class="addBtn-tx">添加保障</em></span>
+	    </header>
+    {{else}}
+	    <header class="listHead">
+	    	<span class="listHeadSpan_2">
+	    		<b>保障方案{{schemeIndex}}</b><br/>
+	    		<em style="color: #999;">{{baofEvery}}元/人，共{{baofTotal}}元</em></span>
+	    	<div class="listHeadImg">
+	    		<img src="images/0ca3d0fa9551f514abb5b42b7258ca3951bbfa0c2f754-Z2RYgc_fw658.jpg" alt="">
+	    	</div>
+	    	<span class="editPopBtn baozhang-edit-btn">修改</span>
+	    </header>
+	    <table class="schemeDes-table">
+    		<col align="left" />
+    		<col align="right" />
+    		<col align="right" />
+	    	<thead>
+	    	<tr>
+	    		<td>保障</td>
+	    		<td>保额</td>
+	    		<td>保费</td>
+	    	</tr>
+	    	</thead>
+	    	<tbody>
+
+
+	    	    {{#if baoeShanghai}}
+		    	<tr>
+	    	    	<td>团体意外伤害</td>
+	    	    	<td>{{baoeShanghai}}万</td>
+	    	    	<td>{{baofShanghai}}</td>
+		    	</tr>
+	    	    {{/if}}
+
+	    	    {{#if baoeYiliao}}
+		    	<tr>
+	    	    	<td>团体意外伤害医疗</td>
+	    	    	<td>{{baoeYiliao}}万</td>
+	    	    	<td>{{baofYiliao}}</td>
+		    	</tr>
+	    	    {{/if}}
+
+	    	    {{#if baoeZhuyuan}}
+		    	<tr>
+	    	    	<td>意外住院津贴</td>
+	    	    	<td>{{baoeZhuyuan}}元/天</td>
+	    	    	<td>{{baofZhuyuan}}</td>
+		    	</tr>
+	    	    {{/if}}
+
+	    	    {{#if baoePlane}}
+		    	<tr>
+	    	    	<td>飞机</td>
+	    	    	<td>{{baoePlane}}万</td>
+	    	    	<td>{{baofPlane}}</td>
+		    	</tr>
+	    	    {{/if}}
+
+	    	    {{#if baoeTrain}}
+		    	<tr>
+	    	    	<td>火车</td>
+	    	    	<td>{{baoeTrain}}万</td>
+	    	    	<td>{{baofTrain}}</td>
+		    	</tr>
+	    	    {{/if}}
+
+	    	    {{#if baoeCar}}
+		    	<tr>
+	    	    	<td>汽车</td>
+	    	    	<td>{{baoeCar}}万</td>
+	    	    	<td>{{baofCar}}</td>
+		    	</tr>
+	    	    {{/if}}
+
+	    	    {{#if baoeShip}}
+		    	<tr>
+	    	    	<td>轮船</td>
+	    	    	<td>{{baoeShip}}万</td>
+	    	    	<td>{{baofShip}}</td>
+		    	</tr>
+	    	    {{/if}}
+	    	</tbody>
+	    </table>
+	    <div style="height: 1.2rem;"></div>
+    {{/if}}
+</div>

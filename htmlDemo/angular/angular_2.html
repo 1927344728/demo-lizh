@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewPort" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>angular试用</title>
+	<script src="js/angular.js"></script>
+	<script src="js/controllers.js"></script>
+</head>
+<body>
+	<!--
+	<ul>
+		<li>
+			Your name: <input type="text" ng-model="yourname" placeholder="World">
+			<br>
+			Hello {{yourname || 'World'}}!
+		</li>
+	</ul>
+	-->
+	<ul ng-controller="PhoneListCtrl">
+		<li ng-repeat="phone in phones">
+			{{phone.name}}
+			<p>{{phone.snippet}}</p>
+		</li>
+		<li>
+			<p>Total number of phones: {{phones.length}}</p>
+		</li>
+	</ul>
+	<table>
+	    <tr><th>row number</th></tr>
+	    <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i}}</td></tr>
+	</table>
+
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('PhoneListCtrl', function($scope){
+			$scope.phones = [
+				{
+					"name": "Nexus S",
+					"snippet": "Fast just got faster with Nexus S."
+				},{
+					"name": "Motorola XOOM™ with Wi-Fi",
+					"snippet": "The Next, Next Generation tablet."
+				},{
+					"name": "MOTOROLA XOOM™",
+					"snippet": "The Next, Next Generation tablet."
+				}
+			];
+		});
+
+	</script>
+ </body>
+
+</html>

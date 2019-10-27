@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type">
+	<meta content="text/html; charset=utf-8">
+	<meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1.5, user-scalable=no">
+	<meta http-equiv="Page-Enter" content="revealTrans(duration=10, transition=9)">
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<title>浮动及闭合浮动</title>
+</head>
+<style>
+    body {
+        padding: 20px;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        color: #555;
+        line-height: 160%;
+    }
+    .textAroundDiv figure {
+        float: left;
+        width: 150px;
+        margin-right: 20px;
+    }
+    .textAroundDiv figure img { width: 100%; }
+
+
+    .floatPhenomenonDiv { border: 1px solid #00ffde; padding: 20px; }
+    .floatPhenomenonDiv figure {
+        float: left;
+        width: 150px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .floatPhenomenonDiv figure img { width: 100%; }
+    .floatPhenomenonDiv .colorDiv {
+        width: 200px;
+        height: 100px;
+        margin-top: 20px;
+        background: #0ef;
+    }
+</style>
+<body>
+    <!--******************************************** 《浮动 - 文本绕图》********************************************-->
+    <!--************************************ 浮动最初的定义：实现文本环绕图片的效果 ***********************************-->
+    <div class="textAroundDiv">
+        <figure>
+            <img src="./images/84cf507edcd7b71d7990459a9eb1953285ade31a2212a-DyjHr2_fw658.jpeg">
+            <figcaption></figcaption>
+        </figure>
+
+        <p>季节里的花开花落，清瘦了一纸渐渐泛黄的记忆，而初遇时的渡口里，还清晰的印着你经过时的痕迹。 && 站在时光深处，聆听春天温暖的声音，律动季节里独有的节奏，绽放成一季又一季的芬芳。一年又一年的花开花落，雪雨霜飞，我们依然相信，有爱不会丢了彼此。</p>
+        <p>依着水韵，我们已经找到最温柔的那一怀纯真与澄澈。我也知道，那安然，是我淡淡喜欢的素净。</p>
+        <p>季节里的花开花落，清瘦了一纸渐渐泛黄的记忆，而初遇时的渡口里，还清晰的印着你经过时的痕迹。 && 站在时光深处，聆听春天温暖的声音，律动季节里独有的节奏，绽放成一季又一季的芬芳。一年又一年的花开花落，雪雨霜飞，我们依然相信，有爱不会丢了彼此。</p>
+        <p>依着水韵，我们已经找到最温柔的那一怀纯真与澄澈。我也知道，那安然，是我淡淡喜欢的素净。</p>
+        <p>季节里的花开花落，清瘦了一纸渐渐泛黄的记忆，而初遇时的渡口里，还清晰的印着你经过时的痕迹。 && 站在时光深处，聆听春天温暖的声音，律动季节里独有的节奏，绽放成一季又一季的芬芳。一年又一年的花开花落，雪雨霜飞，我们依然相信，有爱不会丢了彼此。</p>
+    </div>
+
+
+    <!--************************************************** 浮动现象 ************************************************-->
+<!--     <div class="floatPhenomenonDiv">
+        <figure>
+            <img src="./images/84cf507edcd7b71d7990459a9eb1953285ade31a2212a-DyjHr2_fw658.jpeg">
+            <figcaption></figcaption>
+        </figure>
+        <div class="colorDiv"></div>
+    </div> -->
+
+
+    <!--************************************************** 清除方法 ************************************************-->
+<!--     <style type="text/css">
+        .clearFloatDiv1 { width: 400px; border: 1px solid #00ffde; padding: 20px; }
+        .clearFloatDiv1 > div { width: 200px;padding: 25px 0; text-align: center; color: #fff;}
+        .clearFloatDiv1 > div:nth-child(1) { background: #0ef; }
+        .clearFloatDiv1 > div:nth-child(2) { background: #f7633d;}
+        .clearFloatDiv1 > p { width: 400px; padding: 15px 0; background: #fcebd1; }
+        .clearFloat {   /*对IE6/7的兼容处理*/
+            zoom:1; /*触发 hasLayout*/
+        }
+        .clearFloat::after {
+            clear:both;  /*指清除所有浮动*/
+            content:'.';    /*内容，可以为空。也可以用Unicode字符里的 “零宽度空格”，也就是U+200B，这个字符本身是不可见的，可以省略掉 visibility:hidden*/
+            display:block;  /*对于FF/chrome/opera/IE8不能缺少*/
+            width: 0;
+            height: 0;
+            visibility:hidden;  /*允许浏览器渲染它，但是不显示出来*/
+        }
+
+    </style> -->
+
+    <!-- <div class="clearFloatDiv1">
+        <div style="float: left;"></div>
+        <div style="float: left;"></div>
+        <p style="clear: both;"></p>
+    </div> -->
+    <!-- <div class="clearFloatDiv1 clearFloat">
+        <div style="float: left;"></div>
+        <div style="float: left;"></div>
+    </div> -->
+    <!-- <div class="clearFloatDiv1">
+        <div style="float: left;"></div>
+        <div style="float: left;"></div>
+        <br clear="all"/>
+    </div> -->
+
+<!--     <div class="clearFloatDiv1" style="display: table;">
+        <div style="float: left;"></div>
+        <div style="float: left;"></div>
+    </div> -->
+</body>
+</html>

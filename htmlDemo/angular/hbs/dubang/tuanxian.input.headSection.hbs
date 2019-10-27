@@ -1,0 +1,31 @@
+<div class="commonDiv">
+    <a href="{{alickUrl}}"><img src="images/019a9f8c21753962443f896b71f92ed01e1d299b6bde4-UHTdUn_fw658.jpg" alt=""></a>
+    <ul class="normalWidth headInfoUl">
+        <li class="bottomBor">
+	        <span class="headInfoSpan">都邦浙江团体意外保险费率<br>1-6类工伤 10级DIY款</span>
+	        <span class="headInfoSpan color_999">承保年龄：{{ageArr.[0]}}-{{ageArr.[1]}}周岁</span>
+	        <img class="headInfoLogo" src="images/dubang-logo.png" alt="">
+	    </li>
+        <li>
+        	<label>职业类别</label>
+        	<select id="zhiye" class="rightSel" name="zhiye">
+        		{{#each zhiyeArr}}
+    				<option value="{{this.[0]}}" {{#equals this.[0] ../zhiye}}selected{{/equals}}>{{this.[1]}}</option>
+        		{{/each}}
+        	</select>
+        </li>
+        <li>
+        	<label>保障期限</label>
+        	<select id="year" class="rightSel" name="year">
+        		{{#each yearArr}}
+    				<option value="{{this.[0]}}" {{#equals this.[0] ../year}}selected{{/equals}}>{{this.[1]}}</option>
+        		{{/each}}
+        	</select>
+        </li>
+
+	    <li>
+	    	<label>投保人数</label>
+	    	<input id="personNum" class="rightInput" name="personNum" type="tel" placeholder="请输入人数" {{#if personNum}}value={{personNum}}{{/if}} maxlength="5" data-req data-vfn="rangePersonNum">
+	    </li>
+    </ul>
+</div>

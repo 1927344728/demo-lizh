@@ -1,0 +1,10 @@
+<div class="panel-group" id="all-apis">
+  {{#each this}}
+  <section class="panel panel-warning">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#all-apis" href="#{{groupId}}">{{groupDesc}}</div>
+    <div id="{{groupId}}" class="panel-collapse collapse {{#if @last}}in{{/if}}">
+      <div class="panel-body"></div>
+    </div>
+  </section>
+  {{/each}}
+</div>

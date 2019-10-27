@@ -1,0 +1,600 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+html {
+    font-size: 16px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    background: #F0EFF4;
+    font-size: 1rem;
+    font-family: 'Microsoft YaHei', '黑体', 'Tahoma', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333333;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+em {
+    font-style: normal;
+}
+
+section,
+header,
+footer {
+    display: block;
+}
+
+section {
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+input {
+    font-size: 0.9375rem;
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    background: transparent;
+    vertical-align: middle;
+    width: 45%;
+    color: #333;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+}
+
+input[type="radio"] {
+    position: relative;
+    top: -1px;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 50px;
+    border: 1px solid #0087fb;
+}
+
+input[type="radio"]:checked {
+    background: url(http://media.winbaoxian.com/projects/tuan-input/images/common-icon.png?v=2) no-repeat center -143px;
+    background-size: 20px;
+    /*background-image: -webkit-radial-gradient(center center, circle cover, #0087fb 0%, #0087fb 35%, transparent 35%);*/
+    /*background-image写渐变色，部分手机不支持，如：酷派、联想S810t*/
+}
+
+input::-webkit-input-placeholder {
+    font-size: 0.9375rem;
+    color: #C2C2C2;
+}
+input.readonly {
+    color: #c2c2c2;
+}
+
+select {
+    font-size: 1rem;
+    padding: 0.2rem 2rem 0.2rem 0.5rem;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    vertical-align: middle;
+    color: #333;
+    background: url(http://media.winbaoxian.com/projects/tuan-input/images/select-icon.png?v=2) no-repeat top right;
+    background-size: auto 100%;
+}
+
+select.disabled {
+    color: #c2c2c2;
+}
+
+select option.no-sel {
+    color: #c2c2c2;
+}
+
+select::-webkit-input-placeholder {
+    color: #c2c2c2;
+}
+
+input.checkbox-single {
+    /*margin-right: 3px;*/
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+}
+
+input.checkbox-single:checked {
+    width: 20px; height: 20px;
+    border: 1px solid #0087fb;
+    border-radius: 20px;
+    background: url(http://media.winbaoxian.com/projects/tuan-input/images/common-icon.png?v=2) no-repeat center -367px #0087fb;
+    background-size: 55px auto;
+    background-position: center -173px;
+}
+
+label.disabled {
+    color: #c2c2c2;
+}
+em.notes{
+    color: #c2c2c2;
+}
+.clearFix::after{
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    content: ".";
+    clear: both;
+}
+
+
+
+/***********************************************************************************
+                                   投保页面通用样式
+***********************************************************************************/
+body,
+html {
+    height: auto;
+    overflow: auto;
+}
+.page {
+    position: static;
+    height: auto;
+    min-height: 100%;
+}
+.mainSection { margin-bottom: 4rem; }
+.commonDiv {
+    margin: 0 auto 1rem;
+    background: #fff;
+}
+.headInfoUl li {
+    position: relative;
+    padding: 0.8rem 4%;
+    border-bottom: 1px solid #e5e5e5;
+}
+.headInfoUl li:last-child { border-bottom: none; }
+.headInfoUl li span.headInfoSpan {
+    width: 60%;
+    display: block;
+    line-height: 160%;
+}
+.headInfoUl li img.headInfoLogo {
+    position: absolute;
+    top: 1.2rem;
+    right: 1rem;
+    width: 7rem;
+}
+select.rightSel {
+    position: absolute;
+    right: 1rem;
+    color: #0087fb;
+    text-align: right;
+}
+input.rightInput {
+    position: absolute;
+    right: 1rem;
+    width: 30%;
+    text-align: right;
+}
+input.rightInput::-webkit-input-placeholder { text-align: right; }
+input.rightInput::input-placeholder { text-align: right; }
+
+.commonListUl { margin-left: 4%; }
+.commonListUl li {
+    position: relative;
+    padding: 0.8rem 4% 0.8rem 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+.commonListUl li:last-child { border-bottom: none; }
+.commonTitle {
+    margin-left: 4%;
+    padding: 0.5rem 4% 0.5rem 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+.commonLabel {
+    display: inline-block;
+    font-weight: bold;
+    min-width: 28%;
+    font-size: 1rem;
+}
+.listHead {
+    position: relative;
+    margin-left: 4%;
+    min-height: 5rem;
+}
+.listHeadSpan, .listHeadSpan_2 { display: inline-block; margin-left: 4.2rem; line-height: 5rem; }
+.listHeadSpan_2 { margin-top: 1.2rem; line-height: 145%; }
+.listHeadImg  {
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 4rem;
+    overflow: hidden;
+}
+.addPopBtn {
+    display: inline-block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.editPopBtn {
+    display: inline-block;
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+    padding: 0.2rem 1rem;
+    border: 1px solid #0087fb;
+    border-radius: 8px;
+    color: #0087fb;
+}
+.addBtn-icon {
+    display: block;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0 auto 1px;
+    background: url(http://media.winbaoxian.com/projects/tuan-input/images/common-icon.png?v=2) no-repeat center -62px;
+    background-size: 30px;
+}
+.addBtn-tx {
+    color: #0087fb;
+}
+
+.schemeDes-table {
+    width: 92%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    color: #999;
+    text-align: center;
+}
+
+.schemeDes-table tr {
+    height: 2.25rem;
+}
+.schemeDes-table tr td {
+    padding: 0 0.65rem;
+    border: 1px solid #e5e5e5;
+}
+/*.schemeDes-table tr td:nth-child(3) {
+    text-align: right;
+}*/
+/*.schemeDes-table tr td:nth-child(3) {
+    text-align: right;
+}*/
+
+
+
+.footerBtn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: -webkit-box;
+    width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+    background: #fff;
+}
+.footerBtn span {
+    display: -webkit-box;
+    -webkit-box-flex:2;
+    -webkit-box-align: start;
+    -webkit-box-pack: start;
+    padding-left: 4%;
+    line-height: 3rem;
+}
+.footerBtn a.turnViewBtn {
+    color: #fff;
+    background: #0087fb;
+    display: -webkit-box;
+    -webkit-box-flex:1;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    padding-left: 4%;
+    line-height: 3rem;
+}
+
+
+
+.exhibitionSection {
+    margin-bottom: 3rem;
+}
+.exhbCommonDiv {
+    width: 94%;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+.exhbHeadUl {
+    border-radius: 8px;
+    background: #fff;
+    font-size: 0.875rem;
+}
+.exhbHeadUl li {
+    width: 50%;
+    float: left;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+}
+.exhbHeadUl li:nth-child(odd) { border-right: 1px solid #e5e5e5; }
+.exhbHeadUl li:last-child { border-bottom: none; }
+.exhbHeadUl li:nth-last-child(2) { border-bottom: none; }
+.exhbHeadUl li span { display: block; line-height: 160%; }
+.exhbHeadUl li span em { font-size: 1.2rem; vertical-align: bottom; }
+
+.exhbSchemeUl {
+    border-radius: 8px;
+    padding: 0.3rem;
+    background: #fff;
+}
+.exhbSchemeUl li {
+    position: relative;
+    padding: 0.5rem 0.5rem;
+    border-bottom: 1px solid #e5e5e5;
+    line-height: 160%;
+}
+.exhbSchemeUl li:last-child { border-bottom: none; padding-bottom: 0; }
+.exhbSchemeUl li span:first-child { display: inline-block; vertical-align: middle; }
+em.exhb_icon {
+    display: inline-block;
+    width: 64px;
+    height: 50px;
+    background: url("../images/tuanxian-icon.png") no-repeat center top;
+    background-size: 80px;
+}
+em.exhbShanghai_icon { background-position: center -15px; }
+em.exhbYiliao_icon   { background-position: center -94px; }
+em.exhbZhuyuan_icon  { background-position: center -172px; }
+em.exhbPlane_icon    { background-position: center -255px; }
+em.exhbTrain_icon    { background-position: center -333px; }
+em.exhbCar_icon      { background-position: center -415px; }
+em.exhbShip_icon     { background-position: center -494px; }
+
+.exhbWarnDiv {
+    background: #fff;
+    margin-top: 0.5rem;
+    padding: 0.3rem;
+    border-radius: 8px;
+}
+.exhbWarnDiv header {
+    padding: 0.75rem 0 0.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+.exhbWarnDiv > div {
+    padding: 0.5rem;
+}
+
+.exhbSchemeUl li span:last-child {
+    position: absolute;
+    top: 1.35rem;
+    right: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+.exhbScheme_describe{
+    margin-left: 0.5rem;
+}
+.exhbScheme_number {
+    font-size: 1.5rem;
+}
+.exhbScheme_unit {
+    display: inline-block;
+    margin-left: 0.3rem;
+    min-width: 3rem;
+}
+
+
+.error-tips {
+    display: block;
+    width: 95%;
+    line-height: 1.5em;
+    border-radius: 1.5em;
+    color: #fff;
+    text-align: center;
+    background: rgba(255, 100, 100, 0.5);
+    margin: 1rem auto 0;
+    padding: 0 1.5em;
+}
+
+.error-info-item { color: red; }
+
+
+/******************************* 投保页面通用样式 end ****************************/
+
+
+
+
+/********************************************************************************
+                              公用弹框样式
+*********************************************************************************/
+
+.popup-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 0;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    overflow: auto;
+}
+
+.popup-layer::before {
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    visibility: hidden;
+    content: ".";
+    vertical-align: middle;
+}
+
+.popup-form-layer {
+    display: inline-block;
+    width: 85%;
+    border-radius: 10px;
+    background: #fff;
+    text-align: left;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.popup-layer-title,
+.popup-layer-btn {
+    position: relative;
+    height: 3em;
+    line-height: 3em;
+    border-bottom: 1px solid #e5e5e5;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.popup-layer-btn {
+    background: #fff;
+    border-top: 1px solid #e5e5e5;
+}
+
+.popup-layer-ok-btn,
+.popup-layer-cancel-btn {
+    display: inline-block;
+    width: 50%;
+    color: #0087fb;
+}
+
+.popup-layer-cancel-btn {
+    border-right: 1px solid #e5e5e5;
+}
+
+.popup-layer-ul {
+    /*overflow: auto;*/
+    border-radius: 10px;
+}
+
+.popup-layer-ul select {
+    margin-left: -5px;
+}
+
+.popup-layer-ul > li {
+    position: relative;
+    border-top: 1px solid #e5e5e5;
+    padding: 0.8rem 1rem;
+}
+.popup-layer-ul > li > label {
+    display: inline-block;
+    max-width: 65%;
+    overflow: hidden;
+}
+
+.popup-layer-ul > li:first-child {
+    border-top: none;
+}
+
+.popup-layer-ul > li > dl dt {
+    line-height: 30px;
+    font-size: .9375rem;
+}
+
+.popup-layer-ul > li > dl dt label {
+    position: relative;
+    top: 2px;
+}
+.popup-layer-ul > li > dl dd {
+    line-height: 30px;
+    margin-left: 24px;
+}
+
+.popup-layer-ul > li > dl dd.error-tips {
+    margin: 0 5px;
+}
+
+.layer-left-w {
+    display: inline-block;
+    min-width: 35%;
+    margin-top: 4px;
+}
+
+.popup-form-layer .info-name {
+    min-width: 40%;
+    margin-top: 4px;
+}
+
+.mrg-right-1 {
+    margin-right: 15px;
+}
+.mrg-top-1 {
+    margin: 15px 0 5px;
+}
+.mrg-right-2 {
+    margin-right: 10px;
+}
+.relativeTop { position: relative; top: 0.1rem!important; }
+.relativeTop2 { position: relative; top: 0.24rem!important; }
+.small-font-1 {
+    font-size: 0.8em;
+}
+
+
+/******************************公用弹框样式结束*********************************/
+
+
+
+/******************************* 通用样式 end ****************************/
+.bottomBor { border-bottom: 1px solid #e5e5e5; }
+.color_999 { color: #999; }
+.mrgLeft_10 { margin-left: 10%; }
+.colorBlue { color: #0087fb; }
+
+
+
+
+
+/********************************************************************************
+                                    响应式样式
+*********************************************************************************/
+@media screen and (max-width: 320px){
+    html { font-size: 14px; }
+    select {
+        background: url(http://media.winbaoxian.com/projects/tuan-input/images/common-icon.png?v=2) no-repeat right -8px top -259px;
+        background-size: 32px;
+    }
+}
+/******************************** 响应式样式 end *******************************/

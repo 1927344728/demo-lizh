@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type">
+	<meta content="text/html; charset=utf-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.5, user-scalable=no">
+	<link rel="stylesheet" href="css/layer.css">
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="layer-v1.9.1\layer\layer.js"></script>
+	<title>弹出层的使用</title>
+</head>
+
+<body>
+
+<style>
+.btn { width: 50px; height: 20px; background: #f00; border-radius: 10px;}
+</style>
+
+<div class="btn" id="layer1">
+	
+</div>
+
+<div id="content1" style="display:none">
+	<ul>
+		<li>内容1</li>
+		<li>内容2</li>
+		<li>内容3</li>
+		<li>内容4</li>
+		<li>内容5</li>
+	</ul>
+</div>
+
+<div id="photos" class="layer-photos-demo">
+    <img layer-src="images/d1a20cf431adcbef66be2a6eaeaf2edda2cc9fcb.jpg" src="images/2fdda3cc7cd98d10165e5859233fb80e7aec90cb.jpg" alt="1">
+    <img layer-src="images/d1a20cf431adcbef66be2a6eaeaf2edda2cc9fcb.jpg" src="images/2fdda3cc7cd98d10165e5859233fb80e7aec90cb.jpg" alt="2">
+</div>
+
+<script>
+layer.config({
+    extend: 'extend/layer.ext.js'
+});   
+
+layer.ready(function(){ //为了layer.ext.js加载完毕再执行
+    layer.photos({
+        photos: '#photos',
+        tab: function(pic, layero){
+        console.log(layero) //当前图片的一些信息
+    }
+    });
+});     
+</script>
+
+</body>
+</html>
+
