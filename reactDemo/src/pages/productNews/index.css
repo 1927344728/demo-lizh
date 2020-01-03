@@ -32,28 +32,28 @@ section, article, aside, nav, header, footer { display: block; }
 .headerItemMainDiv {
 	position: relative;
 	margin-bottom: 18px;
-	padding-top: 24px;
+	padding-top: 48px;
 	& .headerItemContentDiv {
 		width: 94%;
 		margin:0 auto;
 		background: #fff;
-		border-radius: 4px;
-		.iconDiv {
+		border-radius: 8px;
+		& .iconDiv {
 			border-bottom: 1px solid #E5E5E5;
-			ul {
+			& ul {
 				display: -webkit-box;
 				padding: 32px 0;
-				li {
+				& li {
 					-webkit-box-flex: 1;
 					-webkit-box-pack: center;
 					-webkit-box-align: center;
-					figure {
+					& figure {
 						text-align: center;
-						img {
+						& img {
 							width: 90px;
 							height: 90px;
 						}
-						figcaption {
+						& figcaption {
 							font-size: 24px;
 							color: #666;
 						}
@@ -61,22 +61,22 @@ section, article, aside, nav, header, footer { display: block; }
 				}
 			}
 		}
-		.itemFooter {
-			ul {
+		& .itemFooter {
+			& ul {
 				padding: 20px 30px;
-				li {
+				& li {
 					position: relative;
 					color: #ccc;
-					img {
+					& img {
 						width: 128px;
 						margin-right: 18px;
 					}
-					span {
+					& span {
 						font-size: 30px;
 						color: #333;
 						margin-left: 30px;
 					}
-					i {
+					& i {
 						position: absolute;
 						top: 50%;
 						right: 0;
@@ -86,12 +86,12 @@ section, article, aside, nav, header, footer { display: block; }
 			}
 		}
 	}
-	.backgroundDiv {
+	& .backgroundDiv {
 		position: absolute;
 		left: 0;
 		top: 0;
 		width: 100%;
-		height: 91px;
+		height: 182px;
 		background: #5DB0FF;
 		z-index: -100;
 	}
@@ -101,18 +101,18 @@ section, article, aside, nav, header, footer { display: block; }
 	margin: 0 auto 18px;
 	background: #fff;
 	border-radius: 8px;
-	header {
+	& header {
 		padding: 30px;
 		color: #508CEE;
 		font-size: 34px;
 		text-align: center;
 	}
-	ul {
+	& ul {
 		display: -webkit-box;
 		width: 100%;
 		padding: 0px 30px 30px;
 		overflow: hidden;
-		li {
+		& li {
 			position: relative;
 			width: 23%;
 			margin-right: 2.666%;
@@ -121,7 +121,7 @@ section, article, aside, nav, header, footer { display: block; }
 				margin-right: 0;
 				background: #eee;
 				font-size: 24px;
-				a {
+				& a {
 					position: absolute;
 					top: 50%;
 					left: 50%;
@@ -129,10 +129,10 @@ section, article, aside, nav, header, footer { display: block; }
 					margin-left: -48px;
 				}
 			}
-			a {
+			& a {
 				display: inline-block;
 				color: #999;
-				img {
+				& img {
 					width: 100%;
 				}
 			}
@@ -147,12 +147,12 @@ section, article, aside, nav, header, footer { display: block; }
 	height: 100%;
 	background: rgba(0, 0, 0, 0.4);
 	z-index: 1000;
-	.posterPreviewHeader {
+	& .posterPreviewHeader {
 		position: relative;
 		margin-top: 18px;
 		padding: 18px 0;
 		color: #fff;
-		i {
+		& i {
 			display: inline-block;
 			width: 60px;
 			height: 60px;
@@ -165,29 +165,29 @@ section, article, aside, nav, header, footer { display: block; }
 			vertical-align: middle;
 		}
 	}
-	.posterPopupSwipes {
+	& .posterPopupSwipes {
 		width: 80%;
 		margin: 30px auto 0;
 		text-align: center;
-		.react-swipe-container {
+		& .react-swipe-container {
 			display: inline-block;
-			.item {
+			& .item {
 				text-align: center;
 			}
 		}
 	}
-	.shareIconFooter {
+	& .shareIconFooter {
 		position: absolute;
 		left: 0;
 		bottom: 0;
 		width: 100%;
 		text-align: center;
-		ul {
+		& ul {
 			padding-top: 18px;
 			margin: 0 auto;
-			li {
+			& li {
 				color: #fff;
-				span {
+				& span {
 					display: inline-block;
 					width: 90px;
 					height: 90px;
@@ -201,11 +201,11 @@ section, article, aside, nav, header, footer { display: block; }
 					&.download {
 						background: #03b8e7;
 					}
-					i {
+					& i {
 						font-size: 54px;
 					}
 				}
-				p {
+				& p {
 					margin-top: 8px;
 				}
 				&:last-child {
@@ -219,30 +219,30 @@ section, article, aside, nav, header, footer { display: block; }
 	width: 94%;
 	margin: 0 auto 18px;
 	background: #fff;
-	border-radius: 8px;
-	header {
+	border-radius: 4px;
+	& header {
 		padding: 30px 0;
 		color: #508CEE;
 		font-size: 34px;
 		text-align: center;
 		border-bottom: 1px solid #eee;
 	}
-	ul {
+	& ul {
 		width: 100%;
 		padding-left: 30px;
 		overflow: hidden;
-		li {
+		& li {
 			position: relative;
 			padding: 30px 0;
 			border-bottom: 1px solid #eee;
-			p {
+			& p {
 				padding-left: 92px;
 				padding-right: 30px;
 				text-indent: -90px;
 				text-align: justify;
 				font-size: 30px;
 				line-height: 145%;
-				span {
+				& span {
 					&.icon {
 						margin-right: 16px;
 						padding: 4px 12px;
@@ -258,10 +258,10 @@ section, article, aside, nav, header, footer { display: block; }
 				font-size: 24px;
 				color: #999;
 				border-bottom: none;
-				span {
+				& span {
 					margin-right: 16px;
 				}
-				i {}
+				& i {}
 			}
 		}
 	}

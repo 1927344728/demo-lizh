@@ -37,6 +37,7 @@ class App extends Component {
 		});
 	}
 	render() {
+		document.documentElement.style.fontSize = window.innerWidth / 375 * 16 >= 20 ? 20 : window.innerWidth / 375 * 16 + 'px';
 		return (
 			<div className="App">
 				<HeaderItem inforData={this.state.inforData}/>
