@@ -19,7 +19,7 @@ var htmlmin = require("gulp-minify-html");
 var handlebars  = require("gulp-handlebars");
 var declare = require("gulp-declare");
 var wrap    = require('gulp-wrap');
-// var browserSync = require('browser-sync').create();
+var browserSync = require('browser-sync').create();
 
 
 
@@ -32,8 +32,8 @@ gulp.task("handle", function(){
 	    	namespace: "my.test",
 	    	noRedeclare: true
 	    }))
-	    .pipe(concat("myTest.js"))
-	    .pipe(gulp.dest("js"))
+	    .pipe(concat("handleTest1.js"))
+	    .pipe(gulp.dest("dist"))
 })
 
 
@@ -46,13 +46,13 @@ gulp.task("jshint", function(){
 
 
 //合并，压缩js文件
-gulp.task("concat", function(){
+gulp.task("min", function(){
 	gulp.src(["js/*.js"])
 		.pipe(concat("all.js"))
-		.pipe(gulp.dest("minJS"))
+		.pipe(gulp.dest("dist"))
 		.pipe(rename("all.min.js"))
 		.pipe(uglify())
-		.pipe(gulp.dest("minJS"));
+		.pipe(gulp.dest("dist"));
 });
 
 
@@ -143,11 +143,17 @@ gulp.task("append", function(){
 //默认任务
 gulp.task("default", function(){
 	gulp.run("less","handle");
+	browserSync.init({
+	    server: {
+	        baseDir: "./"
+	    }
+	});
 	gulp.watch("css/*.less", ["less"]);
 	gulp.watch("hbs/*.hbs", ["handle"]);
 });
 
 
-gulp.task("sayok", function(){
-	console.log("sayok");
+//默认任务
+gulp.task("build", function(){
+	gulp.run("less","handle");
 });
