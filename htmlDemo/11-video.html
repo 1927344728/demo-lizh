@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type">
+	<meta content="text/html; charset=utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.5, user-scalable=no">
+	<title>video视频</title>
+  <style>
+    section {
+        display: none;
+    }
+    section video {
+        width: 100%;
+    }
+    section video::cue {
+        padding: 2px;
+        background: rgba(60,100,90,0.5);
+        color: #c9effa;
+    }
+
+  </style>
+
+</head>
+<body>
+<section>
+    <video
+        controls
+        controlslist="nodownload nofullscreen noremoteplayback"
+        loop="true"
+        poster="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md/media/美人谷-阿兰.jpg"
+        currentTime="100"
+        x5-video-player-type="h5"
+        muted
+    >
+        <source src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md/media/美人谷.mp4" type="video/mp4">
+        <source src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md/media/Vives En Mi-art--Sharlene Taule--art-af1309f88d9fda37e0dc4ad2e2c4c9b8.mp4" type="video/mp4">
+        <p>Your browser doesn't support HTML5 video. Here is a <a href="myVideo.mp4">link to the video</a> instead.</p>
+        <track default kind="subtitles" src="./assets/美人谷 - 阿兰.vtt" srclang="cn" label="中文字幕">
+        <track kind="subtitles" src="sampleSubtitles_de.vtt" srclang="de">
+        <track kind="descriptions" src="sampleDescriptions.vtt" srclang="en">
+        <track kind="chapters" src="sampleChapters.vtt" srclang="en">
+        <track kind="metadata" src="keyStage3.vtt" srclang="en" label="Key Stage 3">
+    </video>
+</section>
+
+
+<script src="./utils.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript">
+    let type = null
+    let callback = function () {
+        type = Utils.getUrlParam('type') * 1 || 1
+        Array.prototype.slice.apply(document.querySelectorAll('section')).map((ele, i) => {
+            ele.style.display = i === type - 1 ? 'block' : 'none'
+        })
+        document.querySelector("video").addEventListener('canplay', () => {
+            document.querySelector("video").play()
+        })
+        document.querySelector("video").addEventListener('touchmove', () => {
+            document.querySelector("video").play()
+        })
+        document.querySelector("video").addEventListener('canplaythrough', () => {
+        })
+        document.addEventListener("WeixinJSBridgeReady", function (){ 
+            document.querySelector('video').play().then(res => {
+            }, err => {
+            });
+        }, false)
+    }
+    if (
+        document.readyState === "complete" ||
+        (document.readyState !== "loading" && !document.documentElement.doScroll)
+    ) {
+        callback()
+    } else {
+        document.addEventListener("DOMContentLoaded", callback)
+    } 
+
+
+
+</script>
+</body>
+</html>

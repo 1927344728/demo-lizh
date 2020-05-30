@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type">
+	<meta content="text/html; charset=utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.5, user-scalable=no">
+	<title>Test</title>
+  <style>
+  </style>
+
+</head>
+<body>
+<script type="text/javascript">
+    let objT = {
+        str: '',
+        num: 1,
+        bool: true,
+        undef: undefined,
+        nul: null,
+        symbol: Symbol(),
+        bigInt: BigInt(10),
+
+        fun: new Function(),
+
+        arr: [],
+        numN: new Number(),
+        boolN: new Boolean(),
+        strN: new String(),
+        date: new Date(),
+        reg: new RegExp(),
+    }
+
+    for (let k in objT) {
+        // console.log(objT[k] instanceof)
+    }
+</script>
+</body>
+</html>

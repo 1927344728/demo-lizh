@@ -11,6 +11,8 @@ dump
 .project
 Thumbs.db
 *.iml
+#media
+**/media/
 
 #node
 **/node_modules/
