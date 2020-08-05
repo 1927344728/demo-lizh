@@ -15,58 +15,110 @@
         color: #555;
         line-height: 160%;
     }
-    .textAroundDiv figure {
-        float: left;
-        width: 150px;
-        margin-right: 20px;
-    }
-    .textAroundDiv figure img { width: 100%; }
-
-
-    .floatPhenomenonDiv { border: 1px solid #00ffde; padding: 20px; }
-    .floatPhenomenonDiv figure {
-        float: left;
-        width: 150px;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-    .floatPhenomenonDiv figure img { width: 100%; }
-    .floatPhenomenonDiv .colorDiv {
-        width: 200px;
-        height: 100px;
-        margin-top: 20px;
-        background: #0ef;
+    section {
+        display: none;
     }
 </style>
 <body>
-    <!--******************************************** 《浮动 - 文本绕图》********************************************-->
-    <!--************************************ 浮动最初的定义：实现文本环绕图片的效果 ***********************************-->
-    <div class="textAroundDiv">
-        <figure>
-            <img src="./images/84cf507edcd7b71d7990459a9eb1953285ade31a2212a-DyjHr2_fw658.jpeg">
-            <figcaption></figcaption>
-        </figure>
-
+    <style>
+        .flex_box { }
+        .flex_box img {
+            float: left;
+            width: 150px;
+            margin-right: 20px;
+        }
+    </style>
+    <!-- 浮动最初的定义：实现文本环绕图片的效果 -->
+    <section class="flex_box">
+        <img src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md/images/css/pins_3333913039.jpg">
         <p>季节里的花开花落，清瘦了一纸渐渐泛黄的记忆，而初遇时的渡口里，还清晰的印着你经过时的痕迹。 && 站在时光深处，聆听春天温暖的声音，律动季节里独有的节奏，绽放成一季又一季的芬芳。一年又一年的花开花落，雪雨霜飞，我们依然相信，有爱不会丢了彼此。</p>
         <p>依着水韵，我们已经找到最温柔的那一怀纯真与澄澈。我也知道，那安然，是我淡淡喜欢的素净。</p>
         <p>季节里的花开花落，清瘦了一纸渐渐泛黄的记忆，而初遇时的渡口里，还清晰的印着你经过时的痕迹。 && 站在时光深处，聆听春天温暖的声音，律动季节里独有的节奏，绽放成一季又一季的芬芳。一年又一年的花开花落，雪雨霜飞，我们依然相信，有爱不会丢了彼此。</p>
         <p>依着水韵，我们已经找到最温柔的那一怀纯真与澄澈。我也知道，那安然，是我淡淡喜欢的素净。</p>
         <p>季节里的花开花落，清瘦了一纸渐渐泛黄的记忆，而初遇时的渡口里，还清晰的印着你经过时的痕迹。 && 站在时光深处，聆听春天温暖的声音，律动季节里独有的节奏，绽放成一季又一季的芬芳。一年又一年的花开花落，雪雨霜飞，我们依然相信，有爱不会丢了彼此。</p>
-    </div>
+    </section>
 
 
-    <!--************************************************** 浮动现象 ************************************************-->
-    <!-- <div class="floatPhenomenonDiv">
-        <figure>
-            <img src="./images/84cf507edcd7b71d7990459a9eb1953285ade31a2212a-DyjHr2_fw658.jpeg">
-            <figcaption></figcaption>
-        </figure>
-        <div class="colorDiv"></div>
-    </div> -->
+    <style>
+        .flex_box2 {
+            font-size: 0;
+        }
+        .flex_item2 {
+            padding: 20px;
+            border: 1px solid #0aa;
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+        .flex_item2 .img,
+        .flex_item2 img {
+            float: left;
+            width: 100px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .flex_item2 .img > img {
+            width: 100%;
+        }
+        .flex_item2 .color {
+            height: 50px;
+            margin-top: 5px;
+            background: #0aa;
+        }
+        .flex_item2 .text {
+            font-size: initial;
+        }
+    </style>
+
+    <section class="flex_box2">
+        <div class="flex_item2">
+            <div class="img"><img src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md/images/css/pins_3333913039.jpg"></div>
+            <div class="color"></div>
+        </div>
+        <div class="flex_item2">
+            <img src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md/images/css/pins_3333913039.jpg">
+            <div class="text">读书，去别人的灵魂里偷窥。旅行，去陌生的环境里去感悟。电影，去荧屏里感受别人的生活历程。冥想，去自己内心的秘境里探寻。<br/>读书，去别人的灵魂里偷窥。旅行，去陌生的环境里去感悟。电影，去荧屏里感受别人的生活历程。冥想，去自己内心的秘境里探寻。</div>
+        </div>
+    </section>
+
+    <section class="flex_box2">
+        <div class="flex_item2" style="clear: both;">
+            <div class="img"><img src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md/images/css/pins_3333913039.jpg"></div>
+            <div class="color"></div>
+        </div>
+        <div class="flex_item2">
+            <img src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md/images/css/pins_3333913039.jpg">
+            <div class="text">读书，去别人的灵魂里偷窥。旅行，去陌生的环境里去感悟。电影，去荧屏里感受别人的生活历程。冥想，去自己内心的秘境里探寻。<br/>读书，去别人的灵魂里偷窥。旅行，去陌生的环境里去感悟。电影，去荧屏里感受别人的生活历程。冥想，去自己内心的秘境里探寻。</div>
+        </div>
+    </section>
+
+    <section class="flex_box2">
+        <div class="flex_item2" style="display: flow-root">
+            <div class="img"><img src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md/images/css/pins_3333913039.jpg"></div>
+            <div class="color"></div>
+        </div>
+        <div class="flex_item2">
+            <img src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md/images/css/pins_3333913039.jpg">
+            <div class="text">读书，去别人的灵魂里偷窥。旅行，去陌生的环境里去感悟。电影，去荧屏里感受别人的生活历程。冥想，去自己内心的秘境里探寻。<br/>读书，去别人的灵魂里偷窥。旅行，去陌生的环境里去感悟。电影，去荧屏里感受别人的生活历程。冥想，去自己内心的秘境里探寻。</div>
+        </div>
+    </section>
+
+
+
+    <section class="flex_box2">
+        <div class="flex_item2">
+            <div class="img"><img src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md/images/css/pins_3333913039.jpg"></div>
+            <div class="color"></div>
+        </div>
+        <br clear="both" />
+        <div class="flex_item2">
+            <img src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md/images/css/pins_3333913039.jpg">
+            <div class="text">读书，去别人的灵魂里偷窥。旅行，去陌生的环境里去感悟。电影，去荧屏里感受别人的生活历程。冥想，去自己内心的秘境里探寻。<br/>读书，去别人的灵魂里偷窥。旅行，去陌生的环境里去感悟。电影，去荧屏里感受别人的生活历程。冥想，去自己内心的秘境里探寻。</div>
+        </div>
+    </section>
 
 
     <!--************************************************** 清除方法 ************************************************-->
-    <style type="text/css">
+    <style>
         .clearFloatDiv1 { width: 400px; border: 1px solid #00ffde; padding: 20px; }
         .clearFloatDiv1 > div { width: 200px;padding: 25px 0; text-align: center; color: #fff;}
         .clearFloatDiv1 > div:nth-child(1) { background: #0ef; }
@@ -105,5 +157,23 @@
         <div style="float: left;"></div>
         <div style="float: left;"></div>
     </div> -->
+    <script src="./utils.js"></script>
+    <script type="text/javascript">
+        let type = null
+        let callback = function () {
+            type = Utils.getUrlParam('type') * 1 || 1
+            Array.prototype.slice.apply(document.querySelectorAll('section')).map((ele, i) => {
+                ele.style.display = i === type - 1 ? 'block' : 'none'
+            })
+        }
+        if (
+            document.readyState === "complete" ||
+            (document.readyState !== "loading" && !document.documentElement.doScroll)
+        ) {
+            callback()
+        } else {
+            document.addEventListener("DOMContentLoaded", callback)
+        } 
+    </script>
 </body>
 </html>
