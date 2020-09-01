@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type">
-	<meta content="text/html; charset=utf-8">
-	<meta name="viewport" content="initial-scale=1, maximum-scale=1.5, user-scalable=no">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 	<title>Promise</title>
 </head>
 <body>
@@ -18,11 +17,27 @@
     }
 </style>
 <section>
-    <div class="flex_box"></div>
+    <div class="flex_box">
+      <div>
+        <h3>postMessage 通信</h3>
+        <p>这是一个不同源的iframe元素</p>
+      </div>
+      <iframe id="myIframe" src="http://192.168.2.103:3000/17-input.html" style="border: 0;" onload="wPostMessage()"></iframe>
+      <div>
+        <span style="display: inline-block; padding: 5px 30px; background: #0aa; border-radius: 10px; color: #fff;" onclick="wPostMessage()">随机色值</span>
+      </div>
+    </div>
 </section>
+<script type="text/javascript">
+
+</script>
 
 <script src="./utils.js"></script>
 <script type="text/javascript">
+    function wPostMessage () {
+      window.frames[0].postMessage(`#${Math.round(Math.random() * 16).toString(16)}${Math.round(Math.random() * 16).toString(16)}${Math.round(Math.random() * 16).toString(16)}`, 'http://192.168.2.103:3000/17-input.html')
+    }
+
     let type = null
     function loadImageAsync(url) {
       return new Promise(function(resolve, reject) {
@@ -138,15 +153,6 @@
       // })
 
       // sequencePromises()
-
-window.addEventListener("rejectionhandled", event => {
-    console.log("拒绝原因: " + event.reason)
-}, false)
-let p = Promise.reject('rejected')
-setTimeout(() => {
-    // 或者 p.catch(e =>{})
-    p.then(res => {}, err => {})
-}, 1000)
     }
     if (
         document.readyState === "complete" ||

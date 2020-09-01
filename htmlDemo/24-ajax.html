@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=8" />
+  <meta http-equiv="Date" content="Mon, 31 Jan 2022 16:00:00 GMT" />
+  <META HTTP-EQUIV="Page-Exit" CONTENT="BlendTrans(Duration=0.0)">
+  <META HTTP-EQUIV="Page-Enter" CONTENT="BlendTrans(Duration=0.0)">
+  <title>ajax</title>
+  <style>
+    section {
+      margin: 0;
+      padding: 20px;
+      display: none;
+    }
+    .element_box  {
+      width: 600px;
+      height: 300px;
+      padding: 10px 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<section>
+  <style>
+    .element_box1 {
+      border: 1px solid #0aa;
+    }
+    .element_item1 {
+      height: 50px;
+      background: #0aa;
+    }
+  </style>
+  <div class="element_box element_box1">
+    <p>绿蕊生枝上，花飞果亦成。山空人去后，唯有月孤明。</p>
+    <div class="element_item1"></div>
+    <canvas class="element_canvas1" width="600px"></canvas>
+  </div>
+</section>
+
+<script src="./utils.js"></script>
+<script type="text/javascript">
+  var ongoingTouches = []
+  function handleStart(evt, ctx) { 
+    evt.preventDefault();
+    console.log(evt)
+    console.log("触摸开始。");
+    const touches = evt.changedTouches;
+
+    // for (let i = 0; i < touches.length; i++) {
+    //   console.log("开始第 " + i + " 个触摸 ...");
+    //   ctx.beginPath();
+    //   ctx.arc(touches[i].pageX, touches[i].pageY, 4, 0, 2 * Math.PI, false);
+    //   // 在起点画一个圆。
+    //   ctx.fillStyle = color;
+    //   ctx.fill();
+    //   console.log("第 " + i + " 个触摸已开始。");
+    // }
+  }
+  function handleMove(evt, ctx) {
+    evt.preventDefault();
+    const touches = evt.changedTouches;
+
+    for (let i = 0; i < touches.length; i++) {
+      const color = colorForTouch(touches[i]);
+      const idx = ongoingTouchIndexById(touches[i].identifier);
+
+      if (idx >= 0) {
+        console.log("继续第 " + idx + "个触摸。");
+        ctx.beginPath();
+        console.log("ctx.lineTo(" + touches[i].pageX + ", " + touches[i].pageY + ");");
+        ctx.lineTo(touches[i].pageX, touches[i].pageY);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = color;
+        ctx.stroke();
+
+        console.log(".");
+      } else {
+        console.log("无法确定下一个触摸点。");
+      }
+    }
+  }
+  function handleEnd(evt) {
+    evt.preventDefault();
+    console.log("触摸结束。");
+    const el = document.getElementsByTagName("canvas")[0];
+    const ctx = el.getContext("2d");
+     touches = evt.changedTouches;
+
+    for (let i = 0; i < touches.length; i++) {
+      const color = colorForTouch(touches[i]);
+      const idx = ongoingTouchIndexById(touches[i].identifier);
+
+      if (idx >= 0) {
+        ctx.lineWidth = 4;
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
+        ctx.lineTo(touches[i].pageX, touches[i].pageY);
+        ctx.fillRect(touches[i].pageX - 4, touches[i].pageY - 4, 8, 8);
+        // 在终点画一个正方形
+        ongoingTouches.splice(idx, 1); // 用完后移除
+      } else {
+        console.log("无法确定要结束哪个触摸点。");
+      }
+    }
+  }
+</script>
+<script type="text/javascript">
+    let type = null
+    let callback = function () {
+        type = Utils.getUrlParam('type') * 1 || 1
+        Array.prototype.slice.apply(document.querySelectorAll('section')).map(function (ele, i) {
+            ele.style.display = i === type - 1 ? 'block' : 'none'
+        })
+
+        let canvas1Ele = document.querySelector('.element_canvas1')
+        let ctx1 = canvas1Ele.getContext('2d') 
+        canvas1Ele.addEventListener("touchstart", () => {
+          handleStart(event, ctx1)
+        }, false);
+        if (ctx1) {
+          ctx1.fillStyle = '#0aa'
+          ctx1.font = "normal normal bold 30px/30px Times"
+          ctx1.fillText('唯有月孤明', 200, 100)
+          ctx1.fill()
+
+          ctx1.strokeStyle = '#0aa'
+          ctx1.strokeRect(0,0,600, 150);
+        }
+    }
+    if (
+        document.readyState === "complete" ||
+        (document.readyState !== "loading" && !document.documentElement.doScroll)
+    ) {
+        callback()
+    } else {
+        document.addEventListener("DOMContentLoaded", callback)
+    } 
+</script>
+</body>
+</html>

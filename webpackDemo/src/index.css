@@ -1,0 +1,40 @@
+@import './import.css';
+@import './apply.css';
+.autoprefixer {
+    box-sizing: border-box;
+}
+.postcss_nesting {
+    & .sub_class {
+        width: 100%;
+    }
+    & a {
+        color: red;
+    }
+}
+.cssnano {
+    font-size: 16px;
+    z-index: 1000;
+}
+.apply {
+    color: green;
+    @apply --no-wrap;
+}
+
+/* @define-mixin icon $name, $color: blue {
+    .icon.is-$(name) {
+        color: $color;
+    }
+    .icon.is-$(name):hover {
+        color: white;
+        background: $color;
+    }
+}
+  
+@mixin icon twitter {
+    background: url(twt.png);
+} */
+
+.px2rem {
+    width: 100px;
+    font-size: 30px;
+}
