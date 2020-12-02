@@ -29,6 +29,7 @@ module.exports = {
     'vue/no-use-v-if-with-v-for': 0,
     'vue/valid-v-for': 0,
     'vue/no-unused-vars': 0,
+    'vue/no-unused-components': 0,
     'vue/require-component-is': 0,
     'vue/require-v-for-key': 0,
     'vue/no-parsing-error': 0,

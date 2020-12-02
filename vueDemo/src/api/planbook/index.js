@@ -7,10 +7,26 @@ import request from '@/utils/request'
  * @param    {[type]}   param [description]
  * @return   {[type]}         [description]
  */
-export function getPlanBookInitData (params) {
+export function getPlanBookInitData (data) {
   return request({
     url: '/planBook/V2/getInitData',
     method: 'get',
-    params
+    params: data
   })
 }
+
+/**
+ * [calculateProduct description]
+ * @Author   Lizh
+ * @DateTime 2020-11-12
+ * @param    {[type]}   data [description]
+ * @return   {[type]}        [description]
+ */
+export function calculateProduct (data) {
+  return request({
+    url: '/planBook/V2/calculate',
+    method: 'post',
+    data
+  })
+}
+

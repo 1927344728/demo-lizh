@@ -384,8 +384,8 @@ export default {
     .inputMainDiv {
         position: relative;
         width: 100%;
-        margin-top: 18px;
-        padding: 0 20px;
+        margin-top: 9px;
+        padding: 0 10px;
         padding-bottom: constant(safe-area-inset-bottom);
         padding-bottom: env(safe-area-inset-bottom);
         &:after,
@@ -393,14 +393,14 @@ export default {
             display: block;
             content: " ";
             width: 1px;
-            height: 4.125rem;
+            height: 2.0625rem;
             visibility: hidden;
         }
         & .personInfoDiv {
-            margin-top: 18px;
+            margin-top: 9px;
         }
         & .recipientInfoDiv {
-            margin-top: 18px;
+            margin-top: 9px;
             border-radius: 0.25rem;
             overflow: hidden;
             background: #fff;
@@ -420,15 +420,15 @@ export default {
             top: 90px;
             right: 0;
             display: block;
-            width: 130px;
-            height: 54px;
-            line-height: 54px;
+            width: 65px;
+            height: 27px;
+            line-height: 27px;
             color: #fff;
             background: rgba(0, 0, 0, 0.4);
             text-align: center;
             vertical-align: middle;
-            border-top-left-radius: 54px;
-            border-bottom-left-radius: 54px;
+            border-top-left-radius: 27px;
+            border-bottom-left-radius: 27px;
             font-size: 24px;
             z-index: 20;
         }

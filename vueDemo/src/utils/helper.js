@@ -1496,7 +1496,6 @@ var helperJs = {
                 })
             }, function (res) {
                 if (res.data.success) {
-                    debugger
                     var productGroup = res.data.data.productGroupList[0]  //返回的产品数据
                     productGroup.prodOrderList.map(function (prod) {
                         cData.$set = self.$set
@@ -1769,7 +1768,6 @@ var helperJs = {
     verifyInsRestricts: function (me, iData) {
         var helperJs = this
         var oValue = helperJs.convertCalData(me.insData)  //当前险种的信息
-        debugger
         var personData = helperJs.convertPersonData(iData.personData).personData  //关于人的信息
         if (personData && personData.personOrderList) {
             var insuredInfo = helperJs.filterArr(personData.personOrderList, 'insuredInfo')

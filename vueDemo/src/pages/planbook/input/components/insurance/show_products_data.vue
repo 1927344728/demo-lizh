@@ -20,11 +20,11 @@
         <bxs-default-page v-if="pBType == 'multCompare' && groupData.prodOrderList.length <= 0"></bxs-default-page>
         <template v-for="(prod, idx) in groupData.prodOrderList" v-if="groupData.prodOrderList.length > 0 && !prod.hide && (!!prod.hadChoice || (groupData.defNum && idx < groupData.defNum))">
             <component
-            :is="'ShowTable'"
-            :planbook-data="planbookData"
-            :group-data="groupData"
-            :product-data="prod"
-            :product-name="[groupData.key, prod.key]"
+                is="ShowTable"
+                :planbook-data="planbookData"
+                :group-data="groupData"
+                :product-data="prod"
+                :product-name="[groupData.key, prod.key]"
             ></component>
             <template v-for="(ins, insIdx) in prod.mulInsOrderList">
                 <component

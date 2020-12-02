@@ -14,7 +14,7 @@ module.exports = {
   	},
     "postcss-mixins": {},
     'postcss-px2rem-exclude': {
-        'remUnit': 32
+        'remUnit': 16
     }
   }
 }
