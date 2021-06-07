@@ -23,8 +23,9 @@
   </style>
 </head>
 <body>
+<section></section>
 <section>
-  <style>
+<!--   <style>
     .element_box1 {
       border: 1px solid #0aa;
     }
@@ -34,78 +35,43 @@
     }
   </style>
   <div class="element_box element_box1">
-    <p>绿蕊生枝上，花飞果亦成。山空人去后，唯有月孤明。</p>
-    <div class="element_item1"></div>
-    <canvas class="element_canvas1" width="600px"></canvas>
-  </div>
+  </div> -->
 </section>
 
 <script src="./utils.js"></script>
-<script type="text/javascript">
-  var ongoingTouches = []
-  function handleStart(evt, ctx) { 
-    evt.preventDefault();
-    console.log(evt)
-    console.log("触摸开始。");
-    const touches = evt.changedTouches;
-
-    // for (let i = 0; i < touches.length; i++) {
-    //   console.log("开始第 " + i + " 个触摸 ...");
-    //   ctx.beginPath();
-    //   ctx.arc(touches[i].pageX, touches[i].pageY, 4, 0, 2 * Math.PI, false);
-    //   // 在起点画一个圆。
-    //   ctx.fillStyle = color;
-    //   ctx.fill();
-    //   console.log("第 " + i + " 个触摸已开始。");
-    // }
-  }
-  function handleMove(evt, ctx) {
-    evt.preventDefault();
-    const touches = evt.changedTouches;
-
-    for (let i = 0; i < touches.length; i++) {
-      const color = colorForTouch(touches[i]);
-      const idx = ongoingTouchIndexById(touches[i].identifier);
-
-      if (idx >= 0) {
-        console.log("继续第 " + idx + "个触摸。");
-        ctx.beginPath();
-        console.log("ctx.lineTo(" + touches[i].pageX + ", " + touches[i].pageY + ");");
-        ctx.lineTo(touches[i].pageX, touches[i].pageY);
-        ctx.lineWidth = 4;
-        ctx.strokeStyle = color;
-        ctx.stroke();
-
-        console.log(".");
-      } else {
-        console.log("无法确定下一个触摸点。");
-      }
+<script>
+  function sendXMLHttpRequest() {
+    var xhr = new XMLHttpRequest()
+    xhr.withCredentials = true
+    xhr.onreadystatechange = function(){
+        // 通信成功时，状态值为4
+        if (xhr.readyState === 4){
+            if (xhr.status === 200){
+                console.log(xhr.responseText)
+            } else {
+                console.error(xhr.statusText)
+            }
+        }
     }
-  }
-  function handleEnd(evt) {
-    evt.preventDefault();
-    console.log("触摸结束。");
-    const el = document.getElementsByTagName("canvas")[0];
-    const ctx = el.getContext("2d");
-     touches = evt.changedTouches;
-
-    for (let i = 0; i < touches.length; i++) {
-      const color = colorForTouch(touches[i]);
-      const idx = ongoingTouchIndexById(touches[i].identifier);
-
-      if (idx >= 0) {
-        ctx.lineWidth = 4;
-        ctx.fillStyle = color;
-        ctx.beginPath();
-        ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
-        ctx.lineTo(touches[i].pageX, touches[i].pageY);
-        ctx.fillRect(touches[i].pageX - 4, touches[i].pageY - 4, 8, 8);
-        // 在终点画一个正方形
-        ongoingTouches.splice(idx, 1); // 用完后移除
-      } else {
-        console.log("无法确定要结束哪个触摸点。");
-      }
+    xhr.onerror = function (e) {
+        console.error(xhr.statusText)
     }
+    xhr.open('GET', 'http://localhost:3000', true)
+    xhr.send(null)
+  }
+
+  function loadImage () {
+    var xhr = new XMLHttpRequest()
+    xhr.withCredentials = true
+    xhr.open('GET', '/img/20190419141710_4735vxaqwhri_small.jpg', true)
+    xhr.responseType = 'blob'
+    xhr.onload = function(e) {
+      var img = document.createElement('img')
+      img.style.width = '100%'
+      img.src = window.URL.createObjectURL(this.response) 
+      document.body.appendChild(img)
+    }
+    xhr.send()
   }
 </script>
 <script type="text/javascript">
@@ -115,21 +81,8 @@
         Array.prototype.slice.apply(document.querySelectorAll('section')).map(function (ele, i) {
             ele.style.display = i === type - 1 ? 'block' : 'none'
         })
-
-        let canvas1Ele = document.querySelector('.element_canvas1')
-        let ctx1 = canvas1Ele.getContext('2d') 
-        canvas1Ele.addEventListener("touchstart", () => {
-          handleStart(event, ctx1)
-        }, false);
-        if (ctx1) {
-          ctx1.fillStyle = '#0aa'
-          ctx1.font = "normal normal bold 30px/30px Times"
-          ctx1.fillText('唯有月孤明', 200, 100)
-          ctx1.fill()
-
-          ctx1.strokeStyle = '#0aa'
-          ctx1.strokeRect(0,0,600, 150);
-        }
+        sendXMLHttpRequest()
+        loadImage()
     }
     if (
         document.readyState === "complete" ||
