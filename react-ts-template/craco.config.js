@@ -1,19 +1,31 @@
-
 const path = require("path");
-console.log(process.env)
 module.exports = {
   style: {
   	sass: {
   		loaderOptions: {
-      	additionalData:  '$my-color: cyan;'
+      	additionalData:  "$my-color: cyan;"
   		}
   	},
     postcss: {
       plugins: [
-	      require('postcss-px2rem-exclude')({
+        require("postcss-import")({
+          "path": "src/assets/css"
+        }),
+        require("postcss-preset-env")({
+          features: {
+            "custom-properties": {
+              preserve: false,
+              variables: {}
+            },
+            "nesting-rules": true
+          }
+        }),
+        require("postcss-apply")({}),
+        require("postcss-css-variables")({}),
+	      require("postcss-px2rem-exclude")({
 		      remUnit: 16,
 		      exclude: /node_modules|folder_name/i
-		    })
+		    }),
       ]
     },
   },
@@ -26,7 +38,7 @@ module.exports = {
           "react-app/jest"
         ],
         rules: {
-          'no-console': process.env.NODE_ENV === 'production' ? 2 : 1,
+          "no-console": process.env.NODE_ENV === "production" ? 0 : 1,
         },
       },
       pluginOptions: {
@@ -34,7 +46,7 @@ module.exports = {
   },
   webpack: {
     alias: {
-      '@': path.resolve(__dirname, "src")
+      "@": path.resolve(__dirname, "src")
     }
   },
 }

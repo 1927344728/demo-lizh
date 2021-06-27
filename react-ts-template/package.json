@@ -1,57 +1,82 @@
 {
-  "name": "react-ts-template",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@craco/craco": "^6.1.1",
-    "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^12.8.3",
-    "@types/jest": "^26.0.22",
-    "@types/node": "^14.14.41",
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3",
-    "node-sass": "^6.0.0",
-    "postcss-px2rem-exclude": "0.0.6",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "typescript": "^4.2.4",
-    "web-vitals": "^1.1.1"
-  },
-  "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "rules": {
-      "no-unused-vars": 1
-    }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "tabWidth": 4,
-    "tabs": false,
-    "singleQuote": false,
-    "semi": true
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "react-ts-template",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@craco/craco": "^6.1.1",
+		"@testing-library/jest-dom": "^5.11.10",
+		"@testing-library/react": "^11.2.6",
+		"@testing-library/user-event": "^12.8.3",
+		"@types/jest": "^26.0.22",
+		"@types/node": "^14.14.41",
+		"@types/react": "^17.0.3",
+		"@types/react-dom": "^17.0.3",
+		"axios": "^0.21.1",
+		"id-validator": "^1.3.0",
+		"node-sass": "^6.0.0",
+		"postcss-px2rem-exclude": "0.0.6",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "4.0.3",
+		"styled-components": "^5.3.0",
+		"typescript": "^4.2.4",
+		"web-vitals": "^1.1.1"
+	},
+	"scripts": {
+		"start": "craco start",
+		"build": "craco build",
+		"test": "craco test",
+		"eject": "react-scripts eject",
+		"format": "prettier --write --config .prettier.config.js \"src/**/*.+(js|jsx|css)\""
+	},
+	"lint-staged": {
+		"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+			"prettier --write --config .prettier.config.js \"src/**/*.+(js|jsx|css)\"",
+			"git add"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		],
+		"rules": {
+			"no-unused-vars": 1,
+			"@typescript-eslint/no-explicit-any": 0,
+			"@typescript-eslint/explicit-module-boundary-types": [
+				1,
+				{
+					"allowArgumentsExplicitlyTypedAsAny": true
+				}
+			]
+		}
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"husky": "^6.0.0",
+		"lint-staged": "^11.0.0",
+		"postcss-apply": "^0.12.0",
+		"postcss-css-variables": "^0.17.0",
+		"postcss-import": "^12.0.0",
+		"postcss-preset-env": "^6.7.0",
+		"prettier": "^2.3.2",
+		"react-app-rewire-multiple-entry": "^2.2.1"
+	}
 }

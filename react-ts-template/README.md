@@ -68,3 +68,36 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### typescript相关问题
+1.文件引用出错
+```js
+import {
+  WX_API_DOMAIN
+} from '@/utils/variables'
+```
+Cannot find module '@/utils/variables' or its corresponding type declarations.ts(2307)  
+Module '"@/utils/variables"' has no exported member 'WX_API_DOMAIN'.ts(2305)  
+原因：`tsconfig.paths.json`中的 `baseUrl`、`paths`配置有误，导致文件引用出错：
+```js
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["./src"]
+    }
+  }
+}
+```
+解决：
+```js
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
+```

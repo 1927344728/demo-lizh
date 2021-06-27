@@ -1,34 +1,34 @@
-import logo from '@/assets/svg/logo.svg';
-import './index.css';
-import './index.scss';
+import { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  // HashRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
-console.log(process.env.REACT_APP_AUTHOR)
-console.log(process.env.AUTHOR_NAME)
+import Home from '../home'
+import Track from '../track'
+import Dashboard from '../dashboard'
 
-let a = "a";
-let b = 'b';
-console.log(a + b);
-function App() {
+import {
+  initPageBasicConfig
+} from '@/utils/index.ts'
+
+function App () {
+  useEffect(() => {
+    initPageBasicConfig({
+      pageWrapperDom: document.getElementById("root")
+    })
+  }, [])
   return (
-    <div className="App"
-      style={
-        {color: process.env.REACT_APP_MAIN_COLOR}
-    }>
-      <header className="App-header">
-        <img src={logo}
-          className="App-logo"
-          alt="logo"/>
-        <p>
-          Edit
-          <code>src/App.js</code>
-          and save to reload.
-        </p>
-        <a className="App-link env_variable" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/track" component={Track} />
+        <Route path="/dashboard" component={Dashboard} />
+      </Switch>
+    </Router>
+  )
 }
 
-export default App;
+export default App

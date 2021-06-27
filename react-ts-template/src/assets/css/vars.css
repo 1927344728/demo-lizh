@@ -1,0 +1,23 @@
+:root {
+  --main-color: #508CEE;
+  --major-color: #333;
+  --minor-color: #999;
+  --light-color: #ccc;
+
+  --light-border: #ddd;
+  
+  --e5-bg: #e5e5e5;
+  --f8-bg: #f8f8f8;
+  --no-wrap: {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;  
+  };
+  --safe-area-inset-bottom: {
+    display: block;
+    content: ' ';
+    width: 100%;
+    height: constant(safe-area-inset-bottom);
+    height: env(safe-area-inset-bottom);
+  };
+}
