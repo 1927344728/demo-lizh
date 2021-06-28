@@ -1,1 +1,0 @@
-console.log('lizhao: node.test.js')

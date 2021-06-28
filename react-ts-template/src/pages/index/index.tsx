@@ -1,31 +1,59 @@
 import { useEffect, useState } from "react"
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router'
+import { connect } from 'react-redux'
 
 import './index.css'
 import {
+  getCommonCurrentUser,
   getSalesQaList,
   getSalesQaObjectionList
 } from '@/api'
 
-export default function Home() {
+function Home(props : any) : any {
+  const { dispatch } = props
   const history = useHistory()
   const [bannerList, setBannerList] = useState([])
   const [objectionList, setObjectionList] = useState([])
   useEffect(() => {
-    getSalesQaList().then(res => {
+    getCommonCurrentUser({}).then((res : any) => {
+      const { success, data, info } = res
+      if (success) {
+        dispatch({
+          type: 'SET_USER_INFO',
+          payload: data
+        })
+        return
+      }
+      console.log(info)
+    })
+  }, [])
+  useEffect(() => {
+    getSalesQaList({}).then((res : any) => {
       setBannerList(res.data)
     })
-    getSalesQaObjectionList().then(res => {
+    getSalesQaObjectionList({}).then((res : any) => {
       setObjectionList(res.data)
     })
   }, [])
+  const ckAddCounter = (num : Number) => {
+    dispatch({
+      type: 'DEMO/ADD_COUNTER',
+      payload: num
+    })
+  }
+  const ckClearCounter = () => {
+    dispatch({
+      type: 'DEMO/CLEAR_COUNTER',
+      payload: 0
+    })
+  }
   return <div className="ts_index">
     {
       bannerList && !!bannerList.length && 
       <>
         <ul className="ts_index_banner">
           {
-            bannerList && bannerList.map(b => <li key={b.id} onClick={() => {
+            bannerList && bannerList.map((b : any) => <li key={b.id} onClick={() => {
               history.push('./dashboard')
             }}>
             <img
@@ -61,15 +89,15 @@ export default function Home() {
         <dt>
           <h3>
             <span>异议处理素材库</span>
-            <span className="more">更多素材 <i className="iconfont icon-forward"></i></span>
+            <span className="more" onClick={() => ckClearCounter()}>更多素材 <i className="iconfont icon-forward"></i></span>
           </h3>
           <p>教您应对各种刁钻问题</p>
         </dt>
         {
-          objectionList.map(o => <dd key={o.id}>
+          objectionList.map((o : any) => <dd key={o.id}>
             <img src="https://media.winbaoxian.com/autoUpload/common/9be46dad-95e3-4f24-b36b-7b7c5c5dda60.png" alt="异议ICON" />
             <div className="content">{o.question}</div>
-            <span className="view">查看回答</span>
+            <span className="view" onClick={() => ckAddCounter(2)}>查看回答</span>
           </dd>
           )
         }
@@ -77,3 +105,15 @@ export default function Home() {
     }
   </div>
 }
+
+export default connect((state : any) => {
+  return {
+    userInfo: state.userInfo,
+    counter: state.counter
+  }
+}, dispatch => {
+  return {
+    dispatch
+  }
+}
+)(Home)

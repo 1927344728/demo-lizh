@@ -4,15 +4,6 @@ import './index.css';
 import styles from './index.module.css';
 import './index.scss';
 
-import { IS_PRODUCT } from '@/utils/index'
-
-console.log(IS_PRODUCT)
-console.log(process.env.REACT_APP_AUTHOR)
-console.log(process.env.AUTHOR_NAME)
-
-let a = "a";
-let b = 'b';
-console.log(a + b);
 function App() {
   return (
     <div className="App"

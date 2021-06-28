@@ -1,5 +1,4 @@
 import axios from 'axios'
-
 import {
   CONTENT_API_DOMAIN
 } from '@/utils/index'

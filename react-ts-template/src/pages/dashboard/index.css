@@ -1,0 +1,9 @@
+@import 'base.css';
+@import 'vars.css';
+.rts_dashboard {
+  font-size: 15px;
+  color: var(--main-color);
+  &::after {
+    @apply --safe-area-inset-bottom;
+  }
+}

@@ -1,4 +1,16 @@
 import request from './request'
+import {
+  APP_API_DOMAIN
+} from '@/utils'
+
+export function getCommonCurrentUser (params : unknown) : any {
+  return request({
+    baseURL: APP_API_DOMAIN,
+    url: '/planBook/common/currentUser',
+    method: 'get',
+    params
+  })
+}
 
 export function getSalesQaList (params : unknown) : any {
   return request({

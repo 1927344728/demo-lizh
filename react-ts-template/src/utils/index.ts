@@ -1,6 +1,5 @@
 import IDValidator from 'id-validator'
 import GB2260 from 'id-validator/src/GB2260'
-import './safe_area_insets'
 
 import {
   IS_PRODUCT,
@@ -269,6 +268,7 @@ export function initPageBasicConfig (options : any = {}) : void {
     options.pageWrapperDom.style.minHeight = window.innerHeight + SAFE_AREA_INSET_BOTTOM + 'px'
   }
 }
+
 export default {
   getTimeStr,
   numberToChinese,
