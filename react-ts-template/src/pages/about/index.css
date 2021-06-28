@@ -1,12 +1,13 @@
 @import 'base.css';
 @import 'vars.css';
-.rts_dashboard {
+body {
+  background: var(--f8-bg);
+}
+.rtt_about {
   font-size: 15px;
-  color: var(--main-color);
+  color: var(--major-color);
+  background: var(--f8-bg);
   text-align: center;
-  & > h2 {
-    text-decoration-line: underline;
-  }
   &::after {
     @apply --safe-area-inset-bottom;
   }

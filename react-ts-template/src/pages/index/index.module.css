@@ -1,3 +1,17 @@
-.app_link {
-  color: orange;
+@import 'vars.css';
+.index_module_button {
+  display: inline-block;
+  min-width: 60px;
+  padding: 4px 8px;
+  color: white;
+  border-radius: 10px;
+  background: orange;
+  &.active {
+    color: orange;
+    background: white;
+    border: 1PX solid var(--e5-bg);
+  }
+  &:last-child {
+    margin-left: 15px;
+  }
 }

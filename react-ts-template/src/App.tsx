@@ -9,7 +9,7 @@ import {
 import { createStore } from 'redux'
 
 import Index from '@/pages/index'
-import Track from '@/pages/track'
+import About from '@/pages/about'
 import Dashboard from '@/pages/dashboard'
 import Reducers from '@/store'
 import {
@@ -28,7 +28,7 @@ function App() : any {
     <Router>
       <Switch>
         <Route exact path="/" component={Index} />
-        <Route path="/track" component={Track} />
+        <Route path="/about" component={About} />
         <Route path="/dashboard" component={Dashboard} />
       </Switch>
     </Router>
