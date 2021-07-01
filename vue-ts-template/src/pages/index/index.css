@@ -1,0 +1,6 @@
+@import 'base.css';
+@import 'vars.css';
+.class_name {
+  text-align: center;
+  color: #5BD693;
+}
