@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="others_01.css" data-n-g="">
+  <title>其他DEMO</title>
+</head>
+<body>
+<section class="box_01">
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</section>
+
+<script src="./assets/js/utils.js"></script>
+<script>
+  Utils.ready().then(() => {
+    console.log('LI元素的CSS计算高度和实际渲染高度：')
+    Array.prototype.slice.call(document.querySelector('.box_01').getElementsByTagName('li')).map((e, i) => {
+      console.log(`第${i + 1}个：`, getComputedStyle(e).height, e.clientHeight)
+    })
+  })
+</script>
+</body>
+</html>
