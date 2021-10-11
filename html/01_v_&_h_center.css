@@ -1,0 +1,122 @@
+.box {
+  width: 600px;
+  height: 300px;
+  color: #0aa;
+  border: 1px solid #0aa;
+}
+
+.box > .item {
+  width: 300px;
+  height: 150px;
+  margin: 0 auto;
+  color: #fff;
+  background: #0aa;
+}
+
+.box_01 > .item {
+  margin: 0 auto;
+}
+.box_02 > .item_02 {
+  text-align: center;
+}
+.box_03 > .item_03 {
+  height: 300px;
+  line-height: 300px;
+}
+
+.box_04 {
+  font-size: 0;
+}
+.box_04::after {
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  content: ' ';
+  visibility: hidden;
+  vertical-align: middle;
+}
+.box_04 > .item_04 {
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.box_05 {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.box_05 .item_05 {
+  display: inline-block;
+  width: 80%;
+}
+
+.box_06 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box_06 > .item_06 {
+  width: 80%;
+}
+
+.box_07 {
+  display: grid;
+}
+.box_07 > .item_07 {
+  width: 80%;
+  margin: auto;
+}
+
+.box_08 {
+  text-align: left;
+}
+.box_08 > .item_08 {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 224px;
+  margin-top: -112px;
+  margin-left: -200px;
+}
+
+.box_09 {
+  position: relative;
+}
+.box_09 .item_09 {
+  position: absolute;
+  top: calc(50% - 75px);
+  left: calc(50% - 150px);
+  width: 300px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.box_10 {
+  position: relative;
+}
+.box_10 > .item_10 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: auto;
+}
+
+.box_11 {
+  position: relative;
+}
+.box_11 .item_11 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box_12 {
+  background: url(https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/images/nice/20190419141711_9501mvvwvonf_small.jpg) no-repeat center;
+  background-size: 80%;
+}
