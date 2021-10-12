@@ -1,0 +1,30 @@
+section {
+  display: none;
+}
+
+.player_box {
+  position: relative;
+}
+
+.player_box video {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.player_box video::cue {
+  padding: 2px;
+  background: rgba(60, 100, 90, 0.5);
+  color: #c9effa;
+}
+
+.player_box .player_pop {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 12.5%;
+  background: rgba(0, 240, 240, 0.5);
+  z-index: 1;
+  pointer-events: none;
+}
