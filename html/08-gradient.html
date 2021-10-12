@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href=assets\css\common.css>
+  <link rel="stylesheet" href=08-gradient.css>
+  <title>gradient渐变色</title>
+</head>
+
+<body>
+  <section class="box_01">
+    <div class="item_01"></div>
+    <div class="item_01"></div>
+    <div class="item_01"></div>
+    <div class="item_01"></div>
+  </section>
+
+  <section class="box_02">
+    <div class="item_02"></div>
+    <div class="item_02"></div>
+    <div class="item_02"></div>
+    <div class="item_02"></div>
+    <div class="item_02"></div>
+    <div class="item_02"></div>
+  </section>
+
+  <section class="box_03">
+    <div class="item_03"></div>
+    <div class="item_03"></div>
+    <div class="item_03"></div>
+    <div class="item_03"></div>
+    <div class="item_03"></div>
+    <div class="item_03"></div>
+    <div class="item_03"></div>
+  </section>
+
+  <section class="box_04">
+    <div class="item_04"></div>
+    <div class="item_04"></div>
+    <div class="item_04"></div>
+    <div class="item_04"></div>
+    <div class="item_04"></div>
+    <div class="item_04"></div>
+  </section>
+
+  <section class="box_05">
+    <div class="item_05"></div>
+    <div class="item_05">
+      <div>愿你走出</div>
+    </div>
+    <div class="item_05">
+      <div text="半生归来">半生归来</div>
+    </div>
+    <div class="item_05">
+      <div>
+        <svg viewBoxs="0 0 500 300" class="svgBox">
+          <defs>
+            <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="0" y1="10" x2="0" y2="50">
+              <stop offset="0" style="stop-color: red" />
+              <stop offset="1" style="stop-color: orange" />
+            </linearGradient>
+          </defs>
+          <text text-anchor="middle" class="gradient-text-three" x="100px" y="30%">仍是少年</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <script src="./assets/js/utils.js"></script>
+  <script>
+    Utils.ready()
+  </script>
+</body>
+</html>
