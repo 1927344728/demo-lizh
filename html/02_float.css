@@ -1,18 +1,3 @@
-.box {
-  width: 600px;
-  height: 300px;
-  color: #0aa;
-  border: 1px solid #0aa;
-}
-
-.box > .item {
-  width: 300px;
-  height: 150px;
-  margin: 0 auto;
-  color: #fff;
-  background: #0aa;
-}
-
 .box_01 > img {
   float: left;
   width: 150px;

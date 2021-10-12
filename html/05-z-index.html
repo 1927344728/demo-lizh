@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href=assets\css\common.css>
+    <link rel="stylesheet" href=05_z-index.css>
+	<title>z-index</title>
+</head>
+<body>
+<section class="box_01">
+  <div><p></p></div>
+  <div></div>
+  <div></div>
+</section>
+
+<section class="box_02">
+  <div style="z-index: auto;"><p></p></div>
+  <div style="z-index: auto;"><p></p></div>
+</section>
+
+<section class="box_03">
+  <div><p></p></div>
+  <div><p></p></div>
+  <div><p></p></div>
+</section>
+
+<section class="box_04">
+  <div style="opacity: 0.99;"></div>
+  <div></div>
+  <div></div>
+</section>
+
+<section class="box_05">
+  <p>影斑驳，叶落纷纷，一路的繁华，消瘦在秋风里。</p>
+  <img src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md/images/demo/s730j6s0dg6zk.jpg">
+</section>
+<script src="./assets/js/utils.js"></script>
+<script>
+  Utils.ready()
+</script>
+</body>
+</html>

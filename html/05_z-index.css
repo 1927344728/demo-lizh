@@ -1,0 +1,98 @@
+.box_01 > div {
+  position: relative;
+  padding: 5px;
+  border-bottom: 1px solid #a0a;
+  min-height: 100px;
+}
+.box_01 > div:nth-child(1) {
+  background: #f00;
+  z-index: 10;
+}
+.box_01 > div:nth-child(1) p {
+  min-height: 80px;
+  margin-top: 40px;
+  background: #fa0;
+  z-index: -999;
+}
+.box_01 > div:nth-child(2) {
+  margin: -30px 0 0 30px;
+  background: #a0a;
+  z-index: 8;
+}
+.box_01 > div:nth-child(3) {
+  margin: -30px 0 0 60px;
+  background: #0aa;
+  z-index: 9;
+}
+
+.box_02 > div {
+  position: relative;
+}
+.box_02 > div > p {
+  position: relative;
+  min-height: 100px;
+}
+.box_02 > div:nth-child(1) > p {
+  margin: 0 0 -30px 30px;
+  background: #f00;
+  z-index: 2;
+}
+.box_02 > div:nth-child(2) > p {
+  background: #a0a;
+  z-index: 1;
+}
+
+.box_03 > div > p {
+  position: relative;
+  min-height: 100px;
+}
+.box_03 > div:nth-child(1) > p{
+  background: #f00;
+  z-index: 1;
+}
+.box_03 > div:nth-child(2) {
+  margin: -30px 0 0 30px;
+}
+.box_03 > div:nth-child(2) > p{
+  background: #a0a;
+}
+.box_03 > div:nth-child(3) {
+  margin: -30px 0 0 60px;
+}
+.box_03 > div:nth-child(3) > p{
+  background: #0aa;
+}
+
+.box_04 > div {
+  min-height: 100px;
+  background: #fff;
+}
+.box_04 > div:nth-child(1) {
+  border: 1px solid #f00;
+}
+.box_04 > div:nth-child(2) {
+  margin: -30px 0 0 30px;
+  border: 1px solid #a0a;
+}
+.box_04 > div:nth-child(3) {
+  margin: -30px 0 0 60px;
+  border: 1px solid #0aa;
+}
+
+.box_05 {
+  width: 300px;
+  position: relative;
+}
+.box_05 > img {
+  display: block;
+  width: 100%;
+}
+.box_05 > p {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 1;
+}

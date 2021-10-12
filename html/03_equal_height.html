@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href=assets\css\common.css>
+  <link rel="stylesheet" href=03_equal_height.css>
+  <title>等高布局</title>
+</head>
+
+<body>
+
+  <!--********************************************* 1.《等高布局》 *********************************************-->
+  <!--***************************** margin-bottom:-600px; padding-bottom:600px; ******************************-->
+  <!--***************************** 其值必须大于分栏高度；父标签的overflow是必须的 *****************************-->
+  <section>
+    <div class="box_01">
+      <div class="left">左边，无高度属性，自适应于最高一栏的高度左边，无高度属性，自适应于最高一栏的高度左边，无高度属性，自适应于最高一栏的高度</div>
+      <div class="center">中间，高度600像素，左右两栏的高度与之自适应</div>
+      <div class="right">右边，无高度属性，自适应于最高一栏的高度</div>
+    </div>
+  </section>
+
+  <!--********************************************* 2.《等高布局》 *********************************************-->
+  <!--***************************************** table-row, table-cell ******************************************-->
+  <!--************************************ 兼容性不好，在ie6-7无法正常运行 ***********************************-->
+  <section>
+    <div class="box_02">
+      <div class="item_02" style='background: #b83018;'>你一定也有过这种感觉的。...罗兰《寂寞的感觉》</div>
+      <div class="item_02" style='background: #e7e2dc;'>作为一个被基阿异捅过...水，四积阴功五读书。</div>
+      <div class="item_02" style='background: #503524;'>奔波了一...永远幸福快乐！</div>
+    </div>
+  </section>
+
+  <!--********************************************* 3.《等高布局》 *********************************************-->
+  <!--*************** 多层嵌套，每个层用不颜色，用relative偏移层，再对最里层的内容逐个相反的偏移 ***************-->
+  <section>
+    <div class="box_03">
+      <div style="background: red;">
+        <div style="background: green; left: 20%;">
+          <div class="item_03" style="background: yellow; left: 60%;">
+            <div style="width: 20%; left: -80%;">你一定也有过这种感觉的。...罗兰《寂寞的感觉》</div>
+            <div style="width: 40%; left: -80%;">作为一个被基阿异捅过...水，四积阴功五读书。</div>
+            <div style="width: 20%; left: -60%;">奔波了一...永远幸福快乐！</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--********************************************* 其他《等高布局》 *********************************************-->
+  <!--****************************************** jquery javascript控制 *******************************************-->
+  <!--****************************** 使用背景图片，在父元素上使用背景图进行Y轴的铺放******************************-->
+
+  <script src="./assets/js/utils.js"></script>
+  <script>
+    Utils.ready()
+  </script>
+</body>
+</html>
