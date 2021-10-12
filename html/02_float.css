@@ -1,0 +1,54 @@
+.box {
+  width: 600px;
+  height: 300px;
+  color: #0aa;
+  border: 1px solid #0aa;
+}
+
+.box > .item {
+  width: 300px;
+  height: 150px;
+  margin: 0 auto;
+  color: #fff;
+  background: #0aa;
+}
+
+.box_01 > img {
+  float: left;
+  width: 150px;
+  margin-right: 20px;
+}
+
+.box_02 img {
+  width: 100%;
+}
+.box_02 > .item_02 {
+  padding: 20px;
+  border: 1px solid #0aa;
+}
+.box_02 > .item_02 .container_float,
+.box_02 > .item_02 .img_float {
+  float: left;
+  width: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.box_02 > .item_02 .bg {
+  height: 50px;
+  margin-top: 5px;
+  background: #0aa;
+}
+
+.clear_float {
+  /*对IE6/7的兼容处理，触发 hasLayout*/
+  zoom: 1;
+}
+.clear_float:after,
+.clear_float::after {
+  clear: both;
+  content: '.';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
