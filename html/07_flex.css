@@ -1,0 +1,32 @@
+section {
+  display: none;
+}
+
+.box_01 {
+  display: flex;
+  padding: 10px;
+  border: 1px solid #0aa;
+}
+
+.box_01 .item_01 {
+  margin-right: 15px;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  background-color: #0aa;
+  white-space: nowrap;
+  /*background-color: #0aa;*/
+  /*background-color: #e08;*/
+  /*background-color: #f95;*/
+  /*background-color: #3b7;*/
+}
+
+.box_01 .item_01 .text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.box_01 .text_parent {
+  min-width: 0;
+}
