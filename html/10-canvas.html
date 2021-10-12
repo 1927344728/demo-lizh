@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <title>Canvas入门篇</title>
+</head>
+
+<body>
+  <style>
+    .box {
+      padding: 10px 0;
+      text-align: center;
+    }
+  </style>
+  <div class="box">
+    <canvas id="canvas" class="flex_item" width="500" height="500"></canvas>
+  </div>
+
+  <script src="./assets/js/utils.js"></script>
+  <script src="./10-canvas.js"></script>
+  <script>
+    Utils.ready().then(getContext2D).then(context => {
+      let type = Utils.getUrlParam('type') * 1 || 1
+      switch (type) {
+        case 1:
+          drawLine(context)
+          drawBrokenLine(context)
+          break
+        case 2:
+          drawLine(context)
+          drawMultBrokenLine(context)
+          break
+        case 3:
+          createLinearGradient(context)
+          break
+        case 4:
+          createRadialGradient(context)
+          break
+        case 5:
+          createPattern(context)
+          break
+        case 6:
+          drawArc(context)
+          break
+        case 7:
+          drawArcTo(context)
+          break
+        case 8:
+          drawQuadraticCurveTo(context)
+          break
+        case 9:
+          drawText(context)
+          break
+        case 10:
+          transform(context)
+          break
+        case 11:
+          setClip(context)
+          break
+        case 12:
+          drawImage(context)
+          break
+        case 13:
+          drawCircular(context)
+          break
+        case 14:
+          roundRect(context, 1, 1, 200, 100, 20)
+          break
+        case 15:
+          drawRoundImg(context, 1, 1, 200, 100, 20)
+          break
+        case 16:
+          drawRoundImg2(context, 1, 1, 200, 100, 20)
+          break
+        }
+    })
+  </script>
+</body>
+
+</html>
