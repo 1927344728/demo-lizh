@@ -1,0 +1,23 @@
+.box {
+  padding: 10px 20px;
+}
+.box_01 p:first-child {
+  font-size: 30px;
+  font-weight: bold;
+  color: green;
+}
+.first_child {
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+}
+.box_03::first-letter {
+  font-size: 30px;
+  font-weight: bold;
+  color: green;
+}
+.first_letter {
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+}
