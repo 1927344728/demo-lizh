@@ -1,0 +1,148 @@
+section {
+  border: 1px solid #0dd;
+}
+
+.item_01 ::-ms-check {
+  color: #0aa;
+  background: #f2f2f2;
+  padding: 10px;
+  border: 1px solid #0aa;
+}
+
+.box_02 input { width: 120px; }
+.item_02::-webkit-color-swatch-wrapper { 
+  border: 1px solid #777;
+  background-image: linear-gradient(to right, red, orange 15%, yellow 30%, green 50%, darkcyan 65%, blue 80%, purple);
+}
+.item_02::-webkit-color-swatch {
+  height: 21px;
+  position: relative;
+  left: 135px;
+  top: -5px; 
+}
+
+.item_03::-webkit-datetime-edit { padding: 1em; background: #f2f2f2; }
+.item_03::-webkit-datetime-edit-fields-wrapper { background: silver; }
+.item_03::-webkit-datetime-edit-text { color: red; padding: 0 0.3em; }
+.item_03::-webkit-datetime-edit-month-field { color: blue; }
+.item_03::-webkit-datetime-edit-day-field { color: green; }
+.item_03::-webkit-datetime-edit-year-field { color: purple; }
+.item_03::-webkit-inner-spin-button { display: none; }
+.item_03::-webkit-calendar-picker-indicator { background: #f2f2f2; color: orange }  
+
+
+.item_04::-ms-browse {
+  background: #0aa;
+  color: white;
+  padding: 1em;
+  border: 1px solid blue;
+  line-height: 20px;
+}
+.item_04::-webkit-file-upload-button {
+  background: #0aa;
+  color: white;
+  padding: 1em;
+  border: 1px solid blue;
+  line-height: 20px;
+}
+
+
+.item_05::-webkit-textfield-decoration-container { border: 2px solid red; }
+.item_05::-webkit-inner-spin-button {
+  /*color: red; // 无效
+  background: blue; // 无效*/
+  -webkit-appearance: none;
+}
+.item_05::-webkit-outer-spin-button {} 
+
+
+.item_06::-ms-reveal { color: white; background: #0aa; } 
+
+
+.item_07::-moz-placeholder { color: red; } 
+.item_07:-ms-input-placeholder { color: red; } 
+.item_07::-webkit-input-placeholder { color: red; } 
+
+
+.item_08::-moz-range-track {
+  border: 2px solid red;
+  height: 20px;
+  background: orange;
+}
+.item_08::-moz-range-thumb { background: blue; height: 30px; }
+.item_08::-ms-fill-lower { background: orange; }
+.item_08::-ms-fill-upper { background: green; }
+.item_08::-ms-ticks-after { display: block; color: blue; }
+.item_08::-ms-ticks-before { display: block; color: red; }
+.item_08::-ms-thumb { background: red; }
+.item_08::-ms-track { padding: 20px 0; }
+.item_08::-ms-tooltip { display: none; /* display and visibility only */ }  
+.item_08::-webkit-slider-runnable-track {
+  border: 2px solid #0aa;
+  background: #f2f2f2;
+  padding: 5px 0;
+}
+.item_08::-webkit-slider-thumb { outline: 2px solid #0aa; }
+
+
+.item_09 { -webkit-appearance: none; }
+.item_09::-webkit-search-cancel-button { -webkit-appearance: none; }
+.item_09::-webkit-search-results-button { -webkit-appearance: none; }  
+
+
+.item_10 input { appearance: none; border: 1px solid #0aa; }
+.item_10 ::-ms-value { color: white; background: #0aa; padding: 10px; }
+.item_10 ::-ms-clear { color: #0aa; background: #f2f2f2; padding: 10px; }
+
+
+.box_11 button::-moz-focus-inner,
+.box_11 input::-moz-focus-inner {
+  border: 1px dotted transparent;
+  padding: 0 2px;
+}
+
+
+.item_12 ::-webkit-meter-bar {
+  height: 30px;
+  background: #f2f2f2;
+  border: 1px solid #0aa;
+}
+.item_12 ::-webkit-meter-optimum-value { background: green; }
+.item_12 ::-webkit-meter-suboptimum-value { background: orange; }
+.item_12 ::-webkit-meter-even-less-good-value { background: blue; }  
+
+
+.item_13 progress { -webkit-appearance: none; }
+.item_13 ::-webkit-progress-inner-element { background: black; }
+.item_13 ::-webkit-progress-bar { border: 2px solid #0aa; }
+.item_13 ::-webkit-progress-value { background: orange; }
+.item_13 ::-moz-progress-bar { background: red; }
+.item_13 ::-ms-fill { background: red; }
+
+
+.item_14 { border: 1px solid #0aa; }
+.item_14::-ms-expand {
+  padding: 10px;
+  color: red;
+  background: #0aa;
+  border: 1px solid #0aa;
+}
+
+.item_15 { resize: none; }
+.item_15::-webkit-resizer {
+  display：none;
+  -webkit-appearance: none;
+
+  /*border: 1px solid #0aa;*/
+  /*background: #0aa;*/
+  /*outline: 1px solid yellow;*/
+} 
+
+
+.item_16 { border: 1px solid #0aa; }
+.item_16::-webkit-validation-bubble { padding: 1em;  background: red;  }
+.item_16::-webkit-validation-bubble-arrow { background: blue;  }
+.item_16::-webkit-validation-bubble-arrow-clipper { border: 2px solid black;  }
+.item_16::-webkit-validation-bubble-heading { background: green;  }
+.item_16::-webkit-validation-bubble-message { color: white;  background: purple;  }
+.item_16::-webkit-validation-bubble-text-block { border: 1px solid red;  padding: 1em; }

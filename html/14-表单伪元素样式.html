@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href=assets\css\common.css>
+  <link rel="stylesheet" href=14-表单伪元素样式.css>
+  <title>伪元素样式</title>
+</head>
+<body>
+<section>
+  <div>
+    <input type="checkbox">
+    <input type="radio">
+  </div>
+  <div class="item_01">
+    <input type="checkbox">
+    <input type="radio">
+  </div>
+</section>
+
+<section class="box_02">
+  <input type="color">
+  <br /><br />
+  <input class="item_02" type="color">
+</section>
+
+<section>
+  <input type="date">
+  <br/><br/>
+  <input class="item_03" type="date">
+</section>
+
+<section>
+  <input type="file">
+  <input class="item_04" type="file">
+</section>
+
+<section>
+  <input type="number">
+  <br/><br/>
+  <input class="item_05" type="number">
+</section>
+
+<section>
+  <input type="password">
+  <br/> <br/>
+  <input class="item_06" type="password">
+</section>
+
+<section>
+  <input type="text" placeholder="placeholder">
+  <input class="item_07" type="text" placeholder="placeholder">
+</section>
+
+<section>
+  <input type="range">
+  <br /> <br />
+  <input class="item_08" type="range">
+</section>
+
+<section>
+  <input type="search">
+  <br /> <br />
+  <input class="item_09" type="search">
+</section>
+
+<section>
+  <div>
+    <input type="text" value="value">
+    <input type="password" value="value">
+    <select>
+      <option selected>option</option>
+    </select>
+  </div>
+  <div class="item_10">
+    <input type="text" value="value">
+    <input type="password" value="value">
+    <select>
+      <option selected>option</option>
+    </select>
+  </div>
+</section>
+
+<section class="box_11">
+  <div>
+    <button>button</button>
+    <input type="reset" value="reset">
+    <input type="submit">
+    <input type="file">
+    <input type="button" value="button">
+  </div>
+  <div class="element_item11">
+    <button>button</button>
+    <input type="reset" value="reset">
+    <input type="submit">
+    <input type="file">
+    <input type="button" value="button">
+  </div>
+</section>
+
+<section>
+  <div>
+    <meter low="69" high="80" max="100" optimum="100" value="92">A</meter>
+    <meter low="69" high="80" max="100" optimum="100" value="72">C</meter>
+    <meter low="69" high="80" max="100" optimum="100" value="52">E</meter> 
+  </div>
+  <div class="item_12">
+    <meter low="69" high="80" max="100" optimum="100" value="92">A</meter>
+    <meter low="69" high="80" max="100" optimum="100" value="72">C</meter>
+    <meter low="69" high="80" max="100" optimum="100" value="52">E</meter> 
+  </div>
+</section>
+
+<section>
+  <div>
+    <progress max="100" value="50"></progress> 
+    <progress max="100" value="75"></progress> 
+    <progress max="100" value="90"></progress> 
+  </div>
+  <div class="item_13">
+    <progress max="100" value="50"></progress> 
+    <progress max="100" value="75"></progress> 
+    <progress max="100" value="90"></progress> 
+  </div>
+</section>
+
+<section>
+  <select>
+    <option selected>One</option>
+  </select>
+  <br/><br/>
+  <select class="item_14">
+    <option selected>One</option>
+  </select>  
+</section>
+
+<section>
+  <textarea></textarea>
+  <textarea class="item_15"></textarea>
+</section>
+
+<section>
+  <form class="item_16">
+    <input type="email" required>
+    <br /><br />
+    <input type="submit">
+  </form>
+</section>
+
+<script src="./assets/js/utils.js"></script>
+<script>
+  Utils.ready()
+</script>
+</body>
+</html>
