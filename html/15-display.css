@@ -1,0 +1,46 @@
+.box_02 img {
+  height: 200px;
+}
+
+
+.box_03 span {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: cambodian;
+}
+
+
+.box_04 {
+  display: table-cell;
+  width: 600px;
+  height: 300px;
+  border: 1px solid #0aa;
+  vertical-align: middle;
+  text-align: center;
+}
+.box_04 img {
+  height: 200px;
+}
+
+
+.box_05 img {
+  float: left;
+  height: 120px;
+  margin-right: 20px;
+}
+.item_05 {
+  display: table-cell;
+  width: 600px;
+  padding: 20px;
+  border: 1px solid #0aa;
+}
+
+
+.box_06 {
+  display: table-row;
+}
+.item_06 {
+  display: table-cell;
+  width: 33.3333%;
+  padding: 20px;
+}
