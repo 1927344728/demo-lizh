@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href=assets\css\common.css>
+  <title>input输入限制</title>
+</head>
+
+<body>
+  <style>
+    .box_01 {
+      width: 100%;
+      padding: 10px 20px;
+      box-sizing: border-box;
+    }
+
+    .box_01 .item_01 input {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+      outline: 0;
+      border: 1px solid #0aa;
+      border-radius: 5px;
+      -webkit-appearance: none;
+      box-sizing: border-box;
+    }
+  </style>
+  <section class="box_01">
+    <div class="item_01">
+      <input
+        type="text"
+        onkeydown="funcKeydown()"
+        onkeypress="funcKeypress()"
+        onkeyup="funcKeyup()"
+      />
+    </div>
+  </section>
+  <script src="./assets/js/utils.js"></script>
+  <script>
+    function funcKeydown() {
+      if (event.keyCode === 13) {
+        event.keyCode = 9
+      }
+      console.log('down: ')
+      console.log(`keyCode=${event.keyCode}, which=${event.which}, charCode=${event.charCode} `)
+    }
+    function funcKeypress() {
+      console.log('press: ')
+      console.log(`keyCode=${event.keyCode}, which=${event.which}, charCode=${event.charCode} `)
+    }
+    function funcKeyup() {
+      console.log('up: ')
+      console.log(`keyCode=${event.keyCode}, which=${event.which}, charCode=${event.charCode} `)
+    }
+  </script>
+  <script>
+    Utils.ready().then(() => {
+      window.addEventListener('message', event => {
+        document.querySelector('input').style.borderColor = event.data
+        setTimeout(() => {
+          event.source.postMessage(`您好，我是iframe页面：12-input.html。<br/>我已经接收到信息：<span style="color: red;">${event.data}</span>，输入框边框颜色已改！总计耗时1s`, event.origin);
+        }, 1000)
+        console.log(window.parent[0].document.body)
+      });
+    })
+  </script>
+</body>
+
+</html>
