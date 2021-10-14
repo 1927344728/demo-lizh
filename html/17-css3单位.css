@@ -1,0 +1,12 @@
+.box_01 {
+  width: 900px!important;
+}
+.box_01 .item_01 {
+  display: inline-block;
+  width: 200px;
+  height: 150px;
+  margin-right: 20px;
+  border: 20pt solid #0aa;
+  background: url(https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/images/nice/20190419141711_9501mvvwvonf_small.jpg) no-repeat #eaf5ff;
+  background-size: 150px;
+}
