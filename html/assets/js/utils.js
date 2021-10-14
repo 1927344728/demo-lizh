@@ -18,13 +18,13 @@ let Utils = {
         Array.prototype.slice.apply(document.querySelectorAll('section')).map((ele, i) => {
           ele.style.display = i === type - 1 ? 'block' : 'none'
         })
-        resolve()
+        resolve(type)
       } else {
         document.addEventListener("DOMContentLoaded", () => {
           Array.prototype.slice.apply(document.querySelectorAll('section')).map((ele, i) => {
             ele.style.display = i === type - 1 ? 'block' : 'none'
           })
-          resolve()          
+          resolve(type)          
         })
       } 
     })

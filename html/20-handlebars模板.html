@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <title>handlebars模板</title>
+</head>
+<body>
+<style>
+  .box_01 span {
+    color: #0aa;
+  }
+</style>
+<div class="box_01"></div>
+
+<script id="html-template" type="text/x-handlebars-template">
+  <div>
+      <h1>{{title}}</h1>
+      <div>
+          Hellow, I am <span>{{body}}</span>.
+      </div>
+  </div>
+</script>
+<script src="assets/js/handlebars-v4.7.6.js"></script>
+<script src="./assets/js/utils.js"></script>
+<script src="./20-handlebars模板.js"></script>
+<script>
+  Utils.ready().then(type => {
+    let elementBox1 =  document.querySelector('.box_01')
+    elementBox1.innerHTML = funcs[`handlebarsTest${type}`]()
+  })
+</script>
+</body>
+</html>
