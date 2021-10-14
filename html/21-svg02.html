@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href=assets\css\common.css>
+  <link rel="stylesheet" href=21-svg.css>
+  <title>svg</title>
+</head>
+
+<body>
+  <section class="box_11">
+    <svg width="300px" height="150px" style="border: 1px solid #ccc;">
+      <path d="M0 30 C 100 30 150 150 300 30" fill="none" stroke="#0aa" stroke-width="3px" />
+      <path d="M0 100 Q 150 180 300 100" fill="none" stroke="orange" />
+    </svg>
+  </section>
+
+  <section class="box_12">
+    <svg width="600" height="300" style="border: 1px solid #eee;">
+      <path d="M250,100 A120,80 0 0 0 250,200" fill="none" stroke="red" stroke-width="5" />
+      <path d="M250,100 A120,80 0 1 1 250,200" fill="none" stroke="#0aa" stroke-width="3" />
+      <path d="M250,100 A120,80 0 1 0 250,200" fill="none" stroke="orange" stroke-width="1" />
+      <path d="M250,100 A120,80 0 0 1 250,200" fill="none" stroke="#a0a" stroke-width="3" />
+    </svg>
+  </section>
+
+  <section class="box_13">
+    <svg width="300" height="150" style="border: 1px solid #eee;">
+      <defs>
+        <marker id="markerCircle" markerWidth="20" markerHeight="20" refX="5" refY="5">
+          <circle cx="5" cy="5" r="3" style="stroke: none; fill: orange;" />
+        </marker>
+        <marker id="markerCircle2" markerWidth="8" markerHeight="8" refX="5" refY="5">
+          <circle cx="5" cy="5" r="5" style="stroke: none; fill: red;" />
+        </marker>
+        <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="2" refY="6" orient="auto"
+          markerUnits="strokeWidth">
+          <path d="M2,2 L2,11 L10,6 L2,2" style="fill: orange;" />
+        </marker>
+      </defs>
+      <path d="M75 25 h150 v100 l -100 -50"
+        style="stroke: #0aa; fill: none; marker-start: url(#markerCircle); marker-mid: url(#markerCircle2);  marker-end: url(#markerArrow); " />
+    </svg>
+  </section>
+
+  <section class="box_14">
+    <svg viewBox="0 0 100 100" style="width: 300px; border: 1px solid #eee;">
+      <clipPath id="myClip">
+        <circle cx="40" cy="35" r="35" />
+      </clipPath>
+      <path id="heart" d="M10 30 A20 20 0 0 1 50 30 A20 20 0 0 1 90 30 Q90 60 50 90 Q10 60 10 30 Z"
+        style="clip-path: url(#myClip);" fill="#0aa" />
+    </svg>
+  </section>
+
+  <section class="box_15">
+    <svg viewBox="0 0 300 300" style="width: 300px; border: 1px solid #eee;">
+      <defs>
+        <g id="shape" stroke-width="1">
+          <line x1="150" y1="150" x2="150" y2="300" />
+          <circle cx="150" cy="150" r="120" />
+        </g>
+      </defs>
+      <symbol id="shape2">
+        <circle cx="75" cy="75" r="75" style="fill: orange;" />
+      </symbol>
+      <use xlink:href="#shape" style="stroke: #0aa; fill: none;" />
+      <use xlink:href="#shape2" x="150" y="75" />
+    </svg>
+  </section>
+
+  <section class="box_16">
+    <svg width="400" height="300" viewBox="0,0,40,30" style="border: 1px solid #eee;">
+      <rect x="10" y="5" width="20" height="15" fill="#0aa" />
+      <line x1="20" y1="15" x2="20" y2="30" stroke="orange" stroke-width="2" />
+    </svg>
+  </section>
+
+  <section class="box_17">
+    <div class="item_17">
+      <span style="transform: rotate(45deg);">HTML元素</span>
+    </div>
+    <svg class="item_17_02" width="300" height="300" viewBox="0,0,30,30" style="border: 1px solid #ccc;">
+      <g transform="rotate(45)">
+        <rect x="7" y="2" rx="2" ry="2" width="14" height="4" fill="#0aa" />
+        <text x="10" y="5" font-size="2" fill="#fff">SVG元素</text>
+      </g>
+    </svg>
+  </section>
+
+  <section class="box_18">
+    <svg width="320" height="320">
+      <g>
+        <text font-family="microsoft yahei" font-size="80" y="160" x="160" fill="#0aa">
+          SVG
+          <set attributeName="x" attributeType="XML" to="60" begin="2s" />
+        </text>
+      </g>
+    </svg>
+  </section>
+
+  <section class="box_19">
+    <svg width="320" height="320">
+      <g>
+        <text font-family="microsoft yahei" font-size="80" y="160" x="160" fill="#0aa">
+          SVG
+          <animate attributeName="x" from="160" to="60" begin="0s" dur="3s" repeatCount="indefinite" />
+        </text>
+      </g>
+    </svg>
+  </section>
+
+  <section class="box_20">
+    <svg width="640" height="640">
+      <g>
+        <text font-family="microsoft yahei" font-size="80" y="160" x="160" fill="#0aa">
+          SVG
+          <animateTransform attributeName="transform" begin="0s" dur="3s" type="scale" from="1" to="1.5" repeatCount="indefinite" />
+        </text>
+      </g>
+    </svg>
+  </section>
+  <script src="./assets/js/utils.js"></script>
+  <script>
+    Utils.ready().then(type => {
+      Array.prototype.slice.apply(document.querySelectorAll('section')).map((ele, i) => {
+        ele.style.display = i === type - 10 - 1 ? 'block' : 'none'
+      })
+    })
+  </script>
+</body>
+
+</html>

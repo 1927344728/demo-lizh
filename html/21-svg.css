@@ -1,0 +1,33 @@
+@keyframes openYourHeart {
+  from {
+    r: 10px;
+  }
+  to {
+    r: 60px;
+  }
+}
+#myClip circle {
+  animation: openYourHeart 5s infinite;
+}
+
+.item_17 {
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ccc;
+  vertical-align: top;
+}
+.item_17 span {
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 30px;
+  border-radius: 120px;
+  background: #0aa;
+  color: #fff;
+}
+.item_17_02 {
+  display: inline-block;
+  vertical-align: top;
+}
