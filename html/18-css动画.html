@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href=assets\css\common.css>
+  <link rel="stylesheet" href=18-css动画.css>
+  <title>css动画</title>
+</head>
+<body>
+<section>
+  <div class="item_01"></div>
+  <div class="item_01_02"></div>
+  <p style="color: #ccc;">鼠标划过，查看动画效果</p>
+</section>
+
+<section>
+  <div class="item_02"></div>
+</section>
+
+<section>
+  <div class="item_03 item_03_01"></div>
+  <div class="item_03 item_03_02"></div>
+  <div class="item_03 item_03_03"></div>
+  <div class="item_03 item_03_04"></div>
+</section>
+
+<section>
+  <div class="element_box box_04">
+    <p>normal:</p>
+    <div class="item_04 item_04_01"></div>
+    <p>alternate:</p>
+    <div class="item_04 item_04_02"></div>
+    <p>reverse:</p>
+    <div class="item_04 item_04_03"></div>
+    <p>alternate-reverse:</p>
+    <div class="item_04 item_04_04"></div>
+  </div>
+</section>
+
+<section class="box_05">
+  <p>none:</p>
+  <div class="item_05 item_05_01"></div>
+  <p>forwards:</p>
+  <div class="item_05 item_05_02"></div>
+  <p>forwards + reverse:</p>
+  <div class="item_05 item_05_03"></div>
+  <p>backwards:</p>
+  <div class="item_05 item_05_04"></div>
+  <p>backwards + reverse:</p>
+  <div class="item_05 item_05_05"></div>
+  <p>both:</p>
+  <div class="item_05 item_05_06"></div>
+</section>
+
+<section class="box_06">
+  <div class="item_06">
+    <div class="item_06_face item_06_face_01">天</div>
+    <div class="item_06_face item_06_face_02">地</div>
+    <div class="item_06_face item_06_face_03">玄</div>
+    <div class="item_06_face item_06_face_04">黄</div>
+    <div class="item_06_face item_06_face_05">宇</div>
+    <div class="item_06_face item_06_face_06">宙</div>
+  </div>
+</section>
+
+<script src="./assets/js/utils.js"></script>
+<script>
+  Utils.ready().then(() => {
+    document.querySelector('.item_01_02').addEventListener("transitionend", event => {
+      console.log(event.propertyName)
+    }, true)
+  })
+</script>
+</body>
+</html>
