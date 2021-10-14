@@ -1,0 +1,80 @@
+.box_01 {
+  padding: 10px 20px;
+  border: 1px solid #0aa;
+}
+.box_01 img {
+  width: 290px;
+}
+.box_01 img.mask {
+  animation: aniMask 2s infinite;
+}
+@keyframes aniMask {
+  0 {
+    -webkit-mask-image: conic-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+  }
+  100% {
+    -webkit-mask-image: conic-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  }
+}
+
+.box_02 {
+  font-size: 42px;
+  font-family: 'Times New Roman';
+  text-align: center;
+}
+.box_02 span {
+  color: transparent;
+  -webkit-text-stroke: 1px red;
+}
+
+.box_03 {
+  font-size: 24px;
+  text-align: center;
+}
+.box_03 img {
+  width: 200px;
+  -webkit-box-reflect: below 5px linear-gradient(to right, transparent, white);
+}
+.box_03 span {
+  display: inline-block;
+  color: #0aa;
+  -webkit-box-reflect: below 5px;
+}
+
+.box_04 {
+  font-size: 24px;
+  text-align: center;
+  color: #0aa;
+}
+
+.box_05 {
+  font-size: 100px;
+  text-align: center;
+}
+.box_05 .two {
+  background: linear-gradient(to right, #0aa 0%, #0aa 50%, red 50%, red 100%); 
+  color: transparent;
+  -webkit-background-clip: text;
+}
+.box_05 .gradient {
+  background: linear-gradient(to right, #0aa 0%, red 100%); 
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+.item_06 {
+  width: 600px;
+  margin-bottom: 10px;
+  padding: 20px;
+  border: 1px solid #0aa;
+}
+.item_06.columns {
+  columns: 3;
+  column-rule: 1px solid #0aa;
+  column-gap: 30px;
+  column-fill: auto;
+  height: 210px;
+}
+.item_06.columns h3 {
+  column-span: all;
+}
