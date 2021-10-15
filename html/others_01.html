@@ -1,37 +1,127 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href=assets\css\common.css>
   <link rel="stylesheet" href=others_01.css>
   <title>其他DEMO</title>
 </head>
+
 <body>
 
-<!--像素小数点-->
-<section class="box_01">
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</section>
+  <!--像素小数点-->
+  <section class="box_01">
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </section>
 
-<script src="./assets/js/utils.js"></script>
-<script>
-  Utils.ready().then(() => {
-    console.log('LI元素的CSS计算高度和实际渲染高度：')
-    Array.prototype.slice.call(document.querySelector('.box_01').getElementsByTagName('li')).map((e, i) => {
-      console.log(`第${i + 1}个：`, getComputedStyle(e).height, e.clientHeight)
+  <script src="./assets/js/utils.js"></script>
+  <script src="./others_01_01.js"></script>
+  <script src="./others_01_02.js"></script>
+  <script>
+    var gType = Utils.getUrlParam('type') * 1 || 1
+    var webSql = null
+    var myIndexedDB = null
+    Utils.ready().then(type => {
+      switch (type) {
+        case 1: {
+          console.log('LI元素的CSS计算高度和实际渲染高度：')
+          Array.prototype.slice.call(document.querySelector('.box_01').getElementsByTagName('li')).map((e, i) => {
+            console.log(`第${i + 1}个：`, getComputedStyle(e).height, e.clientHeight)
+          })
+          break
+        }
+        case 3: {
+          webSql = new MyWebSql()
+          webSql.tCreate()
+          webSql.tInsert()
+          webSql.tSelect()
+          // webSql.tUpdate()
+          // webSql.tDelete()
+          // webSql.tDrop()
+          
+          let dom = document.createElement('section')
+          dom.innerHTML = '在开发者工具查看创建的数据库：<br /> Application -> 左侧 Storage -> Web SQL'
+          dom.style.display = 'block'
+          document.body.append(dom)
+          break
+        }
+        case 4: {
+          new MyIndexedDB().then(res => {
+            myIndexedDB = res
+            myIndexedDB.add()
+            myIndexedDB.read(1)
+            // myIndexedDB.remove(1)
+            // myIndexedDB.put({ id: 1, name: '张三（更新）', email: 'zhangsan@example.com（更新）' })
+            // myIndexedDB.readAll()
+          })
+          let dom = document.createElement('section')
+          dom.innerHTML = '在开发者工具查看创建的数据库：<br /> Application -> 左侧 Storage -> IndexedDB（右键，点击 Refresh IndexedDB）'
+          dom.style.display = 'block'
+          document.body.append(dom)
+          break
+        }
+        default: {
+          break
+        }
+      }
     })
-  })
-</script>
+  </script>
+  <script>
+    function funcQ() {
+      funcR = function () {
+        console.log('1')
+      }
+      return this
+    }
+    funcQ.funcR = function () {
+      console.log('2')
+    }
+    funcQ.prototype.funcR = function () {
+      console.log('3')
+    }
+    var funcR = function () {
+      console.log('4')
+    }
+    function funcR() {
+      console.log(5)
+    }
+
+    if (gType === 2) {
+      funcQ.funcR()
+      funcR()
+      funcQ().funcR()
+      funcR()
+      new funcQ.funcR()
+      new funcQ().funcR()
+      new new funcQ().funcR()
+
+      let dom = document.createElement('section')
+      dom.innerHTML = `
+        2<br/>
+        4<br/>
+        1<br/>
+        1<br/>
+        2<br/>
+        3<br/>
+        3<br/>
+      `
+      dom.style.display = 'block'
+      document.body.append(dom)
+    }
+  </script>
 </body>
+
 </html>
