@@ -75,7 +75,7 @@ function createPattern(context) {
   canvas.width = 200
   canvas.height = 200
   let img = new Image()
-  img.src = "./assets/img/pins_3338674420.jpg"
+  img.src = "assets/img/pins_3338674420.jpg"
   img.onload = function () {
     context2.drawImage(img, 0, 0, 200, 200)
     let pattern = context.createPattern(canvas, 'no-repeat')
@@ -171,7 +171,7 @@ function setClip(context) {
   context.arc(100, 100, 100, 2 * Math.PI, false)
   context.clip()
   let img = new Image()
-  img.src = "./assets/img/pins_3338674420.jpg"
+  img.src = "assets/img/pins_3338674420.jpg"
   img.onload = function () {
     context.drawImage(img, 0, 0, 350, 250)
     context.closePath()
@@ -187,7 +187,7 @@ function setClip(context) {
 }
 function drawImage(context) {
   let img = new Image()
-  img.src = "./assets/img/pins_3338674420.jpg"
+  img.src = "assets/img/pins_3338674420.jpg"
   img.onload = function () {
     // context.drawImage(img, 0, 0, 500, 500, 0, 0, window.innerWidth, window.innerHeight)
     context.drawImage(img, 0, 0, 350, 250)
@@ -223,7 +223,7 @@ function roundRect(context, x, y, w, h, r) {
 function drawRoundImg(ctx, x, y, w, h, r) {
   ctx.save();
   let img = new Image()
-  img.src = "./assets/img/pins_3338674420.jpg"
+  img.src = "assets/img/pins_3338674420.jpg"
   img.onload = function () {
     roundRect(ctx, x, y, w, h, r)
     ctx.clip();
@@ -234,7 +234,7 @@ function drawRoundImg(ctx, x, y, w, h, r) {
 function drawRoundImg2(ctx, x, y, w, h, r) {
   ctx.save();
   let img = new Image()
-  img.src = "./assets/img/pins_3338674420.jpg"
+  img.src = "assets/img/pins_3338674420.jpg"
   img.onload = function () {
     let pattern = ctx.createPattern(img, "no-repeat");
     roundRect(ctx, x, y, w, h, r)

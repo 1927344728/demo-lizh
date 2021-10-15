@@ -35,8 +35,8 @@
     <p class="children_tx"></p>
   </div>
 
-  <script src="./assets/js/utils.js"></script>
-  <script src="./11-promise.js"></script>
+  <script src="assets/third/utils.js"></script>
+  <script src="assets/js/11-promise.js"></script>
   <script>
     Utils.ready().then(() => {
       window.addEventListener('message', event => {
@@ -49,18 +49,18 @@
       let type = Utils.getUrlParam('type') * 1 || 1
       switch (type) {
         case 1: {
-          loadImage('./assets/img/pins_3338674420.jpg').then(res => {
-            console.log('加载成功！', './assets/img/pins_3338674420.jpg')
+          loadImage('assets/img/pins_3338674420.jpg').then(res => {
+            console.log('加载成功！', 'assets/img/pins_3338674420.jpg')
           }, err => {
-            console.log('加载失败！', './assets/img/pins_3338674420.jpg')
+            console.log('加载失败！', 'assets/img/pins_3338674420.jpg')
           })
-          loadImage('./assets/img/pins_3338674420_ERROR.jpg').then(res => {
-              console.log('加载成功！', './assets/img/pins_3338674420_ERROR.jpg')
+          loadImage('assets/img/pins_3338674420_ERROR.jpg').then(res => {
+              console.log('加载成功！', 'assets/img/pins_3338674420_ERROR.jpg')
           }).catch( err => {
-              console.log('加载失败！', './assets/img/pins_3338674420_ERROR.jpg')
+              console.log('加载失败！', 'assets/img/pins_3338674420_ERROR.jpg')
           })
 
-          getText("./assets/other/%E7%BE%8E%E4%BA%BA%E8%B0%B7%20-%20%E9%98%BF%E5%85%B0.vtt").then(json => {
+          getText("assets/other/%E7%BE%8E%E4%BA%BA%E8%B0%B7%20-%20%E9%98%BF%E5%85%B0.vtt").then(json => {
             console.log('Contents: ' + json)
           }, error => {
             console.error('出错了', error)

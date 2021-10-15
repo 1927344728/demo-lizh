@@ -6,7 +6,7 @@
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href=assets\css\common.css>
-  <link rel="stylesheet" href=others_01.css>
+  <link rel="stylesheet" href=assets\css\others_01.css>
   <title>其他DEMO</title>
 </head>
 
@@ -27,9 +27,9 @@
     </ul>
   </section>
 
-  <script src="./assets/js/utils.js"></script>
-  <script src="./others_01_01.js"></script>
-  <script src="./others_01_02.js"></script>
+  <script src="assets/third/utils.js"></script>
+  <script src="assets/js/others_01_01.js"></script>
+  <script src="assets/js/others_01_02.js"></script>
   <script>
     var gType = Utils.getUrlParam('type') * 1 || 1
     var webSql = null
@@ -38,9 +38,16 @@
       switch (type) {
         case 1: {
           console.log('LI元素的CSS计算高度和实际渲染高度：')
+          let heights = []
           Array.prototype.slice.call(document.querySelector('.box_01').getElementsByTagName('li')).map((e, i) => {
-            console.log(`第${i + 1}个：`, getComputedStyle(e).height, e.clientHeight)
+            let str = `第${i + 1}个：${getComputedStyle(e).height} ${e.clientHeight}`
+            heights.push(str)
+            console.log(str)
           })
+          let dom = document.createElement('section')
+          dom.innerHTML = heights.join('<br/>')
+          dom.style.display = 'block'
+          document.body.append(dom)
           break
         }
         case 3: {
