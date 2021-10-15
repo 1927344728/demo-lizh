@@ -1,4 +1,4 @@
-// https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md/images/js/image-20200803225915556.png
+// https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md_images/image-20200803225915556.png
 let Utils = {
 	getUrlParam: name => {
 		let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i")
