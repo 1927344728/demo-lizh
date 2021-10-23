@@ -1,0 +1,11 @@
+@import 'base.css';
+@import 'vars.css';
+.test_container {
+  & .test_body {
+    display: flex;
+    & > div {
+      flex: 1;
+      text-align: center;
+    }
+  }
+}

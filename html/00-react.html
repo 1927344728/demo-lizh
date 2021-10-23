@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href=assets\css\common.css>
+  <link rel="stylesheet" href=assets\css\00-react.css>
+  <title>CSS</title>
+</head>
+
+<body>
+  <section class="box_01"></section>
+
+  <script src="assets/third/utils.js"></script>
+  <script src="assets\third\react.development@17.0.2.js"></script>
+  <script src="assets\third\react-dom.development@17.0.2.js"></script>
+  <script>
+    Utils.ready().then(() => {
+      React.createElement(
+        'button',
+        { onClick: () => this.setState({ liked: true }) },
+        'Like'
+      )
+      ReactDOM.render(0, document.querySelector('.box_01'))
+    })
+  </script>
+</body>
+
+</html>

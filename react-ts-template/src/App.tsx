@@ -11,6 +11,7 @@ import { createStore } from 'redux'
 import Index from '@/pages/index'
 import About from '@/pages/about'
 import Dashboard from '@/pages/dashboard'
+import Test from '@/pages/test'
 import Reducers from '@/store'
 import {
   initPageBasicConfig
@@ -30,6 +31,7 @@ function App() : any {
         <Route exact path="/" component={Index} />
         <Route path="/about" component={About} />
         <Route path="/dashboard" component={Dashboard} />
+        <Route path="/test" component={Test} />
       </Switch>
     </Router>
   </Provider>
