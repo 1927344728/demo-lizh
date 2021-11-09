@@ -1,5 +1,7 @@
 <template>
-  <div class="class_name" />
+  <div class="class_name">
+    Hello, Welcome!
+  </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
