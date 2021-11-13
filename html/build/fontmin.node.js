@@ -9,7 +9,6 @@ const fontmin = new Fontmin()
       有情芍药含春泪，
       无力蔷薇卧晓枝。
     `,
-    hinting: false // keep ttf hint info (fpgm, prep, cvt). default = true
-}));
-
+    hinting: false
+}))
 fontmin.run()
