@@ -26,10 +26,32 @@
       <li></li>
     </ul>
   </section>
+  <section class="box_02"></section>
+  <section class="box_03"></section>
+  <section class="box_04"></section>
+  <section class="box_05"></section>
+  <section class="box_06">
+    <form onsubmit="submitForm(event)">
+      <label for="name">姓名:</label>
+      <input type="text" name="name">
+      <!-- <input type="submit"> -->
+      <!-- <input type="image"> -->
+      <!-- <button>提交</button> -->
+    </form>
+  </section>
+  <section class="box_07">
+    <div>
+      一夕轻雷落万丝，<br>
+      霁光浮瓦碧参差。<br>
+      有情芍药含春泪，<br>
+      无力蔷薇卧晓枝。
+    </div>
+  </section>
 
   <script src="assets/third/utils.js"></script>
   <script src="assets/js/others_01_01.js"></script>
   <script src="assets/js/others_01_02.js"></script>
+  <script src="assets/js/others_01_03.js"></script>
   <script>
     var gType = Utils.getUrlParam('type') * 1 || 1
     var webSql = null
@@ -79,6 +101,17 @@
           dom.style.display = 'block'
           document.body.append(dom)
           break
+        }
+        case 5: {
+          window.addEventListener('beforeunload', (event) => {
+            // Cancel the event as stated by the standard.
+            event.preventDefault()
+            // Chrome requires returnValue to be set.
+            event.returnValue = ''
+          });
+        }
+        case 6: {
+
         }
         default: {
           break
