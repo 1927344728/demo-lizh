@@ -26,20 +26,20 @@ body > section.box_01 ul li:nth-child(2n) {
 
 @font-face {
   font-family: 'FZQCTJT';
-  src: url(../font/font_spider/方正清纯体简体.ttf) format('truetype');
+  src: url(../assets/font/方正清纯体简体.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'HYFXGLSF';
-  src: url(d:/MyCode/demo-lizh/html/assets/css/test/汉仪范笑歌隶书繁.ttf) format('truetype');
+  src: url(../assets/font/汉仪范笑歌隶书繁.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
   unicode-range: u+9701, u+5149, u+6d6e, u+74e6, u+78a7, u+53c2, u+5dee, u+3002, u+000d, u+000a, u+6709, u+60c5, u+828d, u+836f, u+542b, u+6625, u+6cea, u+ff0c, u+000d, u+000a, u+65e0, u+529b, u+8537, u+8587, u+5367, u+6653, u+679d, u+3002;
 }
 @font-face {
   font-family: 'ZKXWT';
-  src: url(../font/font_spider/ZhanKuXiaoLOGOTi-2.otf);
+  src: url(../assets/font/ZhanKuXiaoLOGOTi-2.otf);
 }
 .box_07 > div {
   display: table-cell;

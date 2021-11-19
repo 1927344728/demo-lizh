@@ -19,22 +19,63 @@
     </div>
   </section>
 
-  <script src="assets/third/utils.js"></script>
-  <script>
-    Utils.ready().then(() => {
-      const boxDom01 = document.querySelector('.box_01')
-      const itemDom01 = document.querySelector('.item_01_01')
-      const itemDom02 = document.querySelector('.item_01_02')
-      itemDom02.innerHTML = itemDom01.innerHTML
+  <section class="box_02">
+    <div class="ring">
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="percent"></div>
+    </div>
+    <div class="interaction_form r2">
+      <span onclick="document.querySelector('.box_02 .percent_value').value -= 10; onChangePercentValue2(2)">-</span>
+      <input class="percent_value" type="del" placeholder="请输入角度值(0-360)" value="60" oninput="onChangePercentValue2(2)">
+      <span onclick="document.querySelector('.box_02 .percent_value').value = document.querySelector('.box_02 .percent_value').value * 1 + 10; onChangePercentValue2(2)">+</span>
+    </div>
+  </section>
+  <section class="box_03">
+    <div class="ring"></div>
+    <div class="interaction_form r3">
+      <span onclick="document.querySelector('.box_03 .percent_value').value -= 10; onChangePercentValue3(3)">-</span>
+      <input class="percent_value" type="del" placeholder="请输入角度值(0-360)" value="60" oninput="onChangePercentValue3(3)">
+      <span onclick="document.querySelector('.box_03 .percent_value').value = document.querySelector('.box_03 .percent_value').value * 1 + 10; onChangePercentValue3(3)">+</span>
+    </div>
+  </section>
+  <section class="box_04">
+    <div class="ring"></div>
+  </section>
 
-      setInterval(() => {
-        if (boxDom01.scrollLeft - itemDom02.offsetWidth >= 0) {
-          boxDom01.scrollLeft -= itemDom01.offsetWidth
-        } else {
-          boxDom01.scrollLeft ++
+  <script src="assets/third/utils.js"></script>
+  <script src="assets/js/00-css.js"></script>
+  <script>
+    Utils.ready().then(type => {
+      switch(type) {
+        case 1: {
+          const boxDom01 = document.querySelector('.box_01')
+          const itemDom01 = document.querySelector('.item_01_01')
+          const itemDom02 = document.querySelector('.item_01_02')
+          itemDom02.innerHTML = itemDom01.innerHTML
+    
+          setInterval(() => {
+            if (boxDom01.scrollLeft - itemDom02.offsetWidth >= 0) {
+              boxDom01.scrollLeft -= itemDom01.offsetWidth
+            } else {
+              boxDom01.scrollLeft ++
+            }
+          }, 20)
+          break
         }
-      }, 20)
+        case 2: {
+          onChangePercentValue2(type)
+          break
+        }
+        case 3: {
+          onChangePercentValue3(type)
+          break
+        }
+      }
     })
+  </script>
+  <script>
+    
   </script>
 </body>
 

@@ -9,3 +9,106 @@
   display: inline-block;
   color: #0aa;
 }
+
+.box_02 .ring {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+.box_02 .ring .percent {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 140px;
+  height: 140px;
+  line-height: 140px;
+  background-color: white;
+  border-radius: 50%;
+}
+.box_02 .ring .left,
+.box_02 .ring .right {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 200px;
+  background-color: #e31515;
+  overflow: hidden;
+  border-radius: 200px 0 0 200px;
+}
+.box_02 .ring .right {
+  left: auto;
+  right: 0;
+  border-radius: 0 200px 200px 0;
+}
+.box_02 .ring .left:after,
+.box_02 .ring .right:after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 200px 0 0 200px;
+  background-color: #13cfe7;
+  content: " ";
+  transform-origin: right center;
+}
+.box_02 .ring .right:after {
+  border-radius: 0 200px 200px 0;
+  transform-origin: left center;
+}
+
+.box_03 .ring {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  border-radius: 50%;
+  -webkit-mask: radial-gradient(transparent 70px, #fff 0);
+  mask: radial-gradient(transparent 70px, #fff 0);
+}
+
+.interaction_form {
+  margin-top: 20px;
+}
+.interaction_form .percent_value {
+  width: 15rem;
+  padding: 5px;
+  color: #13cfe7;
+  border: 1px solid #13cfe7;
+  border-radius: 6px;
+  appearance: none;
+  outline: 0;
+  vertical-align: middle;
+}
+.interaction_form .percent_value::placeholder {
+  color: #a8e8f0;
+}
+.interaction_form > span {
+  display: inline-block;
+  min-width: 1.5rem;
+  color: #13cfe7;
+  border: 1px solid #13cfe7;
+  vertical-align: middle;
+  border-radius: 6px;
+  user-select: none;
+}
+
+
+.box_04 .ring {
+  width: 300px; height: 300px;
+  position: absolute;
+  clip: rect(0 300px 300px 150px);
+  overflow: hidden;
+}
+.box_04 .ring::after {
+  content: '';
+  width: 100%; height: 100%;
+  background: currentColor;
+  position: absolute;
+  clip: rect(0 150px 300px 0);
+  transform: rotate(30deg);
+  border-radius: 50%;
+}
