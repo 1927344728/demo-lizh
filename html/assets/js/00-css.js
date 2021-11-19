@@ -36,9 +36,11 @@ function onChangePercentValue3 (type) {
     return
   }
   value = value <= 360 ? value : value  % 360
+  
   inputDom.value = value
   if (value === 360) {
     value = value - 0.01
   }
   ringDom.style.backgroundImage = `conic-gradient(#e31515 ${value / 360 * 100}%,#13cfe7 ${value / 360 * 100}% 100%)`;
 }
+
