@@ -1,23 +1,24 @@
-body > section.box_01 ul li {
+body>section.box_01 ul li {
   height: 1.03rem;
 }
 
-body > section.box_01 ul li:nth-child(2n + 1) {
+body>section.box_01 ul li:nth-child(2n + 1) {
   background: #ffc107;
 }
 
-body > section.box_01 ul li:nth-child(2n) {
+body>section.box_01 ul li:nth-child(2n) {
   background: #ff5722;
 }
 
-.box_06 > form {
+.box_06>form {
   width: 100%;
   height: 600px;
   padding: 30px 30px;
   border: 1px solid #0aa;
   box-sizing: border-box;
 }
-.box_06 > form > input {
+
+.box_06>form>input {
   width: 100%;
   height: 30px;
   margin-bottom: 15px;
@@ -30,6 +31,7 @@ body > section.box_01 ul li:nth-child(2n) {
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'HYFXGLSF';
   src: url(../font/汉仪范笑歌隶书繁.ttf) format('truetype');
@@ -37,11 +39,13 @@ body > section.box_01 ul li:nth-child(2n) {
   font-style: normal;
   unicode-range: u+9701, u+5149, u+6d6e, u+74e6, u+78a7, u+53c2, u+5dee, u+3002, u+000d, u+000a, u+6709, u+60c5, u+828d, u+836f, u+542b, u+6625, u+6cea, u+ff0c, u+000d, u+000a, u+65e0, u+529b, u+8537, u+8587, u+5367, u+6653, u+679d, u+3002;
 }
+
 @font-face {
   font-family: 'ZKXWT';
   src: url(../font/ZhanKuXiaoLOGOTi-2.otf);
 }
-.box_07 > div {
+
+.box_07>div {
   display: table-cell;
   width: 600px;
   height: 300px;
@@ -50,4 +54,40 @@ body > section.box_01 ul li:nth-child(2n) {
   font-family: HYFXGLSF;
   border: 1px solid #ddd;
   vertical-align: middle;
+}
+
+.box_08>input {
+  appearance: none;
+  outline: 0;
+  width: 400px;
+  margin: 125px auto 25px;
+  padding: 15px 10px;
+  color: orange;
+  border: 2px solid orange;
+  font-size: 18px;
+}
+
+.box_08 .content {
+  margin-bottom: 25px;
+}
+
+.box_08>ul>li {
+  width: 200px;
+  margin: 0 auto 10px;
+  padding: 5px 10px;
+  color: red;
+  border: 1px solid red;
+  border-radius: 6px;
+}
+
+.box_08>ul>li:nth-child(3),
+.box_08>ul>li:nth-child(4) {
+  color: green;
+  border: 1px solid green;
+}
+
+.box_08>ul>li:nth-child(5),
+.box_08>ul>li:nth-child(6) {
+  color: blue;
+  border: 1px solid blue;
 }

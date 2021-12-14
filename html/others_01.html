@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="example.appcache">
 
 <head>
   <meta charset="UTF-8">
@@ -48,20 +48,26 @@
     </div>
   </section>
   <section class="box_08">
-    <div>
-      一夕轻雷落万丝，<br>
-      霁光浮瓦碧参差。<br>
-      有情芍药含春泪，<br>
-      无力蔷薇卧晓枝。
-    </div>
+    <input id="CopyInput" type="text" value="一夕轻雷落万丝">
+    <div class="content"></div>
+    <ul>
+      <li onclick="fnExecCommandCopy(document.querySelector('#CopyInput').value)">execCommand_copy</li>
+      <li onclick="fnExecCommandPaste()">execCommand_paste</li>
+      <li onclick="fnWriteTextToClipboard()">Clipboard_writeText</li>
+      <li onclick="fnReadTextToClipboard()">Clipboard_readText</li>
+      <li onclick="fnWriteToClipboard()">Clipboard_write</li>
+      <li onclick="fnReadFromClipboard()">Clipboard_read</li>
+    </ul>
   </section>
 
   <script src="assets/third/utils.js"></script>
   <script src="assets/js/others_01_01.js"></script>
   <script src="assets/js/others_01_02.js"></script>
   <script src="assets/js/others_01_03.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/8.0.2/bignumber.js" integrity="sha512-XQDG6H87RgMf+aNFwDPCUcFwUf3t9liyqN/2BkJ8KGixupbjPwQHNhypNA972mLIkg4KPo4lkGmqAf3yfDz8hw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
- 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/8.0.2/bignumber.js"
+    integrity="sha512-XQDG6H87RgMf+aNFwDPCUcFwUf3t9liyqN/2BkJ8KGixupbjPwQHNhypNA972mLIkg4KPo4lkGmqAf3yfDz8hw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <script>
     var gType = Utils.getUrlParam('type') * 1 || 1
     var webSql = null
@@ -90,7 +96,7 @@
           // webSql.tUpdate()
           // webSql.tDelete()
           // webSql.tDrop()
-          
+
           let dom = document.createElement('section')
           dom.innerHTML = '在开发者工具查看创建的数据库：<br /> Application -> 左侧 Storage -> Web SQL'
           dom.style.display = 'block'
@@ -124,6 +130,7 @@
 
         }
         default: {
+          submitForm({})
           break
         }
       }
