@@ -1,5 +1,7 @@
 CACHE MANIFEST
 
 # 指定缓存的资源
-/favicon.ico
-index.html
+assets/js/others_01_03.js
+
+NETWORK:
+*
