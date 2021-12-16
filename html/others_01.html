@@ -135,7 +135,6 @@
               // 调用 serviceWorker.register 注册，参数 /sw.js 为脚本文件所在的 URL 路径
               // scope 表示定义 Service Worker 注册范围的 URL
               navigator.serviceWorker.register('/sw.js').then((registration) => {
-                console.log(registration.scope)
               }).catch((err) => {
                 console.log('注册失败！', err)
               })
