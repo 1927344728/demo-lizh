@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href=assets\css\common.css>
+  <link rel="stylesheet" href=assets\css\23-commumication.css>
+  <title>跨页面通信(A)</title>
+</head>
+
+<body>
+  <section class="box_01">
+    <div class="container">BroadcastChannel广播</div>
+    <div class="content"></div>
+    <span class="sendButton" onclick="BC.postMessage('Hello, This is Page A!')"> 广播消息 </span>
+  </section>
+  <section class="box_02">
+    <div class="container">ServiceWorker广播</div>
+    <div class="content"></div>
+    <span class="sendButton" onclick="navigator.serviceWorker.controller.postMessage('Hello, This is Page A!')">
+      广播消息</span>
+  </section>
+  <section class="box_03">
+    <div class="container">LocalStorage广播</div>
+    <div class="content"></div>
+    <span class="sendButton" onclick="window.localStorage.setItem('msg', 'Hello, This is Page A!')"> 广播消息</span>
+  </section>
+  <section class="box_04">
+    <div class="container">SharedWorker共享</div>
+    <div class="content"></div>
+    <span class="sendButton" style="background: orange;"
+      onclick="sharedWorker.port.postMessage({'msg': 'Hello, This is Page A!'})"> 写入消息</span>
+  </section>
+  <section class="box_05">
+    <div class="container">postMessage+window.open通信</div>
+    <div class="content"></div>
+    <span class="sendButton" onclick="fnOpenWindow('http://localhost:5300/23-commumication(B).html?type=5')"> 打开页面B
+    </span>
+    <span class="sendButton" onclick="fnOpenWindow('http://localhost:5300/23-commumication(C).html?type=5')"> 打开页面C
+    </span>
+    <span class="sendButton" style="background: orange;"
+      onclick="targetWindows.forEach(w => w.postMessage({'msg': 'Hello, This is Page A!', 'from': location.href}, '*'))">
+      广播信息
+    </span>
+  </section>
+  <section class="box_06">
+    <div class="container">postMessage+iframe通信</div>
+    <iframe style="width: 100%;" src="http://localhost:5300/23-commumication(C).html?type=6"></iframe>
+    <div class="content"></div>
+    <span class="sendButton"
+      onclick="window.frames[0].postMessage({ msg: 'Hello, This is Page A!', from: location.href }, '*')">
+      广播信息
+    </span>
+  </section>
+  <section class="box_07">
+    <div class="container">window.name+iframe</div>
+    <iframe id="windowOpenIframe" style="width: 100%;"
+      src="http://localhost:5300/23-commumication(B).html?type=7"></iframe>
+    <div class="content"></div>
+    <span class="sendButton"
+      onclick="getCrossOriginData2('http://localhost:5300/23-commumication(B).html?type=7', 'http://localhost:5200/proxy.html.html', (iframe) => { console.log(iframe.contentWindow.name); document.querySelector('.box_07').querySelector('.content').innerHTML = '再次读取：' + iframe.contentWindow.name})">
+      再次读取信息
+    </span>
+  </section>
+  <section class="box_08">
+    <div class="container">location.hash+iframe</div>
+    <iframe id="locationHashIframe" style="width: 100%;"
+      src="http://localhost:5300/23-commumication(B).html?type=8"></iframe>
+    <div class="content"></div>
+    <span class="sendButton" onclick="sendLocationHashToFrame()">
+      发送信息
+    </span>
+  </section>
+  <!-- <iframe src="http://localhost:5200/23-commumication(C).html"></iframe> -->
+  <script src="assets/third/utils.js"></script>
+  <script src="assets/js/23-communication.js"></script>
+  <script>
+    var targetWindows = []
+    function fnOpenWindow(url) {
+      let tWindow = window.open(url)
+      targetWindows.push(tWindow)
+    }
+
+    Utils.ready().then(type => {
+      initPage(type)
+      switch (type) {
+        case 5: {
+          window.addEventListener('message', (e) => {
+            if (e.data.from === location.href) {
+              return
+            }
+            targetWindows = targetWindows.filter(w => !w.closed)
+            targetWindows.forEach(w => w.postMessage(e.data, '*'))
+            console.log('[window.open]接收信息：', `msg-${e.data.msg}，from-${e.data.from}`)
+            document.querySelector('.box_05').querySelector('.content').innerHTML = e.data.msg
+          })
+          break
+        }
+        case 6: {
+          window.addEventListener('message', (e) => {
+            console.log('[iframe]接收：', `msg-${e.data.msg}，from-${e.data.from}`)
+            document.querySelector('.box_06').querySelector('.content').innerHTML = e.data.msg
+          })
+          break
+        }
+        case 7: {
+          function getCrossOriginData() {
+            const frame = document.querySelector("#windowOpenIframe")
+            let isFirstLoad = true
+            frame.onload = function () {
+              // iframe 加载完 23-commumication(B).html 后，再去加载 proxy.html，两者共享 window.name 值。
+              if (isFirstLoad === true) {
+                isFirstLoad = false
+                frame.src = `${basicDomain}/proxy.html`
+              } else {
+                // 获取 proxy.html、23-commumication(B).html 共享的 window.name 值
+                console.log(frame.contentWindow.name)
+                document.querySelector('.box_07').querySelector('.content').innerHTML = frame.contentWindow.name
+              }
+            }
+          }
+          getCrossOriginData()
+          break
+        }
+        case 8: {
+          window.onhashchange = () => {
+            document.querySelector('.box_08').querySelector('.content').innerHTML = window.location.hash
+          }
+          break
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

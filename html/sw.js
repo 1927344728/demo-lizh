@@ -52,3 +52,16 @@ self.addEventListener('activate', (event) => {
     })
   )
 })
+self.addEventListener('message', (event) => {
+  console.log(`[Client]接收：${event.data}`)
+  event.waitUntil(
+      self.clients.matchAll().then((clients) => {
+          if (!clients || !clients.length) {
+              return
+          }
+          clients.forEach((client) => {
+              client.postMessage(event.data)
+          })
+      })
+  )
+})

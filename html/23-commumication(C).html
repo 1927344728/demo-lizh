@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href=assets\css\common.css>
+  <link rel="stylesheet" href=assets\css\23-commumication.css>
+  <title>跨页面通信(C)</title>
+</head>
+
+<body>
+  <section class="box_01">
+    <div class="container">BroadcastChannel广播</div>
+    <div class="content"></div>
+  </section>
+  <section class="box_02">
+    <div class="container">ServiceWorker广播</div>
+    <div class="content"></div>
+  </section>
+  <section class="box_03">
+    <div class="container">LocalStorage广播</div>
+    <div class="content"></div>
+  </section>
+  <section class="box_04">
+    <div class="container">SharedWorker共享</div>
+    <div class="content"></div>
+    <span class="sendButton" onclick="sharedWorker.port.postMessage({get: true})"> 读取消息</span>
+  </section>
+  <section class="box_05">
+    <div class="container">postMessage+window.open通信</div>
+    <div class="content"></div>
+    <span class="sendButton" style="background: orange;"
+      onclick="window.opener.postMessage({msg: 'Hello, This is Page C!', from: location.href}, '*')">
+      广播信息
+    </span>
+  </section>
+  <section class="box_06">
+    <div class="container">iframe中间页</div>
+    <div class="content"></div>
+  </section>
+  <!-- <iframe src="http://localhost:5200/23-commumication(C).html"></iframe> -->
+  <script src="assets/third/utils.js"></script>
+  <script src="assets/js/23-communication.js"></script>
+  <script>
+    Utils.ready().then(type => {
+      initPage(type)
+      switch (type) {
+        case 5: {
+          window.addEventListener('message', (e) => {
+            if (e.data.from === location.href) {
+              return
+            }
+            console.log('[window.open]接收信息：', `msg-${e.data.msg}，from-${e.data.from}`)
+            document.querySelector('.box_05').querySelector('.content').innerHTML = e.data.msg
+          })
+          break
+        }
+        case 6: {
+          const BC = new BroadcastChannel('zhao')
+          // 接收到 BroadCast Channel 广播消息，发送给父页面
+          BC.onmessage = function (e) {
+            window.parent.postMessage(e.data, '*')
+            console.log('[BroadCast Channel]接收：', `msg-${e.data.msg}，from-${e.data.from}`)
+            document.querySelector('.box_06').querySelector('.content').innerHTML = e.data.msg
+          }
+
+          // 接收来自父页面的消息，调用 BroadCast Channel 广播消息
+          window.addEventListener('message', function (e) {
+            BC.postMessage(e.data)
+            console.log('[父页面]接收：', `msg-${e.data.msg}，from-${e.data.from}`)
+            document.querySelector('.box_06').querySelector('.content').innerHTML = e.data.msg
+          })
+          break
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

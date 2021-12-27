@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href=assets\css\common.css>
+  <link rel="stylesheet" href=assets\css\23-commumication.css>
+  <title>跨页面通信(B)</title>
+</head>
+
+<body>
+  <section class="box_01">
+    <div class="container">BroadcastChannel广播</div>
+    <div class="content"></div>
+  </section>
+  <section class="box_02">
+    <div class="container">ServiceWorker广播</div>
+    <div class="content"></div>
+  </section>
+  <section class="box_03">
+    <div class="container">LocalStorage广播</div>
+    <div class="content"></div>
+  </section>
+  <section class="box_04">
+    <div class="container">SharedWorker共享</div>
+    <div class="content"></div>
+    <span class="sendButton" onclick="sharedWorker.port.postMessage({get: true})">
+      读取消息</span>
+  </section>
+  <section class="box_05">
+    <div class="container">postMessage+window.open通信</div>
+    <div class="content"></div>
+    <span class="sendButton" style="background: orange;"
+      onclick="targetWindows.forEach(w => w.postMessage({'msg': 'Hello, This is Page A!', 'from': location.href}, '*'))">
+      广播信息
+    </span>
+  </section>
+  <section class="box_06">
+    <div class="container">postMessage+iframe通信</div>
+    <iframe style="width: 100%;" src="http://localhost:5300/23-commumication(C).html?type=6"></iframe>
+    <div class="content"></div>
+    <span class="sendButton"
+      onclick="window.frames[0].postMessage({ msg: 'Hello, This is Page B!', from: location.href }, '*')">
+      广播信息
+    </span>
+  </section>
+  <section class="box_07">
+    <div class="container">window.name+iframe</div>
+    <div class="content">http://localhost:5300/23-commumication(B).html?type=7</div>
+  </section>
+  <section class="box_08">
+    <div class="container">location.hash+iframe</div>
+    <div class="content"></div>
+    <span class="sendButton" onclick="sendLocationHashToParent(event)">
+      发送信息
+    </span>
+  </section>
+  <!-- <iframe src="http://localhost:5200/23-commumication(C).html"></iframe> -->
+  <script src="assets/third/utils.js"></script>
+  <script src="assets/js/23-communication.js"></script>
+  <script>
+    Utils.ready().then(type => {
+      initPage(type)
+      switch (type) {
+        case 5: {
+          window.addEventListener('message', (e) => {
+            if (e.data.from === location.href) {
+              return
+            }
+            console.log('[window.open]接收信息：', `msg-${e.data.msg}，from-${e.data.from}`)
+            document.querySelector('.box_05').querySelector('.content').innerHTML = e.data.msg
+          })
+          break
+        }
+        case 6: {
+          window.addEventListener('message', (e) => {
+            console.log('[iframe]接收：', `msg-${e.data.msg}，from-${e.data.from}`)
+            document.querySelector('.box_06').querySelector('.content').innerHTML = e.data.msg
+          })
+          break
+        }
+        case 7: {
+          window.name = "Hello, This is Page B！"
+          break
+        }
+        case 8: {
+          window.onhashchange = () => {
+            document.querySelector('.box_08').querySelector('.content').innerHTML = window.location.hash
+          }
+          break
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
