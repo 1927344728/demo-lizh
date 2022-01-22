@@ -7,16 +7,59 @@
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href=assets\css\common.css>
   <link rel="stylesheet" href=assets\css\00-html.css>
-  <title>CSS</title>
+  <title>HTML经典示例</title>
 </head>
 
 <body>
   <section class="box_01">
-    <a href="javascript: var now = new Date(); '<h1>The time is:</h1>' + now">JavaScript伪协议</a>
-    <a href="javascript: var now = new Date(); 1000">
-        点击这个链接会让页面背景变成绿色。
-      </a>
+    <a href="javascript: var now = new Date(); '<h1>The time is:</h1>' + now">JavaScript伪协议：返回值替换当前页面</a>
+    <br>
+    <br>
+    <a href="javascript: void(document.body.style.backgroundColor='green');">
+      JavaScript伪协议：执行 JavaScript，页面背景变绿色。
+    </a>
   </section>
+
+  <section class="box_02">
+    <div class="box_02_wrapper">
+      <img src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/nice/20190419141711_6640njffmwvi_small.jpg"
+        usemap="#IMG">
+      <map id="IMG" name="IMG">
+        <area shape="rect" coords="0,0,200,200" href="https://www.google.com" target="blank" title="www.google.com">
+        <area shape="circle" coords="300,160,120" href="https://www.baidu.com" target="blank" title="www.baidu.com">
+        <area shape="poly" coords="400,0,500,100,600,300,550,250,350,150,400,0" href="https://www.huaban.com"
+          target="blank" title="www.huaban.com">
+      </map>
+      <svg viewBox="0,0,600,337">
+        <rect x="0" y="0" width="200" height="200" stroke="#0aa" stroke-width="1" fill="rgba(255,255,255,0.25)" />
+        <circle cx="300" cy="160" r="120" stroke="#0aa" stroke-width="1" fill="rgba(255,255,255,0.25)" />
+        <polygon points="400,0,500,100,600,300,550,250,350,150,400,0" stroke="#0aa" stroke-width="1"
+          fill="rgba(255,255,255,0.25)" />
+      </svg>
+    </div>
+    <p>小tips: Tab键索引可以看到area区域</p>
+  </section>
+  <section class="box_03">
+    <header>header</header>
+    <div class="container">
+      <div class="middle">
+        <div class="in">middle（中间弹性区）</div>
+      </div>
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+    <footer>footer</footer>
+  </section>
+  <section class="box_03">
+    <header>header</header>
+    <div class="container">
+      <div class="middle">middle（中间弹性区）</div>
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+    <footer>footer</footer>
+  </section>
+
 
   <script src="assets/third/utils.js"></script>
   <script>

@@ -2,3 +2,129 @@
   overflow: hidden;
   border: 1px solid #0aa;
 }
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.box_02 .box_02_wrapper {
+  position: relative;
+  height: 337px;
+}
+
+.box_02 .box_02_wrapper svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  pointer-events: none;
+}
+
+.box_03 .container {
+  background: lightpink;
+}
+
+.box_03 .container li {
+  display: inline-block;
+  width: 49%;
+  height: 100px;
+}
+
+.box_03 .container li:nth-child(1) {
+  background: sandybrown;
+}
+
+.box_03 .container li:nth-child(2) {
+  background: slateblue;
+}
+
+
+
+.box_03 header {
+  height: 50px;
+  background-color: red;
+}
+
+.box_03 .container {
+  height: 200px;
+  overflow: hidden;
+  padding: 0 200px;
+}
+
+.box_03 .middle {
+  width: 100%;
+  height: 200px;
+  background-color: #ECECEC;
+  float: left;
+}
+
+.box_03 .left {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  left: -200px;
+  margin-left: -100%;
+  background-color: blue;
+  float: left;
+}
+
+.box_03 .right {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  right: -200px;
+  margin-left: -200px;
+  background-color: yellow;
+  float: left;
+}
+
+.box_03 footer {
+  height: 50px;
+  background-color: black;
+}
+
+
+.box_04 header {
+  height: 50px;
+  background-color: red;
+}
+
+.box_04 .container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.box_04 .middle {
+  width: 100%;
+  height: 200px;
+  background-color: #ECECEC;
+  float: left;
+}
+
+.box_04 .in {
+  padding: 0 200px 0 200px;
+}
+
+.box_04 .left {
+  width: 200px;
+  height: 200px;
+  margin-left: -100%;
+  background-color: blue;
+  float: left;
+}
+
+.box_04 .right {
+  width: 200px;
+  height: 200px;
+  margin-left: -200px;
+  background-color: yellow;
+  float: left;
+}
+
+.box_04 footer {
+  height: 50px;
+  background-color: black;
+}

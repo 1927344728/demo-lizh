@@ -1,43 +1,67 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href=assets\css\common.css>
   <link rel="stylesheet" href=assets\css\05_z-index.css>
-	<title>z-index</title>
+  <title>z-index</title>
 </head>
+
 <body>
-<section class="box_01">
-  <div><p></p></div>
-  <div></div>
-  <div></div>
-</section>
+  <section class="box_01">
+    <div style="background: red; z-index: 10;">
+      红色：z-index: 10
+      <p style="background: orange; z-index: -999;">
+        橙色：z-index: -999
+      </p>
+    </div>
+    <div style="background: darkviolet; z-index: 8;">
+      紫色：z-index: 8
+    </div>
+    <div style="background: darkturquoise; z-index: 9;">
+      青色：z-index: 9
+    </div>
+  </section>
 
-<section class="box_02">
-  <div style="z-index: auto;"><p></p></div>
-  <div style="z-index: auto;"><p></p></div>
-</section>
+  <section class="box_02">
+    <div>
+      <p style="position: relative; background: red; z-index: 1;"></p>
+    </div>
+    <div>
+      <p style="position: relative; background: darkviolet;"></p>
+    </div>
+    <div>
+      <p style="position: relative; background: darkturquoise;"></p>
+    </div>
+  </section>
 
-<section class="box_03">
-  <div><p></p></div>
-  <div><p></p></div>
-  <div><p></p></div>
-</section>
+  <section class="box_03">
+    <div style="border: 1px solid red;"></div>
+    <div style="border: 1px solid darkviolet;"></div>
+    <div style="border: 1px solid darkturquoise;"></div>
+  </section>
 
-<section class="box_04">
-  <div style="opacity: 0.99;"></div>
-  <div></div>
-  <div></div>
-</section>
 
-<section class="box_05">
-  <p>影斑驳，叶落纷纷，一路的繁华，消瘦在秋风里。</p>
-  <img src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md_images/s730j6s0dg6zk.jpg">
-</section>
-<script src="assets/third/utils.js"></script>
-<script>
-  Utils.ready()
-</script>
+  <section class="box_04">
+    <div style="z-index: auto;">
+      <p style="position: relative; background: red; z-index: 2;"></p>
+    </div>
+    <div style="z-index: auto;">
+      <p style="position: relative; background: darkviolet; z-index: 1;"></p>
+    </div>
+  </section>
+
+  <section class="box_05">
+    <p>影斑驳，叶落纷纷，一路的繁华，消瘦在秋风里。</p>
+    <img src="https://my-files-1259410276.cos.ap-chengdu.myqcloud.com/md_images/s730j6s0dg6zk.jpg">
+  </section>
+  <script src="assets/third/utils.js"></script>
+  <script>
+    Utils.ready()
+  </script>
 </body>
+
 </html>
