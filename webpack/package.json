@@ -24,6 +24,7 @@
     "postcss-px2rem-exclude": "0.0.6"
   },
   "dependencies": {
+    "minimatch": "^5.1.0",
     "webpack": "^4.44.1"
   }
 }
