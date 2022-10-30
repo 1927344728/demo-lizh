@@ -16,6 +16,7 @@ Glob.sync(`${__dirname}/src/pages/**/index.html`).map(ele => {
 module.exports = {
   pages,
   lintOnSave: process.env.NODE_ENV !== 'production',
+  publicPath: '/jenkins/vue-cli-template/',
   configureWebpack: {
     externals: {
       vue: "Vue"
