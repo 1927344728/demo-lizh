@@ -3,10 +3,10 @@ const Webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const webpackConfig = {
     mode: 'development',
-    entry: './src/index',
+    entry: './src/postcss',
     output: {
         path: Path.resolve(__dirname, '../dist'),
-        filename: 'index.js'
+        filename: 'postcss.js'
     },
     module: {
         rules: [
@@ -23,7 +23,7 @@ const webpackConfig = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'index.css',
+            filename: 'postcss.css',
             chunkFilename: 'chunkIndex.css',
         })
     ]
