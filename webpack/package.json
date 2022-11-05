@@ -27,6 +27,11 @@
     "postcss-px2rem-exclude": "0.0.6"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-traverse": "^6.26.0",
+    "babylon": "^6.18.0",
     "minimatch": "^5.1.0",
     "webpack": "^4.44.1"
   }
