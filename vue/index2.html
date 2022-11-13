@@ -21,52 +21,16 @@
   <script src="./src/index/virtual_dom.js"></script>
   <script src="./src/index/end.js"></script>
   <script id="content" type="x-template">
-    <div @click="onClickAlert">
-      <p>{{vueVersion}}</p>
-      <p>{{message}}</p>
+    <div>
+      {{message}}
     </div>
   </script>
   <script>
     const app = new Vue({
       template: '#content',
-      props: {
-        name: String
-      },
-      propsData: {
-        name: 'Lizhao'
-      },
-      setup: function () {
-        return {
-          counter: 100
-        }
-      },
-      provide: {
-        createTime: new Date(2022, 10, 11, 9, 0, 0).toString()
-      },
-      computed: {
-        vueVersion () {
-          return `Vue@${this.version}`
-        }
-      },
-      watch: {
-        message: [
-          function () { console.log('message is changed! 01') },
-          function () { console.log('message is changed! 02') },
-        ]
-      },
       data: function () {
-        const { name } = this
         return {
-          version: Vue.version,
-          message: `Hellow, ${name}. This is ${new Date()}.`
-        }
-      },
-      beforeCreate () {
-        console.log('beforeCreate')
-      },
-      methods: {
-        onClickAlert () {
-          this.message = `Hellow, ${name}. This is ${new Date()}.`
+          message: `Hellow, Lizhao. This is ${new Date()}.`
         }
       }
     })
