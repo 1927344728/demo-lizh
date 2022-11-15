@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React 示例</title>
+</head>
+<body>
+  <div id="app"></div>
+  <!-- https://unpkg.com/react@17.0.2/umd/react.development.js -->
+  <script src="./src/index/react.js"></script>
+  <!-- https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js -->
+  <script src="./src/index/react-dom.js"></script>
+  <script>
+    class Hellow extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = { message: `Hellow, Lizhao. This is ${new Date()}` };
+      }
+      render() {
+        return React.createElement(
+          'p',
+          {
+            onClick: () => this.setState({
+              message: `Hellow, Lizhao. This is ${new Date()}`
+            })
+          },
+          this.state.message
+        );
+      }
+    }
+    const container = document.querySelector('#app');
+    const hellowRef = ReactDOM.render(React.createElement(Hellow), container);
+  </script>
+</body>
+</html>
