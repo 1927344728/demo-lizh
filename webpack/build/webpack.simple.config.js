@@ -12,22 +12,19 @@ const webpackConfig = {
     filename: 'simple.js'
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: Path.join(__dirname, `../src/index.html`),
-      filename: 'index.html',
-      inject: true
-    }),
+    new HtmlWebpackPlugin(),
     new HtmlWebpackExternalsPlugin({
       externals: [
         {
-          module: 'react',
-          entry: 'https://11.url.cn/now/lib/16.2.0/react.min.js',
-          global: 'React',
+          module: 'vue',
+          entry: 'https://unpkg.com/vue@3/dist/vue.global.js',
+          global: 'Vue',
         },
         {
-          module: 'react-dom',
-          entry: 'https://11.url.cn/now/lib/16.2.0/react-dom.min.js',
-          global: 'ReactDOM',
+          // /node_modules/atob/node-atob.js
+          module: 'atob',
+          entry: 'node-atob.js',
+          global: 'AToB',
         },
       ]
     }),
