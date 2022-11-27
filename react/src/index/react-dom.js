@@ -5915,7 +5915,6 @@
     {
       flushDiscreteUpdatesIfNeeded(nativeEvent.timeStamp);
     }
-
     discreteUpdates(dispatchEvent, domEventName, eventSystemFlags, container, nativeEvent);
   }
 

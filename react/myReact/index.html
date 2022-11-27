@@ -5,23 +5,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>React 示例</title>
+  <title>myReact 示例</title>
 </head>
 
 <body>
   <div id="app"></div>
-  <!-- https://unpkg.com/react@17.0.2/umd/react.development.js -->
-  <script src="./src/index/react.js"></script>
-  <!-- https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js -->
-  <script src="./src/index/react-dom.js"></script>
+  <script src="./react.js"></script>
+  <script src="./react-dom.js"></script>
   <script>
     class Hellow extends React.Component {
       constructor(props) {
         super(props);
         this.state = { message: `Hellow, Lizhao. This is ${new Date()}!` };
-      }
-      componentDidMount () {
-        console.log('Mount')
       }
       render() {
         return React.createElement(
@@ -35,18 +30,6 @@
         );
       }
     }
-
-    function hellow (props) {
-      const [message, setMessage] = React.useState(`Hellow, Lizhao. This is ${new Date()}!`)
-      return React.createElement(
-        'p',
-        {
-          onClick: (name) => setMessage(`Hellow, Lizhao. This is ${new Date()}!`)
-        },
-        message
-      );
-    }
-
     const container = document.querySelector('#app');
     const hellowInst = ReactDOM.render(React.createElement(Hellow), container);
   </script>
