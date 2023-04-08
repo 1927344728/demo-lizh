@@ -46,7 +46,7 @@ function sequencePromisesWithForThen (promises) {
       return results
   }
   // 记录每个Promise实例的执行结果。如果不调用此方法，函数最后的Promise的传递出来的参数，只有最后一个Promise实例的执行结果
-  let pushValue = recordValue.bind(null, [])
+  const pushValue = recordValue.bind(null, [])
   let promise = Promise.resolve()
   for (let i = 0; i < promises.length; i++) {
       promise = promise.then(promises[i]).then(pushValue)
@@ -60,36 +60,36 @@ function sequencePromisesWithReduce (promises) {
       return results
   }
   // 记录每个Promise实例的执行结果。如果不调用此方法，函数最后的Promise的传递出来的参数，只有最后一个Promise实例的执行结果
-  let pushValue = recordValue.bind(null, [])
+  const pushValue = recordValue.bind(null, [])
   return promises.reduce((promise, task) => {
     return promise.then(task).then(pushValue)
   }, Promise.resolve())
 }
 
 async function sequencePromisesForAsync(promises) {
-  let result
+  const result = []
   for (let f of promises) {
-    result = await f(result)
+      result.push(await f())
   }
   console.log('sequencePromisesForAsync：', result)
   return result
 }
 
-const func1 = () => new Promise(resolve => {
+const f1 = () => new Promise(resolve => {
   setTimeout(() => {
-    console.log('func1')
-    resolve('func1')
+      console.log('f1')
+      resolve('f1')
   }, 2000)
 })
-const func2 = () => new Promise(resolve => {
+const f2 = () => new Promise(resolve => {
   setTimeout(() => {
-    console.log('func2')
-    resolve('func2')
+      console.log('f2')
+      resolve('f2')
   }, 1000)
 })
-const func3 = () => new Promise(resolve => {
+const f3 = () => new Promise(resolve => {
   setTimeout(() => {
-    console.log('func3')
-    resolve('func3')
+      console.log('f3')
+      resolve('f3')
   }, 1000)
 })

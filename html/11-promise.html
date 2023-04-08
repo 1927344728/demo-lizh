@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href=assets\css\common.css>
   <title>Promise</title>
 </head>
@@ -14,11 +15,13 @@
       padding: 10px 0;
       text-align: center;
     }
+
     .box_01 iframe {
       display: block;
       margin: 0 auto;
       border: 0;
     }
+
     .box_01 .color_button {
       display: inline-block;
       padding: 5px 30px;
@@ -55,9 +58,9 @@
             console.log('加载失败！', 'assets/img/pins_3338674420.jpg')
           })
           loadImage('assets/img/pins_3338674420_ERROR.jpg').then(res => {
-              console.log('加载成功！', 'assets/img/pins_3338674420_ERROR.jpg')
-          }).catch( err => {
-              console.log('加载失败！', 'assets/img/pins_3338674420_ERROR.jpg')
+            console.log('加载成功！', 'assets/img/pins_3338674420_ERROR.jpg')
+          }).catch(err => {
+            console.log('加载失败！', 'assets/img/pins_3338674420_ERROR.jpg')
           })
 
           getText("assets/other/%E7%BE%8E%E4%BA%BA%E8%B0%B7%20-%20%E9%98%BF%E5%85%B0.vtt").then(json => {
@@ -68,31 +71,31 @@
           break
         }
         case 2: {
-          Promise.all([func1(), func2(), func3()]).then(res => {
+          Promise.all([f2(), f1(), f3()]).then(res => {
             console.log('Promise.all：', res)
           })
           break
         }
         case 3: {
-          Promise.resolve().then(func1).then(func2).then(func3).then(res => {
-            console.log('Promise.then：', res)
+          Promise.resolve().then(f1).then(f2).then(f3).then(res => {
+            console.log('参数：', res)
           })
           break
         }
         case 4: {
-          sequencePromisesWithForThen([func1, func2, func3]).then(res => {
+          sequencePromisesWithForThen([f1, f2, f3]).then(res => {
             console.log('sequencePromisesWithForThen：', res)
           })
           break
         }
         case 5: {
-          sequencePromisesWithReduce([func1, func2, func3]).then(res => {
+          sequencePromisesWithReduce([f1, f2, f3]).then(res => {
             console.log('sequencePromisesWithReduce：', res)
           })
           break
         }
         case 6: {
-          sequencePromisesForAsync([func1, func2, func3])
+          sequencePromisesForAsync([f1, f2, f3])
           break
         }
       }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <title>Javascript经典示例</title>
+</head>
+
+<body>
+  <div>Javascript经典示例</div>
+  <form action="#">
+    <input id="input1" type="text" name="name1" onclick="getCursor()">
+    <input id="input2" type="text" name="name2">
+    <input id="input3" />
+    <input type="button" onClick="javascript:void setSelection();" value="Hello, Lizhao!" />
+  </form>
+  <img id="img1" style="width: 100%;" src="https://img.zcool.cn/community/01ik2icdfpfojopdr1h6pq3831.jpg" />
+  <script src="assets/third/utils.js"></script>
+  <script>
+    function getCursor() {
+      const input = document.getElementById("input")
+      let cursurPosition = -1;
+      // 非IE浏览器
+      if (typeof input.selectionStart == "number") {
+        cursurPosition = input.selectionStart;
+      } else {
+        const range = document.selection.createRange();
+        range.moveStart("character", -input.value.length);
+        cursurPosition = range.text.length;
+      }
+      console.log(cursurPosition)
+    }
+
+    function setSelection() {
+      const input = document.getElementById("input")
+      input.focus();
+      input.setSelectionRange(1, 8);
+    }
+  </script>
+  <script>
+    var observer = null
+    Utils.ready().then(() => {
+      observer = new MutationObserver(function callback(mutationList, mObserver) {
+        mutationList.forEach((mutation) => {
+          switch (mutation.type) {
+            case 'childList':
+              console.log('从树上添加或移除一个或更多的子节点')
+              break;
+            case 'attributes':
+              console.log('节点的一个属性值被更改')
+              break;
+          }
+        });
+      });
+      observer.observe(document.body, {
+        childList: true,  // 观察目标子节点的变化，是否有添加或者删除
+        attributes: true, // 观察属性变动
+        subtree: true     // 观察后代节点，默认为 false
+      });
+    })
+  </script>
+  <script>
+    function captureOne(re, str) {
+      var match = re.exec(str);
+      return match && match[1];
+    }
+
+    const numRe = /num=(\d+)/ig;
+    const wordRe = /word=(\w+)/i;
+    const a1 = captureOne(numRe, "num=1");
+    const a2 = captureOne(wordRe, "word=1");
+    const a3 = captureOne(numRe, "NUM=1");
+    const a4 = captureOne(wordRe, "WORD=1");
+
+    [a1 === a2, a3 === a4]
+  </script>
+</body>
+
+</html>

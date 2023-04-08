@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <title>Canvas进阶篇</title>
+</head>
+
+<body>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    .box {
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    canvas {
+      border: 1px solid #0aa;
+    }
+  </style>
+  <div class="box">
+    <canvas id="canvas" class="flex_item" width="500" height="300"></canvas>
+    <p class="tips"></p>
+  </div>
+
+  <script src="assets/third/utils.js"></script>
+  <script src="assets/js/10-canvas02.js"></script>
+  <script>
+    Utils.ready().then(getContext2D).then(ctx => {
+      const type = Utils.getUrlParam('type') * 1 || 1
+      const canvas = document.querySelector('canvas')
+      switch (type) {
+        case 1: {
+          const p = document.querySelector('p')
+          const circleList = generateCircleList(5)
+          drawCircle(ctx, circleList)
+          canvas.addEventListener('mousedown', (event) => {
+            const x = (event.pageX || event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft) - canvas.offsetLeft;
+            const y = (event.pageY || event.clientY + document.body.scrollTop + document.documentElement.scrollTop) - canvas.offsetTop;
+            circleList.forEach(e => {
+              const pointY = Math.sqrt(Math.pow(e.radius, 2) - Math.pow(x - e.x, 2), 2)
+              if (e.x - e.radius <= x && e.x + e.radius >= x && e.y - pointY <= y && e.y + pointY >= y) {
+                canvas.style.borderColor = e.fillColor
+                p.innerHTML = e.fillColor
+                p.style.color = e.fillColor
+              }
+            });
+          }, false);
+          break
+        }
+        case 2: {
+          const p = document.querySelector('p')
+          const circleList = generateCircleList(5)
+          circleList.forEach((e, i) => {
+            setTimeout(() => {
+              ctx.beginPath();
+              ctx.fillStyle = e.fillColor;
+              ctx.strokeStyle = e.strokeColor;
+              ctx.arc(e.x, e.y, e.radius, e.startAngle, e.endAngle, e.anticlockwise);
+              ctx.fill();
+              ctx.stroke();
+            }, i * 1000)
+          })
+          break
+        }
+        case 3: {
+          const canvasWidth = canvas.clientWidth;
+          const canvasHeight = canvas.clientHeight;
+          const speed = 30;
+          const scale = 1.2
+          const img = new Image();
+          img.src = './assets/img/20190419141710_4735vxaqwhri_small.jpg';
+
+          let imageWidth = 0
+          let imageHeight = 0
+          let x = 0;
+          let y = 0
+          let dx = -1;
+          let dy = -1
+
+          img.onload = function () {
+            img.width = img.width / img.height * canvasHeight * scale;
+            img.height = canvasHeight * scale;
+            imageWidth = img.width
+            imageHeight = img.height
+            return setInterval(draw, speed);
+          }
+
+          function draw() {
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+            ctx.drawImage(img, x, y, imageWidth, imageHeight);
+            if (imageWidth !== canvasWidth) {
+              if (dx < 0 && Math.abs(x) > imageWidth - canvasWidth) {
+                dx = Math.abs(dx)
+              }
+              if (dx > 0 && x >= 0) {
+                dx = Math.abs(dx) * -1
+              }
+              x += dx;
+            }
+            if (imageHeight !== canvasHeight) {
+              if (dy < 0 && Math.abs(y) > imageHeight - canvasHeight) {
+                dy = Math.abs(dy)
+              }
+
+              if (dy > 0 && y >= 0) {
+                dy = Math.abs(dy) * -1
+              }
+              y += dy;
+            }
+          }
+          break
+        }
+        case 4: {
+          function ColorLine(lineWidth, color, deg) {
+            this.x = mousePotin.x;
+            this.y = mousePotin.y;
+            this.lineWidth = lineWidth;
+            this.color = color;
+            this.theta = Math.random() * Math.PI * 2;
+            this.deg = deg;
+            this.radius = Math.random() * 150;
+
+            this.draw = function () {
+              const point = {
+                x: this.x,
+                y: this.y
+              };
+              this.theta += this.deg;
+              this.x = mousePotin.x + Math.cos(this.theta) * this.radius;
+              this.y = mousePotin.y + Math.sin(this.theta) * this.radius;
+              ctx.beginPath();
+              ctx.lineWidth = this.lineWidth;
+              ctx.strokeStyle = this.color;
+              ctx.moveTo(point.x, point.y);
+              ctx.lineTo(this.x, this.y);
+              ctx.stroke();
+              ctx.closePath();
+            }
+          }
+
+          function beginDraw() {
+            requestAnimationFrame(beginDraw);
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+            colorLines.forEach(e => e.draw());
+          }
+
+          const mousePotin = {
+            x: (document.body.scrollLeft + document.documentElement.scrollLeft + canvas.clientWidth) / 2,
+            y: (document.body.scrollTop + document.documentElement.scrollTop + canvas.clientHeight) / 2
+          };
+          const colorLines = [];
+          for (let i = 0; i < 100; i++) {
+            colorLines.push(new ColorLine(5, `#${Math.random().toString(16).slice(2, 8)}`, Math.PI / 180));
+          }
+
+          beginDraw()
+          window.onmousemove = function (e) {
+            mousePotin.x = e.clientX;
+            mousePotin.y = e.clientY;
+          }
+
+          break
+        }
+        case 5: {
+          const img = new Image();
+          img.src = './assets/img/20190419141710_4735vxaqwhri_small.jpg';
+
+          img.onload = function () {
+            img.height = img.height / img.width * canvas.clientWidth * 1.2;
+            img.width = canvas.clientWidth * 1.2;
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+            const imageData = ctx.getImageData(0, 0, img.width, img.height);
+            const data = imageData.data
+
+            setInterval(() => {
+              for (let i = 0; i < data.length; i += 4) {
+                data[i + 3] = Math.random() * 255;
+              }
+              ctx.putImageData(imageData, 0, 0, 0, 0, img.width, img.height);
+            }, 300)
+          }
+          break
+        }
+        case 6: {
+          const svgDom = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+          svgDom.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+          svgDom.setAttribute('version', 1.1)
+          svgDom.setAttribute('baseProfile', 'full')
+          svgDom.setAttribute('width', canvas.clientWidth)
+          svgDom.setAttribute('height', canvas.clientHeight)
+          svgDom.innerHTML = `
+            <rect width="100%" height="100%" fill="orange" />
+            <text x="250" y="150" font-size="55" text-anchor="middle" fill="white">SVG TO CANVAS</text>
+          `
+
+          const image = new Image();
+          image.src = 'data:image/svg+xml;charset=utf-8,' + new XMLSerializer().serializeToString(svgDom);
+          image.onload = function () {
+            ctx.drawImage(image, 0, 0, image.width, image.height);
+
+            const base64Url = canvas.toDataURL("image/jpeg");
+            const bytes = window.atob(base64Url.split(',')[1]);
+            const arrayBuffer = new ArrayBuffer(bytes.length);
+            const uint8Array = new Uint8Array(arrayBuffer);
+            for (let i = 0; i < bytes.length; i++) {
+              uint8Array[i] = bytes.charCodeAt(i);
+            }
+            const jpegBlob = new Blob([arrayBuffer], { type: 'image/jpeg' });
+            const jpgeUrl = URL.createObjectURL(jpegBlob);
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

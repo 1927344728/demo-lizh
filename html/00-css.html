@@ -6,8 +6,13 @@
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href=assets\css\common.css>
-  <link rel="stylesheet" href=assets\css\00-css.css>
+  <link rel="stylesheet" href=assets\css\00-css.css media="screen and (min-width: 300px)">
   <title>CSS</title>
+  <style>
+    body {
+      color: red;
+    }
+  </style>
 </head>
 
 <body>
@@ -28,7 +33,8 @@
     <div class="interaction_form r2">
       <span onclick="document.querySelector('.box_02 .percent_value').value -= 10; onChangePercentValue2(2)">-</span>
       <input class="percent_value" type="del" placeholder="请输入角度值(0-360)" value="60" oninput="onChangePercentValue2(2)">
-      <span onclick="document.querySelector('.box_02 .percent_value').value = document.querySelector('.box_02 .percent_value').value * 1 + 10; onChangePercentValue2(2)">+</span>
+      <span
+        onclick="document.querySelector('.box_02 .percent_value').value = document.querySelector('.box_02 .percent_value').value * 1 + 10; onChangePercentValue2(2)">+</span>
     </div>
   </section>
   <section class="box_03">
@@ -36,26 +42,32 @@
     <div class="interaction_form r3">
       <span onclick="document.querySelector('.box_03 .percent_value').value -= 10; onChangePercentValue3(3)">-</span>
       <input class="percent_value" type="del" placeholder="请输入角度值(0-360)" value="60" oninput="onChangePercentValue3(3)">
-      <span onclick="document.querySelector('.box_03 .percent_value').value = document.querySelector('.box_03 .percent_value').value * 1 + 10; onChangePercentValue3(3)">+</span>
+      <span
+        onclick="document.querySelector('.box_03 .percent_value').value = document.querySelector('.box_03 .percent_value').value * 1 + 10; onChangePercentValue3(3)">+</span>
     </div>
+  </section>
+  <section class="box_04">
+    <p>地上一座城，天上，也是一座神秘城。</p>
+    <p>云卷云舒，分秒变幻，对人间而言就是一场盛大的梦境。云中有什么，有没有已经离我们远去的至亲？</p>
+    <p>「浮云游子意，落日故人情。」一座城市留住了许许多多的游子，每一次的黄昏，仿佛新愿。</p>
   </section>
 
   <script src="assets/third/utils.js"></script>
   <script src="assets/js/00-css.js"></script>
   <script>
     Utils.ready().then(type => {
-      switch(type) {
+      switch (type) {
         case 1: {
           const boxDom01 = document.querySelector('.box_01')
           const itemDom01 = document.querySelector('.item_01_01')
           const itemDom02 = document.querySelector('.item_01_02')
           itemDom02.innerHTML = itemDom01.innerHTML
-    
+
           setInterval(() => {
             if (boxDom01.scrollLeft - itemDom02.offsetWidth >= 0) {
               boxDom01.scrollLeft -= itemDom01.offsetWidth
             } else {
-              boxDom01.scrollLeft ++
+              boxDom01.scrollLeft++
             }
           }, 20)
           break
@@ -72,7 +84,13 @@
     })
   </script>
   <script>
-    
+    CSS.registerProperty({
+      name: '--my-color',
+      syntax: '<color>',
+      inherits: false,
+      initialValue: '#c0ffee',
+    });
+    console.log(document.styleSheets[1].cssRules)
   </script>
 </body>
 
