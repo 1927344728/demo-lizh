@@ -1,0 +1,9 @@
+@import '@/assets/base.css';
+@import '@/assets/variables.css';
+body {
+  @mixin safeAreaInsetBottom;
+  text-align: center;
+}
+.page_index {
+  padding: 15px;
+}

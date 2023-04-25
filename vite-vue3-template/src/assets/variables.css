@@ -1,0 +1,72 @@
+:root {
+  --primary-color: #508cee;
+  --minor-color: #ff5000;
+
+  --primary-color-bg: #f2f2f2;
+  --minor-color-bg: #f8f8f8;
+
+  --primary-color-text: #333;
+  --minor-color-text: #666;
+  --patch-color-text: #999;
+  --assist-color-text: #ccc;
+
+  --primary-color-border: #e5e5e5;
+
+  --line-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  --lines-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    -moz-line-clamp: 3;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+}
+
+  --safe-area-inset-bottom {
+    &::after {
+      display: block;
+      content: ' ';
+      height: constant(safe-area-inset-bottom);
+      height: env(safe-area-inset-bottom);
+    }
+  }
+}
+
+@define-mixin lineEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@define-mixin linesEllipsis $lines: 3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  -moz-line-clamp: $lines;
+  -webkit-line-clamp: $lines;
+  line-clamp: $lines;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+}
+
+@define-mixin safeAreaInsetBottom {
+  &::after {
+    display: block;
+    content: ' ';
+    height: constant(safe-area-inset-bottom);
+    height: env(safe-area-inset-bottom);
+  }
+}
