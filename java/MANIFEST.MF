@@ -1,1 +1,1 @@
-Main-Class: MyFirstJava
+Main-Class: src.MyFirstJava
