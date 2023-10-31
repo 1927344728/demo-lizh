@@ -4,13 +4,11 @@
       name='child-vue-app'
       url='http://localhost:9901/'
       baseroute='/child-vue-app'
-      data="Lizhao"
     />
     <micro-app
       name='child-react-app'
       url='http://localhost:9902/'
       baseroute='/child-react-app'
-      data="Lizhao"
     />
   </div>
 </template>

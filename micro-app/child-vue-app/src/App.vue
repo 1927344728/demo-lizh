@@ -12,12 +12,17 @@ const state = reactive({
   userName: ''
 });
 if (window.microApp) {
-  state.userName = window.microApp.getData().userName;
+  const _data = window.microApp.getData();
+  if (_data) {
+    state.userName = _data.userName;
+  }
   window.microApp.addDataListener(data => {
-    state.userName = data.userName;
-    window.microApp.dispatch({
-      message: `Got data!${new Date().getTime()}`
-    });
+    if (data) {
+      state.userName = data.userName;
+      window.microApp.dispatch({
+        message: `Got data!${new Date().getTime()}`
+      });
+    }
   });
 }
 </script>
