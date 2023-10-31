@@ -1,0 +1,5 @@
+<template>
+  <div>
+    <micro-app name='child-react-app' url='http://localhost:9902/' baseroute='/child-react-app'></micro-app>
+  </div>
+</template>
