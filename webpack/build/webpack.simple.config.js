@@ -13,21 +13,21 @@ const webpackConfig = {
   },
   plugins: [
     new HtmlWebpackPlugin(),
-    new HtmlWebpackExternalsPlugin({
-      externals: [
-        {
-          module: 'vue',
-          entry: 'https://unpkg.com/vue@3/dist/vue.global.js',
-          global: 'Vue',
-        },
-        {
-          // /node_modules/atob/node-atob.js
-          module: 'atob',
-          entry: 'node-atob.js',
-          global: 'AToB',
-        },
-      ]
-    }),
+    // new HtmlWebpackExternalsPlugin({
+    //   externals: [
+    //     {
+    //       module: 'vue',
+    //       entry: 'https://unpkg.com/vue@3/dist/vue.global.js',
+    //       global: 'Vue',
+    //     },
+    //     {
+    //       // /node_modules/atob/node-atob.js
+    //       module: 'atob',
+    //       entry: 'node-atob.js',
+    //       global: 'AToB',
+    //     },
+    //   ]
+    // }),
   ]
 }
 const compiler = Webpack(webpackConfig)
