@@ -1,10 +1,7 @@
-var moduleC = require('./c.js')
-
-console.log('d' + moduleC.c)
-moduleC.funcC()
-module.exports = {
-  d: 'd',
-  funcD: function () {
-    console.log('funcD')
-  }
+import { c, funcC } from './c.js'
+console.log('c' + c)
+funcC()
+export var d = 'd'
+export function funcD () {
+  console.log('funcD')
 }

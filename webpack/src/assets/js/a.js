@@ -1,8 +1,9 @@
-import { b, funcB } from './b.js'
-
-console.log('a' + b)
-funcB()
-export var a = 'a'
-export function funcA () {
-  console.log('funcA')
+var moduleB = require('./b.js')
+console.log(moduleB.b)
+moduleB.funcB()
+module.exports = {
+  a: 'a',
+  funcA: function () {
+    console.log('funcA')
+  }
 }
