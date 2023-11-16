@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('node:path')
 
 const createWindow = () => {
@@ -11,9 +11,11 @@ const createWindow = () => {
       preload: path.join(__dirname, 'preload.js')
     }
   })
+  win.webContents.openDevTools()
   win.loadFile('index.html')
 }
 app.whenReady().then(() => {
+  ipcMain.handle('ping', () => 'pong')
   createWindow()
 
   // 如果没有任何浏览器窗口是打开的，则调用 createWindow() 方法
