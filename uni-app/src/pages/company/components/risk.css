@@ -1,0 +1,83 @@
+@import '@/common/css/apply.css';
+
+.cv4i_risk {
+  margin-top: 24px;
+  padding: 36px 24px;
+  background: white;
+  border-radius: 18px;
+
+  & .cv4i_risk_header {
+    margin-bottom: 36px;
+
+    & .title {
+      position: relative;
+      margin-bottom: 24px;
+
+      & span {
+        font-size: 34px;
+        font-weight: bold;
+      }
+    }
+
+    & .tips {
+      & span {
+        color: #999;
+        font-size: 28px;
+      }
+    }
+  }
+
+  & .cv4i_risk_line {
+    height: 425px;
+    z-index: 1;
+  }
+
+  & .cv4i_risk_info {
+    position: relative;
+    margin-top: 40px;
+
+    & > dd {
+      display: flex;
+      padding: 18px 0;
+
+      & > label {
+        flex: 0 0 360px;
+        color: #999;
+      }
+
+      & > .wrapper {
+        flex: 1;
+
+        & > .content {
+          position: relative;
+
+          & > .tx {
+            vertical-align: middle;
+          }
+
+          & > i {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #ccc;
+            vertical-align: middle;
+          }
+        }
+
+        & > .content.disable {
+          & > .tx {
+            color: #999;
+          }
+        }
+
+        & > .content.active {
+          & > .tx {
+            color: #0a64fe;
+          }
+        }
+      }
+    }
+  }
+}

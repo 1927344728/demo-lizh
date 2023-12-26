@@ -1,7 +1,6 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
+		<view>
 			<text class="title">{{title}}</text>
 		</view>
 	</view>
@@ -10,8 +9,9 @@
 <script>
 	export default {
 		data() {
+			console.log('aa')
 			return {
-				title: 'Hello'
+				title: 'Hello, Lizhao!'
 			}
 		},
 		onLoad() {
@@ -34,10 +34,7 @@
 	.logo {
 		height: 200rpx;
 		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
+		margin: 200rpx auto 50rpx auto;
 	}
 
 	.text-area {
