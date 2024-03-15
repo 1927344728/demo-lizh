@@ -1,34 +1,36 @@
 <template>
-  <div class="cv4i_risk">
-    <header class="cv4i_risk_header">
-      <div class="title">
-        <span>风险信息</span>
-      </div>
-      <p class="tips">
-        <span>偿付能力</span>
-      </p>
-    </header>
-    <div class="cv4i_risk_line"></div>
-    <dl class="cv4i_risk_info">
-      <dd v-for="o in list" :key="o.label">
-        <label>{{ o.label }}</label>
-        <div :class="['wrapper', o.key]" @click="onClickItem(o)">
-          <div
+  <view class="cv4i_risk">
+    <view class="cv4i_risk_header">
+      <view class="title">
+        <text>风险信息</text>
+      </view>
+      <view class="tips">
+        <text>偿付能力</text>
+      </view>
+    </view>
+    <view class="cv4i_risk_line"></view>
+    <view class="cv4i_risk_info">
+      <view v-for="o in list" :key="o.label" class="cv4i_risk_item">
+        <label class="cv4i_risk_item_label">
+					{{ o.label }}
+				</label>
+        <view :class="['wrapper', o.key]" @click="onClickItem(o)">
+          <view
             :class="[
               'content',
               o.key === 'sarData.time' ? (time ? 'active' : 'disable') : '',
             ]"
           >
-            <span class="tx">{{ o.value }}</span>
-            <i
+            <text class="tx">{{ o.value }}</text>
+            <text
               v-if="o.key === 'sarData.time'"
               class="iconfont icon-arrows_right"
-            ></i>
-          </div>
-        </div>
-      </dd>
-    </dl>
-  </div>
+            ></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </template>
 <script>
 import Vue from 'vue';

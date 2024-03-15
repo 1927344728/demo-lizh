@@ -29,23 +29,19 @@
     }
 
     & > .content {
-      display: flex;
-      align-items: center;
-
-      & h3 {
+      & > .company_name {
         @apply --text-nowrap;
 
-        width: 460px;
+        width: 320px;
         margin-bottom: 10px;
         font-size: 30px;
         font-weight: bold;
       }
 
-      & p {
+      & > .company_type {
         transform: scale(0.8333);
         transform-origin: left center;
-
-        & .type {
+        & > .company_type_text {
           display: inline-block;
           padding: 1px 6px;
           border: 1px solid #0a64fe;
@@ -63,7 +59,7 @@
     border-radius: 18px;
     background: white;
 
-    & > dt {
+    & > .cv4i_basic_title {
       margin-bottom: 18px;
       padding: 24px;
       font-size: 34px;
@@ -71,11 +67,11 @@
       border-bottom: 1px solid #e5e5e5;
     }
 
-    & > dd {
+    & > .cv4i_basic_item {
       display: flex;
       padding: 18px 24px;
 
-      & > label {
+      & > .cv4i_basic_item_label {
         flex: 0 0 212px;
         color: #999;
       }
@@ -103,11 +99,9 @@
       & > .content .more {
         text-align: center;
         color: #0a64fe;
-
-        & em {
-          margin-right: 8px;
-          font-style: normal;
-        }
+				& > .iconfont {
+					margin-left: 8px;
+				}
       }
     }
   }

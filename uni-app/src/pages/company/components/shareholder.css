@@ -4,7 +4,7 @@
   background: white;
   border-radius: 18px;
 
-  & h5 {
+  & > .cv4i_shareholder_title {
     margin-bottom: 18px;
     padding: 12px 0;
     font-size: 34px;
@@ -28,7 +28,7 @@
       right: 20px;
       bottom: 20px;
 
-      & i {
+      & > .iconfont {
         display: inline-block;
         margin-left: 20px;
         font-size: 40px;

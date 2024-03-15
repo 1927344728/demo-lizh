@@ -1,24 +1,27 @@
 <template>
-  <div v-if="list && list.length" class="cv4i_honor">
-    <dl>
-      <dt>公司荣誉</dt>
-      <dd
+  <view v-if="list && list.length" class="cv4i_honor">
+    <view class="cv4i_honor_dl">
+      <view class="cv4i_honor_dt">
+				<text>公司荣誉</text>
+			</view>
+      <view
         v-for="(item, i) in list.filter((e, i) => isShowMore || i < 5)"
         :key="item.year + '' + i"
+				class="cv4i_honor_dd"
       >
-        {{ item }}
-      </dd>
-    </dl>
-    <p v-if="list.length > 5" class="tips" @click="isShowMore = !isShowMore">
-      {{ isShowMore ? '收起' : '查看更多' }}
-      <i
+				<text>{{ item }}</text>
+      </view>
+    </view>
+    <view v-if="list.length > 5" class="tips" @click="isShowMore = !isShowMore">
+			<text>{{ isShowMore ? '收起' : '查看更多' }}</text>
+      <text
         :class="[
           'iconfont',
           isShowMore ? 'icon-arrows_up' : 'icon-arrows_down',
         ]"
-      ></i>
-    </p>
-  </div>
+      ></text>
+    </view>
+  </view>
 </template>
 <script>
 export default {
@@ -40,19 +43,19 @@ export default {
   border-radius: 18px;
   font-size: 28px;
   line-height: 1.5;
-  & dl {
-    & dt {
+  & .cv4i_honor_dl {
+    & .cv4i_honor_dt {
       margin-bottom: 18px;
       padding: 24px;
       font-size: 34px;
       font-weight: bold;
       border-bottom: 1px solid #e5e5e5;
     }
-    & dd {
+    & .cv4i_honor_dd {
       position: relative;
       padding: 24px 24px 18px 60px;
     }
-    & dd::before {
+    & .cv4i_honor_dd::before {
       position: absolute;
       left: 24px;
       top: 36px;
@@ -63,7 +66,7 @@ export default {
       border-radius: 14px;
       content: '';
     }
-    & dd:not(:last-child)::after {
+    & .cv4i_honor_dd:not(:last-child)::after {
       position: absolute;
       left: 30px;
       top: 36px;
@@ -79,7 +82,7 @@ export default {
     font-size: 26px;
     color: #999999;
     text-align: center;
-    & i {
+    & .iconfot {
       font-size: 26px;
     }
   }

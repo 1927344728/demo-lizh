@@ -1,6 +1,6 @@
 <template>
-  <div v-if="isLoaded">
-    <div class="companyv4_index" v-if="companyData">
+  <view v-if="isLoaded">
+    <view class="companyv4_index" v-if="companyData">
       <CompanyBasic :companyData="companyData" />
       <CompanyShareholder :company-logo="companyData.logo" />
       <CompanyOrganization
@@ -23,9 +23,9 @@
         v-if="companyData.honors && companyData.honors.length"
         :list="companyData.honors"
       />
-    </div>
+    </view>
     <!-- <bxs-default-page v-else :large="!0" /> -->
-  </div>
+  </view>
 </template>
 
 <script>

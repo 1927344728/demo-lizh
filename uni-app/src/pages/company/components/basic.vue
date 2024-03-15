@@ -1,25 +1,27 @@
 <template>
-  <div class="cv4i_basic">
-    <div class="cv4i_basic_logo">
-      <div class="image">
-        <img :src="companyData.logo" />
-      </div>
-      <div class="content">
-        <div>
-          <h3>{{ companyData.cname }}</h3>
-          <p>
-            <span class="type" v-if="companyTypeName">{{
-              companyTypeName
-            }}</span>
-          </p>
-        </div>
-      </div>
-    </div>
-    <dl class="cv4i_basic_info">
-      <dt>基本信息</dt>
-      <dd v-for="o in list" :key="o.key">
-        <label>{{ o.label }}</label>
-        <div
+  <view class="cv4i_basic">
+    <view class="cv4i_basic_logo">
+      <image class="image" :src="companyData.logo" mode="aspectFit" />
+      <view class="content">
+				<view class="company_name">
+					<text >{{ companyData.cname }}</text>
+				</view>
+				<view class="company_type">
+					<text v-if="companyTypeName" class="company_type_text">
+						{{companyTypeName}}
+					</text>
+				</view>
+      </view>
+    </view>
+    <view class="cv4i_basic_info">
+      <view class="cv4i_basic_title">
+				<text>基本信息</text>
+			</view>
+      <view v-for="o in list" :key="o.key" class="cv4i_basic_item">
+        <label class="cv4i_basic_item_label">
+					{{ o.label }}
+				</label>
+        <view
           :class="{
             content: true,
             [o.key]: true,
@@ -27,22 +29,22 @@
           }"
           @click="onClickItem(o)"
         >
-          <div class="tx">{{ o.value }}</div>
-          <p class="more" v-if="o.key === 'introduction' && o.value">
-            <span @click="isShowIntroduction = !isShowIntroduction">
-              <em>{{ isShowIntroduction ? '收起' : '展开' }}</em>
-              <i
+          <view class="tx">{{ o.value }}</view>
+          <view class="more" v-if="o.key === 'introduction' && o.value">
+            <text @click="isShowIntroduction = !isShowIntroduction">
+              <text>{{ isShowIntroduction ? '收起' : '展开' }}</text>
+              <text 
                 :class="[
                   'iconfont',
                   isShowIntroduction ? 'icon-arrows_up' : 'icon-arrows_down',
                 ]"
-              ></i>
-            </span>
-          </p>
-        </div>
-      </dd>
-    </dl>
-  </div>
+              ></text>
+            </text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </template>
 <script>
 export default {

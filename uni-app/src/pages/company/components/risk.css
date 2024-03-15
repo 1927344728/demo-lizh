@@ -36,11 +36,11 @@
     position: relative;
     margin-top: 40px;
 
-    & > dd {
+    & > .cv4i_risk_item {
       display: flex;
       padding: 18px 0;
 
-      & > label {
+      & > .cv4i_risk_item_label {
         flex: 0 0 360px;
         color: #999;
       }
@@ -55,7 +55,7 @@
             vertical-align: middle;
           }
 
-          & > i {
+          & > .iconfont {
             position: absolute;
             right: 0;
             top: 50%;

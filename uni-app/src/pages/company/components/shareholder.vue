@@ -1,20 +1,20 @@
 <template>
-  <div v-if="isShowChart" class="cv4i_shareholder">
-    <h5>股东信息</h5>
-    <p v-if="shareholderData" class="shareholder_frief">
-      {{ shareholderData.shareholderBrief }}
-    </p>
-    <div class="shareholder_chart_wrapper">
-      <div id="shareholderChart"></div>
-      <div v-if="tooltips.visible" class="tooltips">
-        <div v-html="tooltips.message"></div>
-      </div>
-      <div v-if="graph" class="shareholder_chart_icons">
-        <i class="iconfont icon-reduce_circle" @click="graph.zoom(-0.1)"></i>
-        <i class="iconfont icon-add_circle" @click="graph.zoom(0.1)"></i>
-      </div>
-    </div>
-  </div>
+  <view v-if="isShowChart" class="cv4i_shareholder">
+    <view class="cv4i_shareholder_title">股东信息</view>
+    <view v-if="shareholderData" class="shareholder_frief">
+			<text>{{ shareholderData.shareholderBrief }}</text>
+    </view>
+    <view class="shareholder_chart_wrapper">
+      <view id="shareholderChart"></view>
+      <view v-if="tooltips.visible" class="tooltips">
+        <view v-html="tooltips.message"></view>
+      </view>
+      <view v-if="graph" class="shareholder_chart_icons">
+        <text class="iconfont icon-reduce_circle" @click="graph.zoom(-0.1)"></text>
+        <text class="iconfont icon-add_circle" @click="graph.zoom(0.1)"></text>
+      </view>
+    </view>
+  </view>
 </template>
 <script>
 // import Mock from '../mock.js'

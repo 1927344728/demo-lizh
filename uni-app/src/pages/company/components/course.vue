@@ -1,27 +1,31 @@
 <template>
-  <div v-if="list && list.length" class="cv4i_course">
-    <dl>
-      <dt>发展历程</dt>
-      <dd
+  <view v-if="list && list.length" class="cv4i_course">
+    <view class="cv4i_course_dl">
+      <view class="cv4i_course_dt">
+				<text>发展历程</text>
+			</view>
+      <view class="cv4i_course_dd"
         v-for="(item, i) in list.filter((e, i) => isShowMore || i < 5)"
         :key="item.description + i"
       >
-        <div class="year">
-          <span>{{ item.year }}年</span>
-        </div>
-        <div class="desc">{{ item.description }}</div>
-      </dd>
-    </dl>
-    <p v-if="list.length > 5" class="tips" @click="isShowMore = !isShowMore">
-      {{ isShowMore ? '收起' : '查看更多' }}
-      <i
+        <view class="year">
+          <text>{{ item.year }}年</text>
+        </view>
+        <view class="desc">
+					<text>{{ item.description }}</text>
+				</view>
+      </view>
+    </view>
+    <view v-if="list.length > 5" class="tips" @click="isShowMore = !isShowMore">
+			<text>{{ isShowMore ? '收起' : '查看更多' }}</text>
+      <text
         :class="[
           'iconfont',
           isShowMore ? 'icon-arrows_up' : 'icon-arrows_down',
         ]"
-      ></i>
-    </p>
-  </div>
+      ></text>
+    </view>
+  </view>
 </template>
 <script>
 export default {
@@ -43,15 +47,15 @@ export default {
   border-radius: 18px;
   font-size: 28px;
   line-height: 1.5;
-  & dl {
-    & dt {
+  & .cv4i_course_dl {
+    & .cv4i_course_dt {
       margin-bottom: 18px;
       padding: 24px;
       font-size: 34px;
       font-weight: bold;
       border-bottom: 1px solid #e5e5e5;
     }
-    & dd {
+    & .cv4i_course_dd {
       display: flex;
       padding: 24px 24px 18px 24px;
       & .year {
@@ -77,7 +81,7 @@ export default {
     font-size: 26px;
     color: #999999;
     text-align: center;
-    & i {
+    & .iconfont {
       font-size: 26px;
     }
   }

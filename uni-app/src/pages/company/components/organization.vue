@@ -1,43 +1,43 @@
 <template>
-  <div class="cv4i_organization">
-    <header class="cv4i_organization_header">
-      <div class="title">
-        <span class="name">分支机构</span>
-        <span class="problem" @click.stop="isShowTips = !isShowTips">
-          <i class="iconfont icon-common_problem"></i>
-          <span v-if="isShowTips" class="problem_tips">
+  <view class="cv4i_organization">
+    <view class="cv4i_organization_header">
+      <view class="title">
+        <text class="name">分支机构</text>
+        <text class="problem" @click.stop="isShowTips = !isShowTips">
+          <text class="iconfont icon-common_problem"></text>
+          <text v-if="isShowTips" class="problem_tips">
             1、机构分布统计中，因为地图显示内容大小，只统计分公司、中心支公司、支公司；<br /><br />
             2、地图显示过多数据会影响视觉观感，所以会只显示市级机构；
-          </span>
-        </span>
-      </div>
-      <div class="tips">
-        <span>机构分布</span>
+          </text>
+        </text>
+      </view>
+      <view class="tips">
+        <text>机构分布</text>
         <hr />
-        <span>可以放大、拖动</span>
-      </div>
-    </header>
-    <div class="cv4i_organization_map">
-      <div class="wrapper"></div>
-      <ul class="tips">
-        <li>
+        <text>可以放大、拖动</text>
+      </view>
+    </view>
+    <view class="cv4i_organization_map">
+      <view class="wrapper"></view>
+      <view class="tips">
+        <view class="tips_li">
           <label>覆盖省份：</label>
-          <span>{{ provinceNum }}</span>
-        </li>
-        <li>
+          <text>{{ provinceNum }}</text>
+        </view class="tips_li">
+        <view class="tips_li">
           <label>分公司：</label>
-          <span>{{ companyData.orgBranchCount || 0 }}</span>
-        </li>
-        <li>
+          <text>{{ companyData.orgBranchCount || 0 }}</text>
+        </view class="tips_li">
+        <view class="tips_li">
           <label>市县级分支机构：</label>
-          <span>{{ companyData.orgSubCount || 0 }}</span>
-        </li>
-      </ul>
-    </div>
-    <p class="cv4i_organization_tips">
+          <text>{{ companyData.orgSubCount || 0 }}</text>
+        </view class="tips_li">
+      </view>
+    </view>
+    <view class="cv4i_organization_tips">
       地图显示过多数据会影响视觉观感，所有会只显示市级机构
-    </p>
-  </div>
+    </view>
+  </view>
 </template>
 <script>
 import { get as _get } from 'lodash';

@@ -1,15 +1,19 @@
 <template>
-  <div v-if="list && list.length" class="cv4i_culture">
-    <dl>
-      <dt>企业文化</dt>
-      <dd v-for="(item, i) in list" :key="item.key + i">
-        <div class="key">
-          <span>{{ item.key }}</span>
-        </div>
-        <div class="desc">{{ item.value }}</div>
+  <view v-if="list && list.length" class="cv4i_culture">
+    <view class="cv4i_culture_dl">
+      <view class="cv4i_culture_dt">
+				<text>企业文化</text>
+			</view>
+      <dd v-for="(item, i) in list" :key="item.key + i" class="cv4i_culture_dd">
+        <view class="key">
+          <text>{{ item.key }}</text>
+        </view>
+        <view class="desc">
+					<text>{{ item.value }}</text>
+				</view>
       </dd>
-    </dl>
-  </div>
+    </view>
+  </view>
 </template>
 <script>
 export default {
@@ -26,15 +30,15 @@ export default {
   border-radius: 18px;
   font-size: 28px;
   line-height: 1.5;
-  & dl {
-    & dt {
+  & .cv4i_culture_dl {
+    & .cv4i_culture_dt {
       margin-bottom: 18px;
       padding: 24px;
       font-size: 34px;
       font-weight: bold;
       border-bottom: 1px solid #e5e5e5;
     }
-    & dd {
+    & .cv4i_culture_dd {
       display: flex;
       padding: 24px 24px 18px 24px;
       & .key {
