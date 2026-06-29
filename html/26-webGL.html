@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>WebGL</title>
+  <link rel="stylesheet" href="./assets/css/26-webGL.css">
+</head>
+<body>
+  <script type="module">
+    import { executeDemo1, executeDemo2, executeDemo3, executeDemo4, executeDemo5, executeDemo6, executeDemo7, executeDemo8, executeDemo9 } from './assets/js/26-webGL-demos.mjs';
+    const url = new URL(location.href)
+    const order = url.searchParams?.get('order')
+    switch (order) {
+      case "1":
+        executeDemo1()
+        break;
+      case "2":
+        executeDemo2()
+        break;
+      case "3":
+        executeDemo3()
+        break;
+      case "4":
+        executeDemo4()
+        break;
+      case "5":
+        executeDemo5()
+        break;
+      case "6":
+        executeDemo6()
+        break;
+      case "7":
+        executeDemo7()
+        break;
+      case "8":
+        executeDemo8()
+        break;
+      case "9":
+        executeDemo9()
+        break;
+      default:
+        executeDemo1()
+    }
+  </script>
+</body>
+</html>
