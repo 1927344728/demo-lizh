@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Three.js</title>
+  <style>
+    body { margin: 0; overflow: hidden; }
+  </style>
+</head>
+<body>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./assets/third/three.module.js",
+        "OrbitControls": "./assets/third/three.controls.OrbitControls.js"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'OrbitControls';
+
+    // 第1步：创建场景
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color('#1a1a2e');
+
+    // 第2步：创建透视相机
+    // 参数: (视场角FOV, 宽高比, 近裁剪面, 远裁剪面)
+    const camera = new THREE.PerspectiveCamera(
+      75,                                     // FOV
+      window.innerWidth / window.innerHeight, // Aspect Ratio
+      0.1,                                    // Near
+      1000                                    // Far
+    );
+    camera.position.z = 3;
+
+    // 第3步：创建渲染器 (Renderer)
+    // - new THREE.WebGLRenderer() 内部调用了 canvas.getContext('webgl')
+    // - renderer.domElement 就是那个 canvas 元素
+    // - setSize() 内部调用了 gl.viewport(0, 0, width, height)
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true, // 开启抗锯齿，对应 gl.enable(gl.MULTISAMPLE)
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    document.body.appendChild(renderer.domElement);
+
+    // 第4步：轨道控制器 (OrbitControls)
+    // 这不是 Three.js 核心，是官方示例库的扩展
+    // 它封装了鼠标拖拽旋转/滚轮缩放，本质是持续修改 camera.position 和 camera.lookAt()
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true; // 开启阻尼（惯性效果）
+
+    // 第5步：创建立方体
+    // 1. BoxGeometry(1, 1, 1) 生成了 24 个顶点（6个面 × 4个顶点）
+    //    每个顶点包含: position (xyz), normal (法线), uv (纹理坐标)
+    //    这些数据最终会通过 gl.bufferData() 上传到 GPU 显存
+    // 2. MeshStandardMaterial() 生成了着色器程序
+    //    它动态拼接了顶点着色器和片元着色器的 GLSL 代码
+    //    包含了 PBR 光照计算（金属度/粗糙度模型）
+    // 3. new THREE.Mesh(geometry, material) 把两者关联起来
+    //    相当于绑定了 VBO 和 Shader Program
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshStandardMaterial({
+      color: 0x4fc3f7, // 亮蓝色
+      roughness: 0.3, // 粗糙度（0 = 镜面，1 = 完全粗糙）
+      metalness: 0.8, // 金属感（0 = 非金属，1 = 纯金属）
+      emissive: new THREE.Color('#0a0a2a'), // 微弱的自发光
+    });
+    const cube = new THREE.Mesh(geometry, material);
+    cube.position.set(0, 0, 0);
+    scene.add(cube);
+
+    // 第6步：添加光源
+    // 【光源本质上就是着色器中的 uniform 变量
+    // 方向光的位置会作为 uniform 传入片元着色器，参与光照计算
+    // 如果没有光源，MeshStandardMaterial 会显示为全黑（因为没有光来计算反射）
+
+    // 环境光: 提供基础照明，没有方向，所有面都能被照亮
+    // 对应片元着色器中的 ambient 项
+    const ambientLight = new THREE.AmbientLight('#404060');
+    scene.add(ambientLight);
+
+    // 方向光: 模拟太阳光，有方向性
+    // 对应片元着色器中的 diffuse + specular 项
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+    directionalLight.position.set(2, 3, 4);
+    scene.add(directionalLight);
+
+    // 背光：让暗部不至于全黑
+    const backLight = new THREE.DirectionalLight('#4fc3f7', 0.5);
+    backLight.position.set(-2, -1, -3);
+    scene.add(backLight);
+
+    // 辅助网格地面：帮助理解空间位置
+    const gridHelper = new THREE.GridHelper(5, 20, '#888888', '#444444');
+    scene.add(gridHelper);
+
+    // 坐标轴辅助： (红X, 绿Y, 蓝Z)
+    const axesHelper = new THREE.AxesHelper(2);
+    scene.add(axesHelper);
+
+    // 第7步：动画循环
+    function animate() {
+      requestAnimationFrame(animate);
+      // 让立方体绕 Y 轴和 X 轴旋转
+      cube.rotation.x += 0.005;
+      cube.rotation.y += 0.01;
+      // 更新控制器 (如果开启了 damping)
+      controls.update();
+      // 渲染
+      // 1. 更新所有物体的 World Matrix (如果 dirty)
+      // 2. 更新相机的 View Matrix 和 Projection Matrix
+      // 3. 执行视锥体裁剪 (Frustum Culling)，剔除视野外的物体
+      // 4. 按透明度排序 (如果启用了透明)
+      // 5. 对每个物体: 绑定 VBO → 设置 attribute → 上传 uniform → gl.drawElements()
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // 第8步：响应窗口大小变化
+    window.addEventListener('resize', () => {
+      // 更新相机的宽高比
+      camera.aspect = window.innerWidth / window.innerHeight;
+      // 重新计算投影矩阵
+      camera.updateProjectionMatrix();
+      // 更新渲染器尺寸
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
