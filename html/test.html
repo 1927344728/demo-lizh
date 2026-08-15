@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Canvas 超长列表</title>
+</head>
+<body>
+<script>
+
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const img = entry.target
+    const realSrc = img.dataset.src
+    if (!realSrc) return
+
+    if (entry.isIntersecting) {
+      if (img.src === realSrc || img.loadingFlag) return
+      img.loadingFlag = true
+
+      img.src = realSrc
+      img.onload = () => {
+        img.loadingFlag = false
+        io.unobserve(img)
+      }
+      img.onerror = () => {
+        img.loadingFlag = false
+        io.unobserve(img)
+      }
+    }
+  })
+}, { rootMargin: '200px' })
+
+
+document.querySelectorAll('img[data-src]').forEach((img) => {
+  img.decoding = 'async'
+  io.observe(img)
+})
+
+
+function recycleImg(img) {
+  const emptyGif = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
+  img.src = emptyGif
+  delete img.loadingFlag
+  io.observe(img)
+}
+
+function closePreview(objectUrl) {
+  const previewImg = document.querySelector('#previewImg')
+  if (previewImg) {
+    previewImg.removeAttribute('src')
+  }
+  if (objectUrl) {
+    URL.revokeObjectURL(objectUrl)
+  }
+}
+
+window.addEventListener('beforeunload', () => {
+  io.disconnect()
+})
+
+</script>
+</body>
+</html>
