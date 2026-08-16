@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <title>环形图</title>
+  <style>
+    section {
+      --percent: 60;
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      border-radius: 50%;
+      background-image: conic-gradient(#e31515 calc(var(--percent) * 1%), #13cfe7 0);
+      mask: radial-gradient(transparent 70px, #fff 0);
+      transition: --percent 0.6s ease;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section></section>
+
+  <script>
+    function setRingPercent(percent) {
+      document.querySelector('section').style.setProperty(
+        '--percent',
+        Math.min(100, Math.max(0, percent))
+      )
+    }
+    window.setRingPercent = setRingPercent
+  </script>
+</body>
+
+</html>

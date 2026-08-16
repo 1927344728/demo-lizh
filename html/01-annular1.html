@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <title>环形图</title>
+  <style>
+    section {
+      --percent: 60;
+      --angle: calc(var(--percent) * 3.6deg);
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+    section .percent {
+      position: absolute;
+      margin: auto;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 140px;
+      height: 140px;
+      line-height: 140px;
+      text-align: center;
+      background-color: white;
+      border-radius: 50%;
+    }
+    section .semicircle {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100px;
+      height: 200px;
+      background-color: #e31515;
+      overflow: hidden;
+      border-radius: 200px 0 0 200px;
+    }
+    section .right {
+      left: auto;
+      right: 0;
+      border-radius: 0 200px 200px 0;
+    }
+    section .semicircle::after {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 200px 0 0 200px;
+      background-color: #13cfe7;
+      content: " ";
+      transform: rotate(var(--deg));
+      transform-origin: right center;
+      transition: transform 0.6s ease;
+    }
+    section .left::after {
+      --deg: max(0deg, calc(var(--angle) - 180deg));
+      transition-delay: 0.6s;
+    }
+    section .right::after {
+      --deg: min(var(--angle), 180deg);
+      border-radius: 0 200px 200px 0;
+      transform-origin: left center;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <section>
+    <div class="semicircle left"></div>
+    <div class="semicircle right"></div>
+    <div class="percent">60%</div>
+  </section>
+
+  <script>
+    function setRingPercent(percent) {
+      percent = Math.min(100, Math.max(0, percent))
+      const root = document.querySelector('section')
+      root.style.setProperty('--percent', percent)
+      root.querySelector('.percent').textContent = `${percent}%`
+    }
+    window.setRingPercent = setRingPercent
+  </script>
+</body>
+
+</html>

@@ -1,64 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <title>Canvas 超长列表</title>
+<meta charset="UTF-8">
+<title>亚像素缝隙复现测试</title>
+<style>
+  * {margin:0;padding:0;box-sizing:border-box;}
+  .wrap {
+    width: 301px; /* 无法被3整除，产生小数宽度 */
+    display: flex;
+  }
+  .col {
+    flex: 1;
+    height: 120px;
+  }
+  .c1 { background: #0dd; }
+  .c2 { background: #497cd2; }
+  .c3 { background: #0dd; }
+</style>
 </head>
 <body>
+<div class="wrap">
+  <div class="col c1"></div>
+  <div class="col c2"></div>
+  <div class="col c3"></div>
+</div>
+
 <script>
-
-
-const io = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    const img = entry.target
-    const realSrc = img.dataset.src
-    if (!realSrc) return
-
-    if (entry.isIntersecting) {
-      if (img.src === realSrc || img.loadingFlag) return
-      img.loadingFlag = true
-
-      img.src = realSrc
-      img.onload = () => {
-        img.loadingFlag = false
-        io.unobserve(img)
-      }
-      img.onerror = () => {
-        img.loadingFlag = false
-        io.unobserve(img)
-      }
-    }
-  })
-}, { rootMargin: '200px' })
-
-
-document.querySelectorAll('img[data-src]').forEach((img) => {
-  img.decoding = 'async'
-  io.observe(img)
+const cols = document.querySelectorAll('.col');
+cols.forEach((el, idx) => {
+  const cssWidth = getComputedStyle(el).width;
+  const renderWidth = el.clientWidth;
+  const rect = el.getBoundingClientRect();
+  console.log(`第${idx+1}列 | css宽度:${cssWidth} | clientWidth:${renderWidth} | left:${rect.left}`);
 })
-
-
-function recycleImg(img) {
-  const emptyGif = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
-  img.src = emptyGif
-  delete img.loadingFlag
-  io.observe(img)
-}
-
-function closePreview(objectUrl) {
-  const previewImg = document.querySelector('#previewImg')
-  if (previewImg) {
-    previewImg.removeAttribute('src')
-  }
-  if (objectUrl) {
-    URL.revokeObjectURL(objectUrl)
-  }
-}
-
-window.addEventListener('beforeunload', () => {
-  io.disconnect()
-})
-
 </script>
 </body>
 </html>
